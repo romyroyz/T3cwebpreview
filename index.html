@@ -51,14 +51,16 @@
         }
         /* Title Section */
         .title-container {
-            margin-top: 80px;
+            margin-top: 120px; /* Added more margin to prevent overlapping */
             text-align: center;
+            position: relative;
+            padding: 20px;
         }
         /* DNA GIF */
         .dna-gif {
             position: fixed;
-            right: 10px;
-            top: 80px;
+            right: 5%;
+            top: 120px;
             width: 20vw;
             max-width: 200px;
             height: auto;
@@ -68,10 +70,15 @@
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
-            .dna-gif { width: 30vw; right: 5px; }
+            .dna-gif { width: 30vw; right: 10%; }
         }
         @media screen and (max-width: 768px) {
-            .dna-gif { width: 35vw; right: 5px; }
+            .dna-gif { width: 35vw; right: 15%; }
+        }
+        /* Section Containers */
+        .section {
+            padding: 100px 10vw;
+            position: relative;
         }
         /* Section Divider */
         .divider {
@@ -123,57 +130,43 @@
 
 <div class="divider"></div>
 
-<h2>01 // A SYSTEM BUILT TO FAIL</h2>
-<p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where **your biology speaks**, where medicine adapts to your needs in real-time, and where **data belongs to the human, not the institution**.</p>
+<!-- Sections -->
+<div class="section">
+    <h2>01 // A SYSTEM BUILT TO FAIL</h2>
+    <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
+</div>
 
 <div class="divider"></div>
 
-<h2>02 // THE NEXT FRAMEWORK</h2>
-<p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
-<p><strong>→ On-demand, dynamic drug release</strong></p>
-<p><strong>→ A decentralized, encrypted health data ecosystem</strong></p>
+<div class="section">
+    <h2>02 // THE NEXT FRAMEWORK</h2>
+    <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
+    <p><strong>→ On-demand, dynamic drug release</strong></p>
+</div>
 
 <div class="divider"></div>
 
-<h2>03 // HOW IT WORKS</h2>
-<h3>3.1 | The Biowearable</h3>
-<p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
-
-<h3>3.2 | Adaptive Drug System</h3>
-<p>Medication is released **only when biomarker fluctuations cross defined thresholds**.</p>
-
-<h3>3.3 | Encrypted Data Layer</h3>
-<p>Every dataset is **hashed, encrypted, and owned by the individual**.</p>
+<div class="section">
+    <h2>03 // HOW IT WORKS</h2>
+    <p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
+</div>
 
 <div class="divider"></div>
 
-<h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-<ul>
-    <li>**10x10 structured array**</li>
-    <li>**Electrochemical transduction layer**</li>
-    <li>**Data transmission via BLE & LORA protocol**</li>
-</ul>
-
-<h3>4.2 | Precision Drug Delivery System</h3>
-<ul>
-    <li>**AI-driven biomarker-to-drug algorithms**</li>
-</ul>
-
-<h3>4.3 | Decentralized Data Ownership</h3>
-<ul>
-    <li>**Self-sovereign health data architecture**</li>
-    <li>**Tokenized data-sharing for research monetization**</li>
-</ul>
+<div class="section">
+    <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
+    <p>Data transmission via BLE & LORA protocol.</p>
+</div>
 
 <div class="divider"></div>
 
-<h2>05 // RESEARCH PARTNERS</h2>
-<ul>
-    <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
-    <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
-    <li>🧠 **AI Labs** – Adaptive drug release AI</li>
-</ul>
+<div class="section">
+    <h2>05 // RESEARCH PARTNERS</h2>
+    <ul>
+        <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
+        <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
+    </ul>
+</div>
 
 <div class="divider"></div>
 
@@ -182,7 +175,7 @@
 </footer>
 
 <script>
-    // Smooth GIF Scrolling
+    // Smooth GIF Scrolling with Centered Alignment
     function moveDna() {
         let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         let scrollTop = window.scrollY;
@@ -190,9 +183,12 @@
 
         let dnaGif = document.getElementById("dnaGif");
 
-        // Move DNA GIF dynamically and keep it aligned properly
-        let newPosition = 80 + (percentageScrolled * 0.5); 
-        dnaGif.style.top = `${newPosition}px`;
+        // Move DNA GIF dynamically to the center of text blocks
+        let newPositionY = 120 + (percentageScrolled * 0.8);
+        let newPositionX = 5 + (percentageScrolled * 0.1); // Small sideways motion
+
+        dnaGif.style.top = `${newPositionY}px`;
+        dnaGif.style.right = `${newPositionX}%`;
     }
 </script>
 
