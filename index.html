@@ -60,13 +60,13 @@
         .dna-gif {
             position: fixed;
             right: 5%;
-            top: 50%;
+            top: 120px;
             width: 20vw;
             max-width: 200px;
             height: auto;
             opacity: 0.8;
             z-index: -1;
-            transition: transform 0.2s ease-out, filter 0.5s ease-in-out;
+            transition: transform 0.2s ease-out;
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
@@ -186,27 +186,27 @@
         let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
 
+        let activeSection = null;
+
         sections.forEach((section) => {
             let rect = section.getBoundingClientRect();
             let viewportHeight = window.innerHeight;
             
             if (rect.top >= 0 && rect.bottom <= viewportHeight) {
-                section.classList.add("active");
-
-                // Move GIF to the middle-right of the section
-                let newPositionY = rect.top + window.scrollY + (rect.height / 2) - 100;
-                dnaGif.style.top = `${newPositionY}px`;
-
-                // Change GIF color when in dark mode
-                if (section.classList.contains("active")) {
-                    dnaGif.style.filter = "invert(1)";
-                } else {
-                    dnaGif.style.filter = "invert(0)";
+                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                    activeSection = section;
                 }
-            } else {
-                section.classList.remove("active");
             }
         });
+
+        sections.forEach(section => section.classList.remove("active"));
+        if (activeSection) {
+            activeSection.classList.add("active");
+
+            // Move GIF to align with the top of each heading
+            let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY;
+            dnaGif.style.top = `${newPositionY}px`;
+        }
     }
 </script>
 
