@@ -49,12 +49,11 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* DNA GIF - Smooth Full Page Scrolling */
+        /* DNA GIF - Fixed to Align with Title */
         .dna-gif {
             position: fixed;
             right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 10%; /* Start at the same height as 'Type 3 Civilization Technologies' */
             width: 20vw;
             max-width: 200px;
             height: auto;
@@ -85,7 +84,7 @@
         h1 {
             font-size: 3rem;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 150px; /* Ensure the title is properly spaced */
             padding: 20px;
         }
         h2 {
@@ -168,9 +167,9 @@
 
         let dnaGif = document.getElementById("dnaGif");
 
-        // Move DNA GIF dynamically and keep it fully visible
-        let newPosition = 50 + (percentageScrolled * 0.5); 
-        dnaGif.style.transform = `translateY(${newPosition}%)`;
+        // Move DNA GIF dynamically and keep it aligned properly
+        let newPosition = 10 + (percentageScrolled * 0.5); 
+        dnaGif.style.top = `${newPosition}%`;
     }
 </script>
 
