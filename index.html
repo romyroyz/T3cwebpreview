@@ -16,44 +16,78 @@
         body {
             background: #ffffff;
             color: #111111;
-            padding: 60px;
             font-size: 1.2rem;
             line-height: 1.8;
-            max-width: 900px;
-            margin: auto;
+            padding: 5vw;
+            width: 100%;
+            max-width: 100%;
         }
         h1, h2 {
             font-weight: 700;
             text-transform: uppercase;
+            text-align: center;
         }
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            color: #ff0077;
         }
         h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-top: 50px;
-            color: #333;
+            color: #007acc;
         }
         p {
-            opacity: 0.9;
             margin-bottom: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .highlight {
-            color: #007acc; /* Subtle blue for highlights */
+            color: #ff0077;
+            font-weight: bold;
         }
         .divider {
             width: 100%;
-            height: 1px;
-            background: #ddd;
+            height: 2px;
+            background: linear-gradient(90deg, #ff0077, #007acc);
             margin: 50px 0;
+            box-shadow: 0 0 10px rgba(0, 122, 204, 0.8);
         }
         footer {
-            text-align: left;
-            font-size: 0.9rem;
-            margin-top: 100px;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
             opacity: 0.7;
             color: #555;
+            padding-bottom: 20px;
+        }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 5vw;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -65,8 +99,8 @@
 <div class="divider"></div>
 
 <h2>01 // A SYSTEM BUILT TO FAIL</h2>
-<p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where **your biology speaks**, where medicine adapts to your needs in real-time, and where **data belongs to the human, not the institution**.</p>
+<p>The current healthcare model is <strong>reactionary</strong>—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
+<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where <strong>your biology speaks</strong>, where medicine adapts to your needs in real-time, and where <strong>data belongs to the human, not the institution</strong>.</p>
 
 <div class="divider"></div>
 
@@ -85,73 +119,49 @@
 
 <h2>03 // HOW IT WORKS</h2>
 <h3>3.1 | The Biowearable</h3>
-<p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid. Each microneedle is a **pyramidal biosensor**, designed at **700μm height with a 200μm base**, engineered for **painless, real-time biochemical tracking**.</p>
+<p>A <strong>10x10 microneedle sensor array</strong> sits at the interface of skin and interstitial fluid. Each microneedle is a <strong>pyramidal biosensor</strong>, designed at <strong>700μm height with a 200μm base</strong>, engineered for <strong>painless, real-time biochemical tracking</strong>.</p>
 
 <h3>3.2 | Adaptive Drug System</h3>
-<p>Instead of fixed doses, medication is released **only when biomarker fluctuations cross defined thresholds**. A nanofluidic-controlled reservoir, actuated by **stimulus-responsive polymers**, ensures that treatment is precise—no overdoses, no inefficiencies.</p>
+<p>Instead of fixed doses, medication is released <strong>only when biomarker fluctuations cross defined thresholds</strong>. A nanofluidic-controlled reservoir, actuated by <strong>stimulus-responsive polymers</strong>, ensures that treatment is precise—no overdoses, no inefficiencies.</p>
 
 <h3>3.3 | Encrypted Data Layer</h3>
-<p>Every dataset is **hashed, encrypted, and owned by the individual**. Users can grant **selective access** to research organizations, receive **monetary compensation**, and retain **full control over permissions**.</p>
+<p>Every dataset is <strong>hashed, encrypted, and owned by the individual</strong>. Users can grant <strong>selective access</strong> to research organizations, receive <strong>monetary compensation</strong>, and retain <strong>full control over permissions</strong>.</p>
 
 <div class="divider"></div>
 
 <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-<h3>4.1 | Microneedle Biosensing Architecture</h3>
 <ul>
-    <li>**10x10 structured array**</li>
-    <li>**Pyramidal needle topology**</li>
-    <li>**Electrochemical transduction layer**</li>
-    <li>**Molecular recognition via enzymatic coating**</li>
-    <li>**Data transmission via BLE & LORA protocol**</li>
-</ul>
-
-<h3>4.2 | Precision Drug Delivery System</h3>
-<ul>
-    <li>**Nano-mesh actuator-controlled reservoirs**</li>
-    <li>**Polymeric membranes enabling dynamic permeability**</li>
-    <li>**AI-driven biomarker-to-drug algorithms**</li>
-</ul>
-
-<h3>4.3 | Decentralized Data Ownership</h3>
-<ul>
-    <li>**Zero-knowledge proof encryption**</li>
-    <li>**Self-sovereign health data architecture**</li>
-    <li>**Tokenized data-sharing for research monetization**</li>
+    <li>🔹 <strong>10x10 structured microneedle array</strong></li>
+    <li>🔹 <strong>Electrochemical transduction layer</strong></li>
+    <li>🔹 <strong>Data transmission via BLE & LORA protocol</strong></li>
+    <li>🔹 <strong>AI-driven biomarker-to-drug algorithms</strong></li>
+    <li>🔹 <strong>Zero-knowledge proof encryption</strong></li>
 </ul>
 
 <div class="divider"></div>
 
-<h2>05 // WHY IT MATTERS</h2>
-<p>🔹 **Real-time intelligence replaces reactive diagnostics**</p>
-<p>🔹 **Dynamic treatment eliminates systemic drug inefficiencies**</p>
-<p>🔹 **Decentralized ownership prevents data exploitation**</p>
-<p>This is not a **wearable**. This is a **biochemical intelligence system**.</p>
-
-<div class="divider"></div>
-
-<h2>06 // RESEARCH PARTNERS</h2>
+<h2>05 // RESEARCH PARTNERS</h2>
 <ul>
-    <li>🚀 **BITS Goa** – Biowearable development & sensor integration</li>
-    <li>🚀 **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
-    <li>🚀 **AI Labs** – Adaptive drug release AI</li>
+    <li>🚀 <strong>BITS Goa</strong> – Biowearable development & sensor integration</li>
+    <li>🚀 <strong>Dr. Moopen’s Hospital</strong> – Clinical trials & validation</li>
+    <li>🚀 <strong>AI Labs</strong> – Adaptive drug release AI</li>
 </ul>
 
 <div class="divider"></div>
 
-<h2>07 // CONCLUSION | END OF PASSIVE HEALTHCARE</h2>
-<p>The healthcare system is **broken**.</p>
+<h2>06 // CONCLUSION | END OF PASSIVE HEALTHCARE</h2>
+<p>The healthcare system is <strong>broken</strong>.</p>
 <p><span class="highlight">T3C</span> is engineering a new system where:</p>
 <ul>
-    <li>✅ **Health is measured continuously**</li>
-    <li>✅ **Medications are adaptive**</li>
-    <li>✅ **Data is controlled by the individual**</li>
+    <li>✅ <strong>Health is measured continuously</strong></li>
+    <li>✅ <strong>Medications are adaptive</strong></li>
+    <li>✅ <strong>Data is controlled by the individual</strong></li>
 </ul>
 
 <div class="divider"></div>
 
 <footer>
 &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
-This document serves as an open-access framework for the future of **Precision Medicine & Decentralized Healthcare**.
 </footer>
 
 </body>
