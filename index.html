@@ -28,7 +28,7 @@
         .navbar {
             width: 100%;
             background: #ffffff;
-            padding: 15px 0;
+            padding: 20px;
             position: fixed;
             top: 0;
             left: 0;
@@ -36,41 +36,52 @@
             z-index: 1000;
             border-bottom: 2px solid #ddd;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
         }
         .navbar a {
             color: #111111;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1rem;
-            text-transform: uppercase;
             font-weight: 700;
+            text-transform: uppercase;
             transition: 0.3s ease-in-out;
         }
         .navbar a:hover {
             color: #ff0077;
         }
-        /* DNA GIF - Fixed to Align with Title */
+        /* Responsive Navbar for Mobile */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                font-size: 1.4rem;
+                padding: 25px;
+            }
+            .navbar a {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+        /* DNA GIF - Optimized for Mobile */
         .dna-gif {
             position: fixed;
-            right: 10px;
-            top: 10%; /* Start at the same height as 'Type 3 Civilization Technologies' */
-            width: 20vw;
-            max-width: 200px;
+            right: 5%;
+            top: 12%;
+            width: 25vw;
+            max-width: 250px;
             height: auto;
-            opacity: 0.8;
+            opacity: 0.9;
             z-index: -1;
             transition: transform 0.2s ease-out;
         }
         @media screen and (max-width: 1024px) {
             .dna-gif {
-                width: 25vw; /* Adjust size for tablets */
-                right: 5px;
+                width: 30vw; /* Increase size for tablets */
+                right: 3%;
             }
         }
         @media screen and (max-width: 768px) {
             .dna-gif {
-                width: 30vw; /* Bigger on mobile */
-                right: 5px;
+                width: 35vw; /* Increase size for mobile */
+                right: 2%;
             }
         }
         /* Section Divider */
@@ -84,7 +95,7 @@
         h1 {
             font-size: 3rem;
             text-align: center;
-            margin-top: 150px; /* Ensure the title is properly spaced */
+            margin-top: 150px;
             padding: 20px;
         }
         h2 {
@@ -113,7 +124,7 @@
         /* Footer */
         footer {
             text-align: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-top: 50px;
             opacity: 0.7;
             color: #111;
@@ -168,7 +179,7 @@
         let dnaGif = document.getElementById("dnaGif");
 
         // Move DNA GIF dynamically and keep it aligned properly
-        let newPosition = 10 + (percentageScrolled * 0.5); 
+        let newPosition = 12 + (percentageScrolled * 0.5); 
         dnaGif.style.top = `${newPosition}%`;
     }
 </script>
