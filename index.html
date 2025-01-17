@@ -18,7 +18,7 @@
             color: #111111;
             font-size: 1.2rem;
             line-height: 1.8;
-            padding: 0; /* Removed extra padding */
+            padding: 0;
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
@@ -49,16 +49,16 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* Title Section - Removed Extra Space */
+        /* Title Section */
         .title-container {
-            margin-top: 80px; /* Just enough space for navbar */
+            margin-top: 80px;
             text-align: center;
         }
-        /* DNA GIF - Fixed to Align with Title */
+        /* DNA GIF */
         .dna-gif {
             position: fixed;
             right: 10px;
-            top: 80px; /* Now starts at the exact same height as title */
+            top: 80px;
             width: 20vw;
             max-width: 200px;
             height: auto;
@@ -66,17 +66,12 @@
             z-index: -1;
             transition: transform 0.2s ease-out;
         }
+        /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
-            .dna-gif {
-                width: 30vw; /* Adjust size for tablets */
-                right: 5px;
-            }
+            .dna-gif { width: 30vw; right: 5px; }
         }
         @media screen and (max-width: 768px) {
-            .dna-gif {
-                width: 35vw; /* Bigger on mobile */
-                right: 5px;
-            }
+            .dna-gif { width: 35vw; right: 5px; }
         }
         /* Section Divider */
         .divider {
@@ -85,32 +80,16 @@
             background: #111;
             margin: 50px 0;
         }
-        /* Headings Adjustments */
+        /* Headings */
         h1 {
             font-size: 3rem;
-            margin: 0; /* Remove default margins */
+            margin: 0;
             padding: 10px;
         }
         h2 {
             font-size: 2rem;
             text-align: center;
             margin-top: 50px;
-        }
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-        }
-        @media screen and (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
         }
         /* Footer */
         footer {
@@ -147,6 +126,45 @@
 <h2>01 // A SYSTEM BUILT TO FAIL</h2>
 <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
 <p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where **your biology speaks**, where medicine adapts to your needs in real-time, and where **data belongs to the human, not the institution**.</p>
+
+<div class="divider"></div>
+
+<h2>02 // THE NEXT FRAMEWORK</h2>
+<p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
+<p><strong>→ On-demand, dynamic drug release</strong></p>
+<p><strong>→ A decentralized, encrypted health data ecosystem</strong></p>
+
+<div class="divider"></div>
+
+<h2>03 // HOW IT WORKS</h2>
+<h3>3.1 | The Biowearable</h3>
+<p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
+
+<h3>3.2 | Adaptive Drug System</h3>
+<p>Medication is released **only when biomarker fluctuations cross defined thresholds**.</p>
+
+<h3>3.3 | Encrypted Data Layer</h3>
+<p>Every dataset is **hashed, encrypted, and owned by the individual**.</p>
+
+<div class="divider"></div>
+
+<h2>04 // THE TECHNOLOGY BEHIND IT</h2>
+<ul>
+    <li>**10x10 structured array**</li>
+    <li>**Electrochemical transduction layer**</li>
+    <li>**Data transmission via BLE & LORA protocol**</li>
+</ul>
+
+<h3>4.2 | Precision Drug Delivery System</h3>
+<ul>
+    <li>**AI-driven biomarker-to-drug algorithms**</li>
+</ul>
+
+<h3>4.3 | Decentralized Data Ownership</h3>
+<ul>
+    <li>**Self-sovereign health data architecture**</li>
+    <li>**Tokenized data-sharing for research monetization**</li>
+</ul>
 
 <div class="divider"></div>
 
