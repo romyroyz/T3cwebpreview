@@ -60,13 +60,13 @@
         .dna-gif {
             position: fixed;
             right: 5%;
-            top: 120px;
+            top: 50%;
             width: 20vw;
             max-width: 200px;
             height: auto;
             opacity: 0.8;
             z-index: -1;
-            transition: transform 0.2s ease-out;
+            transition: transform 0.2s ease-out, filter 0.5s ease-in-out;
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
@@ -183,26 +183,26 @@
 
 <script>
     function handleScroll() {
-        let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        let scrollTop = window.scrollY;
-        let percentageScrolled = (scrollTop / scrollHeight) * 100;
-
+        let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
 
-        // Move DNA GIF dynamically to the center of text blocks
-        let newPositionY = 120 + (percentageScrolled * 0.9);
-        let newPositionX = 5 + (percentageScrolled * 0.1); 
-
-        dnaGif.style.top = `${newPositionY}px`;
-        dnaGif.style.right = `${newPositionX}%`;
-
-        // Section Dark Mode Activation
-        document.querySelectorAll('.section').forEach((section) => {
+        sections.forEach((section) => {
             let rect = section.getBoundingClientRect();
             let viewportHeight = window.innerHeight;
-
+            
             if (rect.top >= 0 && rect.bottom <= viewportHeight) {
                 section.classList.add("active");
+
+                // Move GIF to the middle-right of the section
+                let newPositionY = rect.top + window.scrollY + (rect.height / 2) - 100;
+                dnaGif.style.top = `${newPositionY}px`;
+
+                // Change GIF color when in dark mode
+                if (section.classList.contains("active")) {
+                    dnaGif.style.filter = "invert(1)";
+                } else {
+                    dnaGif.style.filter = "invert(0)";
+                }
             } else {
                 section.classList.remove("active");
             }
