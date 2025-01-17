@@ -51,7 +51,7 @@
         }
         /* Title Section */
         .title-container {
-            margin-top: 120px; /* Added more margin to prevent overlapping */
+            margin-top: 120px;
             text-align: center;
             position: relative;
             padding: 20px;
@@ -79,6 +79,13 @@
         .section {
             padding: 100px 10vw;
             position: relative;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        /* Dark Mode Effect */
+        .section.active {
+            background: #111111;
+            color: #ffffff;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
         }
         /* Section Divider */
         .divider {
@@ -109,7 +116,7 @@
         }
     </style>
 </head>
-<body onscroll="moveDna()">
+<body onscroll="handleScroll()">
 
 <!-- Navigation Bar -->
 <div class="navbar">
@@ -131,14 +138,14 @@
 <div class="divider"></div>
 
 <!-- Sections -->
-<div class="section">
+<div class="section" id="section1">
     <h2>01 // A SYSTEM BUILT TO FAIL</h2>
     <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
 </div>
 
 <div class="divider"></div>
 
-<div class="section">
+<div class="section" id="section2">
     <h2>02 // THE NEXT FRAMEWORK</h2>
     <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
     <p><strong>→ On-demand, dynamic drug release</strong></p>
@@ -146,21 +153,21 @@
 
 <div class="divider"></div>
 
-<div class="section">
+<div class="section" id="section3">
     <h2>03 // HOW IT WORKS</h2>
     <p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
 </div>
 
 <div class="divider"></div>
 
-<div class="section">
+<div class="section" id="section4">
     <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
     <p>Data transmission via BLE & LORA protocol.</p>
 </div>
 
 <div class="divider"></div>
 
-<div class="section">
+<div class="section" id="section5">
     <h2>05 // RESEARCH PARTNERS</h2>
     <ul>
         <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
@@ -175,8 +182,7 @@
 </footer>
 
 <script>
-    // Smooth GIF Scrolling with Centered Alignment
-    function moveDna() {
+    function handleScroll() {
         let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         let scrollTop = window.scrollY;
         let percentageScrolled = (scrollTop / scrollHeight) * 100;
@@ -184,11 +190,23 @@
         let dnaGif = document.getElementById("dnaGif");
 
         // Move DNA GIF dynamically to the center of text blocks
-        let newPositionY = 120 + (percentageScrolled * 0.8);
-        let newPositionX = 5 + (percentageScrolled * 0.1); // Small sideways motion
+        let newPositionY = 120 + (percentageScrolled * 0.9);
+        let newPositionX = 5 + (percentageScrolled * 0.1); 
 
         dnaGif.style.top = `${newPositionY}px`;
         dnaGif.style.right = `${newPositionX}%`;
+
+        // Section Dark Mode Activation
+        document.querySelectorAll('.section').forEach((section) => {
+            let rect = section.getBoundingClientRect();
+            let viewportHeight = window.innerHeight;
+
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                section.classList.add("active");
+            } else {
+                section.classList.remove("active");
+            }
+        });
     }
 </script>
 
