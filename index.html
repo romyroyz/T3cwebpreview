@@ -49,16 +49,27 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* DNA GIF Scrolling */
+        /* DNA GIF - Parallax Effect */
         .dna-gif {
-            position: fixed;
+            position: absolute;
             right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 150px;
+            top: 10%;
+            width: 20vw;
+            max-width: 200px;
             height: auto;
             opacity: 0.8;
             z-index: -1;
+            transition: transform 0.3s ease-out;
+        }
+        @media screen and (max-width: 768px) {
+            .dna-gif {
+                width: 25vw; /* Bigger on tablets */
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .dna-gif {
+                width: 30vw; /* Bigger on mobile */
+            }
         }
         /* Section Divider */
         .divider {
@@ -66,6 +77,36 @@
             height: 2px;
             background: #111;
             margin: 50px 0;
+        }
+        /* Headings Adjustments */
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 100px;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                padding: 30px;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                padding: 40px;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
         }
         /* Footer */
         footer {
@@ -78,7 +119,7 @@
         }
     </style>
 </head>
-<body>
+<body onscroll="moveDna()">
 
 <!-- Navigation Bar -->
 <div class="navbar">
@@ -89,7 +130,7 @@
 </div>
 
 <!-- DNA GIF -->
-<img src="dna.gif" class="dna-gif" alt="DNA Animation">
+<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
 
 <h1>Type 3 Civilization Technologies</h1>
 <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
@@ -114,6 +155,14 @@
 <footer>
 &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
+
+<script>
+    // Parallax Scrolling Effect for DNA GIF
+    function moveDna() {
+        let scrollPosition = window.scrollY;
+        document.getElementById("dnaGif").style.transform = `translateY(${scrollPosition * 0.3}px)`;
+    }
+</script>
 
 </body>
 </html>
