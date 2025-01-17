@@ -49,69 +49,17 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* DNA Double-Helix */
-        .dna-container {
+        /* DNA GIF Scrolling */
+        .dna-gif {
             position: fixed;
-            top: 10%;
-            right: 5%;
-            width: 200px;
-            height: 500px;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 150px;
+            height: auto;
+            opacity: 0.8;
             z-index: -1;
-            overflow: hidden;
         }
-        .dna-strand {
-            stroke-width: 2;
-            fill: none;
-            stroke: #111;
-            animation: dna-wave 4s infinite linear;
-        }
-        .base-pairs {
-            stroke-width: 2;
-            stroke: #777;
-            animation: dna-wave 4s infinite linear reverse;
-        }
-        @keyframes dna-wave {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-            100% { transform: translateX(0); }
-        }
-        /* Neural Network Animation */
-        .neural-network {
-            position: fixed;
-            bottom: 10%;
-            left: 10%;
-            width: 250px;
-            height: 250px;
-        }
-        .neuron {
-            width: 8px;
-            height: 8px;
-            background: #111;
-            border-radius: 50%;
-            position: absolute;
-            animation: connect 2s infinite alternate ease-in-out;
-        }
-        .synapse {
-            width: 2px;
-            height: 50px;
-            background: #111;
-            position: absolute;
-            animation: synapse-flicker 2s infinite alternate;
-        }
-        @keyframes connect {
-            0% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.3); }
-            100% { opacity: 0.3; transform: scale(1); }
-        }
-        @keyframes synapse-flicker {
-            0% { opacity: 0.3; }
-            50% { opacity: 1; }
-            100% { opacity: 0.3; }
-        }
-        .neuron:nth-child(1) { top: 10px; left: 20px; animation-delay: 0s; }
-        .neuron:nth-child(2) { top: 70px; left: 60px; animation-delay: 0.4s; }
-        .neuron:nth-child(3) { top: 120px; left: 30px; animation-delay: 0.8s; }
-        .neuron:nth-child(4) { top: 50px; left: 110px; animation-delay: 1.2s; }
         /* Section Divider */
         .divider {
             width: 100%;
@@ -140,27 +88,8 @@
     <a href="#">News</a>
 </div>
 
-<!-- Animated DNA -->
-<div class="dna-container">
-    <svg width="100%" height="100%" viewBox="0 0 100 500">
-        <path class="dna-strand" d="M30,0 C60,50 40,100 30,150 C20,200 60,250 30,300 C40,350 20,400 30,450"
-            stroke="#111" />
-        <path class="dna-strand" d="M70,0 C40,50 60,100 70,150 C80,200 40,250 70,300 C60,350 80,400 70,450"
-            stroke="#111" />
-        <line class="base-pairs" x1="30" y1="50" x2="70" y2="50" />
-        <line class="base-pairs" x1="30" y1="150" x2="70" y2="150" />
-        <line class="base-pairs" x1="30" y1="250" x2="70" y2="250" />
-        <line class="base-pairs" x1="30" y1="350" x2="70" y2="350" />
-    </svg>
-</div>
-
-<!-- Neural Network Animation -->
-<div class="neural-network">
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-    <div class="neuron"></div>
-</div>
+<!-- DNA GIF -->
+<img src="dna.gif" class="dna-gif" alt="DNA Animation">
 
 <h1>Type 3 Civilization Technologies</h1>
 <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
@@ -170,6 +99,15 @@
 <h2>01 // A SYSTEM BUILT TO FAIL</h2>
 <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
 <p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where **your biology speaks**, where medicine adapts to your needs in real-time, and where **data belongs to the human, not the institution**.</p>
+
+<div class="divider"></div>
+
+<h2>05 // RESEARCH PARTNERS</h2>
+<ul>
+    <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
+    <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
+    <li>🧠 **AI Labs** – Adaptive drug release AI</li>
+</ul>
 
 <div class="divider"></div>
 
