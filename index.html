@@ -18,7 +18,7 @@
             color: #111111;
             font-size: 1.2rem;
             line-height: 1.8;
-            padding: 5vw;
+            padding: 0; /* Removed extra padding */
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
@@ -28,7 +28,7 @@
         .navbar {
             width: 100%;
             background: #ffffff;
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -36,13 +36,12 @@
             z-index: 1000;
             border-bottom: 2px solid #ddd;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            font-size: 1.2rem;
         }
         .navbar a {
             color: #111111;
             text-decoration: none;
             margin: 0 25px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             font-weight: 700;
             transition: 0.3s ease-in-out;
@@ -50,23 +49,16 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* Mobile Toolbar Fix */
-        @media screen and (max-width: 768px) {
-            .navbar {
-                font-size: 1.5rem;
-                padding: 25px 0;
-            }
-            .navbar a {
-                font-size: 1rem;
-                margin: 15px;
-                display: inline-block;
-            }
+        /* Title Section - Removed Extra Space */
+        .title-container {
+            margin-top: 80px; /* Just enough space for navbar */
+            text-align: center;
         }
-        /* DNA GIF - Adjusted for Mobile */
+        /* DNA GIF - Fixed to Align with Title */
         .dna-gif {
             position: fixed;
             right: 10px;
-            top: 10%;
+            top: 80px; /* Now starts at the exact same height as title */
             width: 20vw;
             max-width: 200px;
             height: auto;
@@ -96,9 +88,8 @@
         /* Headings Adjustments */
         h1 {
             font-size: 3rem;
-            text-align: center;
-            margin-top: 150px;
-            padding: 20px;
+            margin: 0; /* Remove default margins */
+            padding: 10px;
         }
         h2 {
             font-size: 2rem;
@@ -108,7 +99,6 @@
         @media screen and (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
-                padding: 30px;
             }
             h2 {
                 font-size: 1.8rem;
@@ -117,7 +107,6 @@
         @media screen and (max-width: 480px) {
             h1 {
                 font-size: 2rem;
-                padding: 40px;
             }
             h2 {
                 font-size: 1.6rem;
@@ -147,8 +136,11 @@
 <!-- DNA GIF -->
 <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
 
-<h1>Type 3 Civilization Technologies</h1>
-<p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
+<!-- Title Section -->
+<div class="title-container">
+    <h1>Type 3 Civilization Technologies</h1>
+    <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
+</div>
 
 <div class="divider"></div>
 
@@ -181,8 +173,8 @@
         let dnaGif = document.getElementById("dnaGif");
 
         // Move DNA GIF dynamically and keep it aligned properly
-        let newPosition = 10 + (percentageScrolled * 0.5); 
-        dnaGif.style.top = `${newPosition}%`;
+        let newPosition = 80 + (percentageScrolled * 0.5); 
+        dnaGif.style.top = `${newPosition}px`;
     }
 </script>
 
