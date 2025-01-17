@@ -22,10 +22,34 @@
             width: 100%;
             max-width: 100%;
         }
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #111111;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #ff0077;
+        }
         h1, h2 {
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
+            margin-top: 80px; /* Adjust for fixed navbar */
         }
         h1 {
             font-size: 3rem;
@@ -55,6 +79,21 @@
             margin: 50px 0;
             box-shadow: 0 0 10px rgba(0, 122, 204, 0.8);
         }
+        /* Animated Loading Icon */
+        .loading-icon {
+            display: block;
+            margin: 20px auto;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #007acc;
+            border-top: 4px solid #ff0077;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         footer {
             text-align: center;
             font-size: 1rem;
@@ -78,6 +117,10 @@
                 font-size: 1.1rem;
                 max-width: 100%;
             }
+            .navbar a {
+                font-size: 0.9rem;
+                margin: 0 10px;
+            }
         }
         @media screen and (max-width: 480px) {
             h1 {
@@ -89,10 +132,21 @@
             p {
                 font-size: 1rem;
             }
+            .navbar a {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="#">Blogs</a>
+    <a href="#">Careers</a>
+    <a href="#">Collaborate With Us</a>
+    <a href="#">News</a>
+</div>
 
 <h1>Type 3 Civilization Technologies</h1>
 <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
@@ -106,8 +160,11 @@
 <div class="divider"></div>
 
 <h2>02 // THE NEXT FRAMEWORK</h2>
+<p class="loading-icon"></p> <!-- Animated loading icon replaces arrows -->
 <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
+<p class="loading-icon"></p>
 <p><strong>→ On-demand, dynamic drug release</strong></p>
+<p class="loading-icon"></p>
 <p><strong>→ A decentralized, encrypted health data ecosystem</strong></p>
 <p>This means:</p>
 <ul>
@@ -130,41 +187,7 @@
 
 <div class="divider"></div>
 
-<h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-<h3>4.1 | Microneedle Biosensing Architecture</h3>
-<ul>
-    <li>**10x10 structured array**</li>
-    <li>**Pyramidal needle topology**</li>
-    <li>**Electrochemical transduction layer**</li>
-    <li>**Molecular recognition via enzymatic coating**</li>
-    <li>**Data transmission via BLE & LORA protocol**</li>
-</ul>
-
-<h3>4.2 | Precision Drug Delivery System</h3>
-<ul>
-    <li>**Nano-mesh actuator-controlled reservoirs**</li>
-    <li>**Polymeric membranes enabling dynamic permeability**</li>
-    <li>**AI-driven biomarker-to-drug algorithms**</li>
-</ul>
-
-<h3>4.3 | Decentralized Data Ownership</h3>
-<ul>
-    <li>**Zero-knowledge proof encryption**</li>
-    <li>**Self-sovereign health data architecture**</li>
-    <li>**Tokenized data-sharing for research monetization**</li>
-</ul>
-
-<div class="divider"></div>
-
-<h2>05 // WHY IT MATTERS</h2>
-<p>🔹 **Real-time intelligence replaces reactive diagnostics**</p>
-<p>🔹 **Dynamic treatment eliminates systemic drug inefficiencies**</p>
-<p>🔹 **Decentralized ownership prevents data exploitation**</p>
-<p>This is not a **wearable**. This is a **biochemical intelligence system**.</p>
-
-<div class="divider"></div>
-
-<h2>06 // RESEARCH PARTNERS</h2>
+<h2>05 // RESEARCH PARTNERS</h2>
 <ul>
     <li>🚀 **BITS Goa** – Biowearable development & sensor integration</li>
     <li>🚀 **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
@@ -186,7 +209,6 @@
 
 <footer>
 &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
-This document serves as an open-access framework for the future of **Precision Medicine & Decentralized Healthcare**.
 </footer>
 
 </body>
