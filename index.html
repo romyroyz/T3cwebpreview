@@ -21,6 +21,7 @@
             padding: 5vw;
             width: 100%;
             max-width: 100%;
+            overflow-x: hidden;
         }
         /* Navigation Bar */
         .navbar {
@@ -47,11 +48,41 @@
         .navbar a:hover {
             color: #ff0077;
         }
+        /* DNA Animation */
+        .dna-container {
+            position: fixed;
+            top: 10%;
+            right: 5%;
+            width: 120px;
+            height: 400px;
+            z-index: -1;
+        }
+        .dna-strand {
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Biomarker Pulsing Nodes */
+        .biomarker {
+            width: 10px;
+            height: 10px;
+            background: #ff0077;
+            border-radius: 50%;
+            position: absolute;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0.5; }
+        }
+        /* Glowing Text */
         h1, h2 {
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
-            margin-top: 100px; /* Adjust for fixed navbar */
+            margin-top: 100px;
         }
         h1 {
             font-size: 3rem;
@@ -60,6 +91,8 @@
         h2 {
             font-size: 2rem;
             margin-top: 50px;
+            color: #007acc;
+            text-shadow: 0 0 10px rgba(0, 122, 204, 0.6);
         }
         p {
             margin-bottom: 20px;
@@ -74,6 +107,7 @@
         .highlight {
             font-weight: bold;
         }
+        /* Futuristic Divider */
         .divider {
             width: 100%;
             height: 2px;
@@ -81,33 +115,7 @@
             margin: 50px 0;
             box-shadow: 0 0 10px rgba(0, 122, 204, 0.8);
         }
-        /* Futuristic Pulse Animation */
-        .pulse {
-            display: block;
-            margin: 20px auto;
-            width: 15px;
-            height: 15px;
-            background: #007acc;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite alternate;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0.5; }
-        }
-        /* Futuristic Animated Icon */
-        .futuristic-icon {
-            display: inline-block;
-            width: 25px;
-            height: 25px;
-            background: linear-gradient(45deg, #ff0077, #007acc);
-            border-radius: 50%;
-            animation: glow 1.5s infinite alternate;
-        }
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(255, 0, 119, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(0, 122, 204, 0.8); }
-        }
+        /* Footer */
         footer {
             text-align: center;
             font-size: 1rem;
@@ -127,10 +135,6 @@
             h2 {
                 font-size: 1.6rem;
             }
-            p {
-                font-size: 1.1rem;
-                max-width: 100%;
-            }
             .navbar a {
                 font-size: 0.9rem;
                 margin: 0 10px;
@@ -142,9 +146,6 @@
             }
             h2 {
                 font-size: 1.4rem;
-            }
-            p {
-                font-size: 1rem;
             }
             .navbar a {
                 font-size: 0.8rem;
@@ -162,6 +163,17 @@
     <a href="#">News</a>
 </div>
 
+<!-- Animated DNA -->
+<div class="dna-container">
+    <svg class="dna-strand" viewBox="0 0 100 400">
+        <path d="M50,0 C70,50 30,100 50,150 C70,200 30,250 50,300 C70,350 30,400 50,450"
+            stroke="#007acc" stroke-width="4" fill="none" />
+    </svg>
+    <div class="biomarker" style="top: 50px; left: 45px;"></div>
+    <div class="biomarker" style="top: 150px; left: 55px;"></div>
+    <div class="biomarker" style="top: 250px; left: 40px;"></div>
+</div>
+
 <h1>Type 3 Civilization Technologies</h1>
 <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
 
@@ -173,32 +185,11 @@
 
 <div class="divider"></div>
 
-<h2>02 // THE NEXT FRAMEWORK</h2>
-<p class="pulse"></p> <!-- Replaces arrow with futuristic pulse -->
-<p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
-<p class="pulse"></p>
-<p><strong>→ On-demand, dynamic drug release</strong></p>
-<p class="pulse"></p>
-<p><strong>→ A decentralized, encrypted health data ecosystem</strong></p>
-
-<div class="divider"></div>
-
 <h2>05 // RESEARCH PARTNERS</h2>
 <ul>
-    <li><span class="futuristic-icon"></span> **BITS Goa** – Biowearable development & sensor integration</li>
-    <li><span class="futuristic-icon"></span> **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
-    <li><span class="futuristic-icon"></span> **AI Labs** – Adaptive drug release AI</li>
-</ul>
-
-<div class="divider"></div>
-
-<h2>07 // CONCLUSION | END OF PASSIVE HEALTHCARE</h2>
-<p>The healthcare system is **broken**.</p>
-<p><span class="highlight">T3C</span> is engineering a new system where:</p>
-<ul>
-    <li>✅ **Health is measured continuously**</li>
-    <li>✅ **Medications are adaptive**</li>
-    <li>✅ **Data is controlled by the individual**</li>
+    <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
+    <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
+    <li>🧠 **AI Labs** – Adaptive drug release AI</li>
 </ul>
 
 <div class="divider"></div>
