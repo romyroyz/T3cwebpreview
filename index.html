@@ -22,6 +22,7 @@
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
+            position: relative;
         }
         /* Navigation Bar */
         .navbar {
@@ -53,29 +54,31 @@
             position: fixed;
             top: 10%;
             right: 5%;
-            width: 120px;
-            height: 400px;
+            width: 200px;
+            height: 500px;
             z-index: -1;
+            overflow: hidden;
         }
         .dna-strand {
-            animation: dna-spin 6s linear infinite;
+            animation: dna-move 5s infinite linear;
+            stroke-dasharray: 500;
+            stroke-dashoffset: 0;
         }
-        @keyframes dna-spin {
-            0% { transform: rotate(0deg) scaleY(1); }
-            50% { transform: rotate(180deg) scaleY(1.2); }
-            100% { transform: rotate(360deg) scaleY(1); }
+        @keyframes dna-move {
+            from { stroke-dashoffset: 500; }
+            to { stroke-dashoffset: 0; }
         }
-        /* Neuron Connection Animation */
-        .neuron-container {
-            position: absolute;
-            top: 50%;
+        /* Neural Network Animation */
+        .neural-network {
+            position: fixed;
+            bottom: 10%;
             left: 10%;
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
         }
         .neuron {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: #111;
             border-radius: 50%;
             position: absolute;
@@ -83,13 +86,13 @@
         }
         @keyframes connect {
             0% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
+            50% { opacity: 1; transform: scale(1.3); }
             100% { opacity: 0.3; transform: scale(1); }
         }
-        .neuron:nth-child(1) { top: 10px; left: 10px; animation-delay: 0s; }
-        .neuron:nth-child(2) { top: 50px; left: 50px; animation-delay: 0.3s; }
-        .neuron:nth-child(3) { top: 90px; left: 20px; animation-delay: 0.6s; }
-        .neuron:nth-child(4) { top: 30px; left: 100px; animation-delay: 0.9s; }
+        .neuron:nth-child(1) { top: 10px; left: 20px; animation-delay: 0s; }
+        .neuron:nth-child(2) { top: 70px; left: 60px; animation-delay: 0.4s; }
+        .neuron:nth-child(3) { top: 120px; left: 30px; animation-delay: 0.8s; }
+        .neuron:nth-child(4) { top: 50px; left: 110px; animation-delay: 1.2s; }
         /* Section Divider */
         .divider {
             width: 100%;
@@ -132,14 +135,14 @@
 
 <!-- Animated DNA -->
 <div class="dna-container">
-    <svg class="dna-strand" viewBox="0 0 100 400">
-        <path d="M50,0 C70,50 30,100 50,150 C70,200 30,250 50,300 C70,350 30,400 50,450"
+    <svg width="100%" height="100%" viewBox="0 0 100 500">
+        <path class="dna-strand" d="M50,0 C70,50 30,100 50,150 C70,200 30,250 50,300 C70,350 30,400 50,450"
             stroke="#111" stroke-width="4" fill="none" />
     </svg>
 </div>
 
-<!-- Neuron Connection Animation -->
-<div class="neuron-container">
+<!-- Neural Network Animation -->
+<div class="neural-network">
     <div class="neuron"></div>
     <div class="neuron"></div>
     <div class="neuron"></div>
