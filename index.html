@@ -6,105 +6,241 @@
     <title>T3C | The Future of Healthcare</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* ... (CSS styles as before) ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Mono', monospace;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: #111111;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #ff0077;
+        }
+        /* Title Section */
+        .title-container {
+            margin-top: 150px; /* Adjusted so DNA doesn't overlap */
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+        /* DNA GIF */
+        .dna-gif {
+            position: fixed;
+            right: 50%;
+            transform: translateX(50%);
+            top: 80px; /* Starts just above the title */
+            width: 15vw;
+            max-width: 200px;
+            height: auto;
+            opacity: 0.8;
+            z-index: 0;
+            transition: transform 0.3s ease-out, top 0.3s ease-out; /* Added transition for top */
+        }
+        /* Responsive Adjustments */
+        @media screen and (max-width: 1024px) {
+            .dna-gif { width: 20vw; right: 50%; }
+        }
+        @media screen and (max-width: 768px) {
+            .dna-gif { width: 25vw; right: 50%; }
+        }
+        /* Section Containers */
+        .section {
+            padding: 100px 10vw;
+            position: relative;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        /* Dark Mode Effect */
+        .section.active {
+            background: #111111;
+            color: #ffffff;
+        }
+        /* Section Divider */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: #111;
+            margin: 50px 0;
+        }
+        /* Headings */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
+            opacity: 0.7;
+            color: #111;
+            padding-bottom: 20px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          body {
+              background-color:#111111; /* Dark background */
+              color:#ffffff; /* Light text */
+          }
+
+          .navbar {
+              background-color:#222222; /* Darker navbar */
+              border-bottom-color:#444444; /* Darker border */
+          }
+
+          .section.active {
+              background-color:#222222; /* Darker section background */
+          }
+
+          .divider {
+              background-color:#ffffff; /* Light divider for contrast */
+          }
+
+          footer {
+              color:#cccccc; /* Lighter footer text */
+          }
+
+          .navbar a {
+              color:#ffffff; /* Light links in navbar */
+          }
+
+          .navbar a:hover {
+              color:#ff0077; /* Keep hover effect for links */
+          }
+      }
     </style>
 </head>
 <body onscroll="handleScroll()">
 
-    <div class="navbar">
-        <a href="#">Blogs</a>
-        <a href="#">Careers</a>
-        <a href="#">Collaborate With Us</a>
-        <a href="#">News</a>
-    </div>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="#">Blogs</a>
+    <a href="#">Careers</a>
+    <a href="#">Collaborate With Us</a>
+    <a href="#">News</a>
+</div>
 
-    <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
+<!-- DNA GIF -->
+<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
 
-    <div class="title-container">
-        <h1>Type 3 Civilization Technologies</h1>
-        <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
-    </div>
+<!-- Title Section -->
+<div class="title-container">
+    <h1>Type 3 Civilization Technologies</h1>
+    <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
+</div>
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <div class="section" id="section1">
-        <h2>01 // A SYSTEM BUILT TO FAIL</h2>
-        <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-    </div>
+<!-- Sections -->
+<div class="section" id="section1">
+    <h2>01 // A SYSTEM BUILT TO FAIL</h2>
+    <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
+</div>
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <div class="section" id="section2">
-        <h2>02 // THE NEXT FRAMEWORK</h2>
-        <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
-        <p><strong>→ On-demand, dynamic drug release</strong></p>
-    </div>
+<div class="section" id="section2">
+    <h2>02 // THE NEXT FRAMEWORK</h2>
+    <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
+    <p><strong>→ On-demand, dynamic drug release</strong></p>
+</div>
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <div class="section" id="section3">
-        <h2>03 // HOW IT WORKS</h2>
-        <p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
-    </div>
+<div class="section" id="section3">
+    <h2>03 // HOW IT WORKS</h2>
+    <p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
+</div>
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <div class="section" id="section4">
-        <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-        <p>Data transmission via BLE & LORA protocol.</p>
-    </div>
+<div class="section" id="section4">
+    <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
+    <p>Data transmission via BLE & LORA protocol.</p>
+</div>
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <div class="section" id="section5">
-        <h2>05 // RESEARCH PARTNERS</h2>
-        <ul>
-            <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
-            <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
-        </ul>
-    </div>
+<div class="section" id="section5">
+    <h2>05 // RESEARCH PARTNERS</h2>
+    <ul>
+        <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
+        <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
+    </ul>
+</div>
 
-    <div class="divider"></div>
+<div class="divider"></div>
 
-    <footer>
-        &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
-    </footer>
+<footer>
+&copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+</footer>
 
-    <script>
-        function handleScroll() {
-            let sections = document.querySelectorAll('.section');
-            let dnaGif = document.getElementById("dnaGif");
+<script>
+    function handleScroll() {
+        let sections = document.querySelectorAll('.section');
+        let dnaGif = document.getElementById("dnaGif");
 
-            let activeSection = null;
-            let lastSection = document.getElementById("section5");
+        let activeSection = null;
 
-            sections.forEach((section) => {
-                let rect = section.getBoundingClientRect();
-                let viewportHeight = window.innerHeight;
-            
-                if (rect.top >= 0 && rect.bottom <= viewportHeight) {
-                    if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                        activeSection = section;
-                    }
-                }
-            });
+        sections.forEach((section) => {
+           let rect = section.getBoundingClientRect();
+           let viewportHeight = window.innerHeight;
 
-            sections.forEach(section => section.classList.remove("active"));
-            if (activeSection) {
-                activeSection.classList.add("active");
+           if (rect.top >= -50 && rect.bottom <= viewportHeight + 50) { // Adjusted to allow some overlap
+               if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                   activeSection = section; 
+               }
+           }
+       });
 
-                // Move GIF smoothly to align with section heading
-                let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY - 150; // Adjust for heading height
-                dnaGif.style.top = `${newPositionY}px`; 
-            }
+       sections.forEach(section => section.classList.remove("active"));
+       if (activeSection) {
+           activeSection.classList.add("active");
 
-            // Ensure DNA GIF scrolls till the last section
-            let lastSectionRect = lastSection.getBoundingClientRect();
-            if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 150) {
-                dnaGif.style.top = `${lastSectionRect.top + window.scrollY}px`; 
-            }
-        }
-    </script>
+           // Move GIF smoothly to align with section heading
+           let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY - 50; // Adjusted for heading offset
+           dnaGif.style.top = `${newPositionY}px`;
+       }
+   }
+</script>
 
 </body>
 </html>
