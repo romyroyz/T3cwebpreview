@@ -201,18 +201,16 @@
             }
         });
 
-        // Remove dark mode from all sections
         sections.forEach(section => section.classList.remove("active"));
-
         if (activeSection) {
             activeSection.classList.add("active");
 
-            // Move DNA GIF smoothly down with scrolling
+            // Move GIF smoothly to align with section heading
             let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY;
             dnaGif.style.top = `${newPositionY}px`;
         }
 
-        // Ensure DNA GIF continues moving past heading 2 and reaches the last section
+        // Ensure DNA GIF scrolls till the last section
         let lastSectionRect = lastSection.getBoundingClientRect();
         if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 150) {
             dnaGif.style.top = `${lastSectionRect.top + window.scrollY}px`;
