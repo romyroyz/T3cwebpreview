@@ -59,9 +59,8 @@
         /* DNA GIF */
         .dna-gif {
             position: fixed;
-            right: 50%;
-            transform: translateX(50%);
-            top: 80px; /* Starts just above the title */
+            right: 10%;
+            top: 100px; /* Starts below the title */
             width: 15vw;
             max-width: 200px;
             height: auto;
@@ -71,10 +70,10 @@
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
-            .dna-gif { width: 20vw; right: 50%; }
+            .dna-gif { width: 20vw; right: 10%; }
         }
         @media screen and (max-width: 768px) {
-            .dna-gif { width: 25vw; right: 50%; }
+            .dna-gif { width: 25vw; right: 10%; }
         }
         /* Section Containers */
         .section {
@@ -194,26 +193,25 @@
             let rect = section.getBoundingClientRect();
             let viewportHeight = window.innerHeight;
             
-            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
-                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                    activeSection = section;
-                }
+            if (rect.top >= -100 && rect.bottom <= viewportHeight + 100) {
+                activeSection = section;
             }
         });
 
         sections.forEach(section => section.classList.remove("active"));
+
         if (activeSection) {
             activeSection.classList.add("active");
 
-            // Move GIF smoothly to align with section heading
-            let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY;
-            dnaGif.style.top = `${newPositionY}px`;
+            // Move GIF smoothly down with scrolling
+            let sectionMid = activeSection.getBoundingClientRect().top + window.scrollY + (activeSection.offsetHeight / 3);
+            dnaGif.style.top = `${sectionMid}px`;
         }
 
-        // Ensure DNA GIF scrolls till the last section
+        // Ensure DNA GIF continues moving past heading 2 and reaches the last section
         let lastSectionRect = lastSection.getBoundingClientRect();
-        if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 150) {
-            dnaGif.style.top = `${lastSectionRect.top + window.scrollY}px`;
+        if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 100) {
+            dnaGif.style.top = `${lastSectionRect.top + window.scrollY + (lastSection.offsetHeight / 3)}px`;
         }
     }
 </script>
