@@ -194,8 +194,10 @@
             let rect = section.getBoundingClientRect();
             let viewportHeight = window.innerHeight;
             
-            if (rect.top < viewportHeight / 2 && rect.bottom > viewportHeight / 2) {
-                activeSection = section;
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                    activeSection = section;
+                }
             }
         });
 
@@ -205,15 +207,15 @@
         if (activeSection) {
             activeSection.classList.add("active");
 
-            // Move DNA GIF to align with the current section
-            let sectionMid = activeSection.getBoundingClientRect().top + window.scrollY + (activeSection.offsetHeight / 2);
-            dnaGif.style.top = `${sectionMid}px`;
+            // Move DNA GIF smoothly down with scrolling
+            let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY;
+            dnaGif.style.top = `${newPositionY}px`;
         }
 
-        // Ensure DNA GIF remains visible till last section
+        // Ensure DNA GIF continues moving past heading 2 and reaches the last section
         let lastSectionRect = lastSection.getBoundingClientRect();
         if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 150) {
-            dnaGif.style.top = `${lastSectionRect.top + window.scrollY + (lastSection.offsetHeight / 2)}px`;
+            dnaGif.style.top = `${lastSectionRect.top + window.scrollY}px`;
         }
     }
 </script>
