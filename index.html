@@ -58,20 +58,21 @@
         /* DNA GIF */
         .dna-gif {
             position: absolute;
-            right: 10%;
-            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 120px;
             width: 15vw;
-            max-width: 200px;
+            max-width: 180px;
             height: auto;
             opacity: 0.8;
-            transition: top 0.8s ease-out, filter 0.8s ease-out;
+            transition: top 0.5s ease-out;
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
-            .dna-gif { width: 20vw; right: 10%; }
+            .dna-gif { width: 20vw; }
         }
         @media screen and (max-width: 768px) {
-            .dna-gif { width: 25vw; right: 10%; }
+            .dna-gif { width: 25vw; }
         }
         /* Section Containers */
         .section {
@@ -186,7 +187,6 @@
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
-
         let activeSection = null;
 
         sections.forEach((section) => {
@@ -204,12 +204,13 @@
         if (activeSection) {
             activeSection.classList.add("active");
 
-            // Move GIF smoothly to align with section heading
-            let sectionMidpoint = activeSection.getBoundingClientRect().top + window.scrollY + activeSection.offsetHeight / 2;
-            dnaGif.style.top = `${sectionMidpoint - 50}px`; // Adjust to center better
+            // Move GIF smoothly to align with section heading (Adding a lag effect)
+            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = sectionTop + activeSection.offsetHeight / 5;
+            dnaGif.style.top = `${targetPosition}px`;
         }
 
-        // Keep the DNA GIF visible in dark mode
+        // Keep the DNA GIF visible and aligned while scrolling
         let lastSection = document.getElementById("section5");
         let lastSectionRect = lastSection.getBoundingClientRect();
         if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 250) {
