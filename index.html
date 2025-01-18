@@ -18,7 +18,7 @@
             color: #111111;
             font-size: 1.2rem;
             line-height: 1.8;
-            padding: 0;
+            padding: 0; /* Removed extra padding */
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
@@ -49,47 +49,34 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* Title Section */
+        /* Title Section - Removed Extra Space */
         .title-container {
-            margin-top: 120px;
+            margin-top: 80px; /* Just enough space for navbar */
             text-align: center;
-            position: relative;
-            padding: 20px;
         }
-        /* DNA GIF */
+        /* DNA GIF - Fixed to Align with Title */
         .dna-gif {
             position: fixed;
-            right: 50%;
-            transform: translateX(50%);
-            top: 120px;
-            width: 15vw;
+            right: 10px;
+            top: 80px; /* Now starts at the exact same height as title */
+            width: 20vw;
             max-width: 200px;
             height: auto;
             opacity: 0.8;
-            z-index: 0;
-            transition: transform 0.3s ease-out;
+            z-index: -1;
+            transition: transform 0.2s ease-out;
         }
-        /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
-            .dna-gif { width: 20vw; right: 50%; }
+            .dna-gif {
+                width: 30vw; /* Adjust size for tablets */
+                right: 5px;
+            }
         }
         @media screen and (max-width: 768px) {
-            .dna-gif { width: 25vw; right: 50%; }
-        }
-        /* Section Containers */
-        .section {
-            padding: 100px 10vw;
-            position: relative;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-        /* Dark Mode Effect */
-        .section.active {
-            background: #111111;
-            color: #ffffff;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-            border-radius: 15px;
+            .dna-gif {
+                width: 35vw; /* Bigger on mobile */
+                right: 5px;
+            }
         }
         /* Section Divider */
         .divider {
@@ -98,16 +85,32 @@
             background: #111;
             margin: 50px 0;
         }
-        /* Headings */
+        /* Headings Adjustments */
         h1 {
             font-size: 3rem;
-            margin: 0;
+            margin: 0; /* Remove default margins */
             padding: 10px;
         }
         h2 {
             font-size: 2rem;
             text-align: center;
             margin-top: 50px;
+        }
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
         }
         /* Footer */
         footer {
@@ -120,7 +123,7 @@
         }
     </style>
 </head>
-<body onscroll="handleScroll()">
+<body onscroll="moveDna()">
 
 <!-- Navigation Bar -->
 <div class="navbar">
@@ -141,43 +144,18 @@
 
 <div class="divider"></div>
 
-<!-- Sections -->
-<div class="section" id="section1">
-    <h2>01 // A SYSTEM BUILT TO FAIL</h2>
-    <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-</div>
+<h2>01 // A SYSTEM BUILT TO FAIL</h2>
+<p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
+<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where **your biology speaks**, where medicine adapts to your needs in real-time, and where **data belongs to the human, not the institution**.</p>
 
 <div class="divider"></div>
 
-<div class="section" id="section2">
-    <h2>02 // THE NEXT FRAMEWORK</h2>
-    <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
-    <p><strong>→ On-demand, dynamic drug release</strong></p>
-</div>
-
-<div class="divider"></div>
-
-<div class="section" id="section3">
-    <h2>03 // HOW IT WORKS</h2>
-    <p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
-</div>
-
-<div class="divider"></div>
-
-<div class="section" id="section4">
-    <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-    <p>Data transmission via BLE & LORA protocol.</p>
-</div>
-
-<div class="divider"></div>
-
-<div class="section" id="section5">
-    <h2>05 // RESEARCH PARTNERS</h2>
-    <ul>
-        <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
-        <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
-    </ul>
-</div>
+<h2>05 // RESEARCH PARTNERS</h2>
+<ul>
+    <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
+    <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
+    <li>🧠 **AI Labs** – Adaptive drug release AI</li>
+</ul>
 
 <div class="divider"></div>
 
@@ -186,38 +164,17 @@
 </footer>
 
 <script>
-    function handleScroll() {
-        let sections = document.querySelectorAll('.section');
+    // Smooth GIF Scrolling
+    function moveDna() {
+        let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        let scrollTop = window.scrollY;
+        let percentageScrolled = (scrollTop / scrollHeight) * 100;
+
         let dnaGif = document.getElementById("dnaGif");
 
-        let activeSection = null;
-        let lastSection = document.getElementById("section5");
-
-        sections.forEach((section) => {
-            let rect = section.getBoundingClientRect();
-            let viewportHeight = window.innerHeight;
-            
-            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
-                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                    activeSection = section;
-                }
-            }
-        });
-
-        sections.forEach(section => section.classList.remove("active"));
-        if (activeSection) {
-            activeSection.classList.add("active");
-
-            // Move GIF smoothly to align with section heading
-            let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY;
-            dnaGif.style.top = `${newPositionY}px`;
-        }
-
-        // Ensure DNA GIF scrolls till the last section
-        let lastSectionRect = lastSection.getBoundingClientRect();
-        if (lastSectionRect.top + window.scrollY >= window.scrollY + viewportHeight - 300) {
-            dnaGif.style.top = `${lastSectionRect.top + window.scrollY}px`;
-        }
+        // Move DNA GIF dynamically and keep it aligned properly
+        let newPosition = 80 + (percentageScrolled * 0.5); 
+        dnaGif.style.top = `${newPosition}px`;
     }
 </script>
 
