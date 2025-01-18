@@ -50,7 +50,7 @@
         }
         /* Title Section */
         .title-container {
-            margin-top: 150px;
+            margin-top: 180px;
             text-align: center;
             position: relative;
             padding: 20px;
@@ -60,12 +60,12 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: 120px;
+            top: 50px; /* Starts above the title */
             width: 15vw;
             max-width: 180px;
             height: auto;
             opacity: 0.8;
-            transition: top 0.5s ease-out;
+            transition: top 0.8s ease-out; /* Added more lag */
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
@@ -204,9 +204,10 @@
         if (activeSection) {
             activeSection.classList.add("active");
 
-            // Move GIF smoothly to align with section heading (Adding a lag effect)
+            // Move GIF smoothly to align with section heading (More lag added)
             let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
-            let targetPosition = sectionTop + activeSection.offsetHeight / 5;
+            let targetPosition = sectionTop - 80; // Keeps DNA at the top of headings
+            dnaGif.style.transition = "top 1s ease-out"; // Added even more lag
             dnaGif.style.top = `${targetPosition}px`;
         }
 
