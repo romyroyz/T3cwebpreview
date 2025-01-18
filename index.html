@@ -3,246 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T3C | The Future of Healthcare</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Type 3 Civilization Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'IBM Plex Mono', monospace;
-            scroll-behavior: smooth;
         }
+
         body {
-            background: #ffffff;
-            color: #111111;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            padding: 0;
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-            position: relative;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
         }
-        /* Navigation Bar */
+
         .navbar {
-            width: 100%;
-            background: #ffffff;
-            padding: 15px 0;
             position: fixed;
             top: 0;
-            left: 0;
-            text-align: center;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            border-bottom: 2px solid #ddd;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            padding-right: 4rem;
         }
+
         .navbar a {
-            color: #111111;
             text-decoration: none;
-            margin: 0 25px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            transition: color 0.3s ease-in-out;
+            color: #000000;
+            transition: color 0.3s ease;
         }
+
         .navbar a:hover {
-            color: #ff0077;
+            color: #666;
         }
-        /* Title Section */
+
         .title-container {
-            margin-top: 150px; /* Adjusted so DNA doesn't overlap */
+            margin-top: 100px;
             text-align: center;
-            position: relative;
-            padding: 20px;
+            padding: 4rem 2rem;
         }
-        /* DNA GIF */
+
+        .title-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #0066cc;
+            font-weight: 600;
+        }
+
         .dna-gif {
             position: fixed;
-            right: 50%;
-            transform: translateX(50%);
-            top: calc(80px + (150px - (100vh / 2))); /* Adjusted for better visibility */
-            width: 15vw; 
-            max-width: 200px; 
-            height: auto; 
-            opacity: 0.8; 
-            z-index: 0; 
+            right: 10%;
+            width: 15vw;
+            max-width: 200px;
+            opacity: 0.8;
+            z-index: 100;
+            transition: top 0.3s ease-out;
         }
-        /* Responsive Adjustments */
-        @media screen and (max-width: 1024px) {
-            .dna-gif { width: 20vw; right: 50%; }
-        }
-        @media screen and (max-width: 768px) {
-            .dna-gif { width: 25vw; right: 50%; }
-        }
-        /* Section Containers */
+
         .section {
-            padding: 100px 10vw; 
-            position: relative; 
+            min-height: 100vh;
+            padding: 4rem 15% 4rem 15%;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
         }
-        /* Dark Mode Effect */
+
         .section.active {
-            background-color: #111111; 
-            color: #ffffff; 
+            background: #111111;
+            color: #ffffff;
         }
-        /* Section Divider */
-        .divider {
-           width: 100%; 
-           height: 2px; 
-           background-color:#111; 
-           margin:50px 0; 
-       }
-       /* Headings */
-       h1 {
-           font-size:.3rem; 
-           margin-bottom:.5em; 
-       }
-       h2 {
-           font-size:.2rem; 
-           text-align:center; 
-           margin-top:.5em; 
-       }
-       /* Footer */
-       footer {
-           text-align:center; 
-           font-size:.9rem; 
-           margin-top:.5em; 
-           opacity:.7; 
-           color:#111; 
-           padding-bottom:.5em; 
-       }
 
-       @media (prefers-color-scheme: dark) {
-          body {
-              background-color:#111111; 
-              color:#ffffff; 
-          }
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
 
-          .navbar {
-              background-color:#222222; 
-              border-bottom-color:#444444; 
-          }
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 60ch;
+        }
 
-          .section.active {
-              background-color:#222222; 
-          }
+        @media screen and (max-width: 1024px) {
+            .dna-gif {
+                width: 20vw;
+                right: 5%;
+            }
+            .section {
+                padding: 4rem 10%;
+            }
+        }
 
-          .divider {
-              background-color:#ffffff; 
-          }
-
-          footer {
-              color:#cccccc; 
-          }
-
-          .navbar a {
-              color:#ffffff; 
-          }
-
-          .navbar a:hover {
-              color:#ff0077; 
-          }
-      }
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding-right: 2rem;
+                gap: 1rem;
+            }
+            .dna-gif {
+                width: 25vw;
+                right: 5%;
+            }
+            .title-container h1 {
+                font-size: 2rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
-<body onscroll="handleScroll()">
+<body>
+    <nav class="navbar">
+        <a href="#">Blogs</a>
+        <a href="#">Careers</a>
+        <a href="#">Collaborate With Us</a>
+        <a href="#">News</a>
+    </nav>
 
-<!-- Navigation Bar -->
-<div class="navbar">
-    <a href="#">Blogs</a>
-    <a href="#">Careers</a>
-    <a href="#">Collaborate With Us</a>
-    <a href="#">News</a>
-</div>
+    <div class="title-container">
+        <h1>Type 3 Civilization Technologies</h1>
+        <p>A new paradigm in <span class="highlight">Precision Medicine</span>, 
+           <span class="highlight">Real-Time Biomarker Monitoring</span>, and 
+           <span class="highlight">Decentralized Health Data</span>.</p>
+    </div>
 
-<!-- DNA GIF -->
-<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
+    <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
 
-<!-- Title Section -->
-<div class="title-container">
-    <h1>Type 3 Civilization Technologies</h1>
-    <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
-</div>
+    <div class="section" id="section1">
+        <h2>01 // A SYSTEM BUILT TO FAIL</h2>
+        <p>The current healthcare model is reactionary, treating symptoms after they appear rather than preventing their onset. This approach has led to increased healthcare costs, reduced patient outcomes, and a system that's struggling to keep up with modern medical advances.</p>
+    </div>
 
-<div class="divider"></div>
+    <div class="section" id="section2">
+        <h2>02 // THE FUTURE OF HEALTH MONITORING</h2>
+        <p>Our revolutionary biomarker monitoring system provides real-time health data, allowing for predictive and preventative healthcare approaches. By continuously tracking vital health indicators, we can detect potential issues before they become serious problems.</p>
+    </div>
 
-<!-- Sections -->
-<div class="section" id="section1">
-    <h2>01 // A SYSTEM BUILT TO FAIL</h2>
-    <p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-</div>
+    <div class="section" id="section3">
+        <h2>03 // DECENTRALIZED HEALTH DATA</h2>
+        <p>We're putting health data back in the hands of patients. Our blockchain-based system ensures your medical information is secure, accessible, and under your control. Share your data with healthcare providers seamlessly while maintaining complete privacy.</p>
+    </div>
 
-<div class="divider"></div>
+    <div class="section" id="section4">
+        <h2>04 // PRECISION MEDICINE REIMAGINED</h2>
+        <p>By combining real-time monitoring with advanced AI analysis, we're creating truly personalized treatment plans. Our system learns from your unique biological responses, adapting recommendations to your specific needs.</p>
+    </div>
 
-<div class="section" id="section2">
-    <h2>02 // THE NEXT FRAMEWORK</h2>
-    <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
-    <p><strong>→ On-demand, dynamic drug release</strong></p>
-</div>
+    <div class="section" id="section5">
+        <h2>05 // JOIN THE REVOLUTION</h2>
+        <p>We're not just building technology; we're creating a new paradigm in healthcare. Join us in transforming how we approach health and wellness, making predictive and personalized healthcare accessible to everyone.</p>
+    </div>
 
-<div class="divider"></div>
+    <script>
+    // Get all necessary elements
+    function initializeScrollHandler() {
+        const sections = document.querySelectorAll('.section');
+        const dnaGif = document.getElementById("dnaGif");
+        const viewportHeight = window.innerHeight;
+        let ticking = false;
 
-<div class="section" id="section3">
-    <h2>03 // HOW IT WORKS</h2>
-    <p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid.</p>
-</div>
+        function handleScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollPosition = window.scrollY;
+                    let activeSection = null;
 
-<div class="divider"></div>
+                    // Check each section's position
+                    sections.forEach((section) => {
+                        const rect = section.getBoundingClientRect();
+                        const sectionTop = rect.top;
+                        const sectionBottom = rect.bottom;
 
-<div class="section" id="section4">
-    <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-    <p>Data transmission via BLE & LORA protocol.</p>
-</div>
+                        // Determine if section is in viewport
+                        if (sectionTop <= viewportHeight / 2 && sectionBottom >= viewportHeight / 2) {
+                            activeSection = section;
+                        }
+                    });
 
-<div class="divider"></div>
+                    // Remove active class from all sections first
+                    sections.forEach(section => section.classList.remove("active"));
 
-<div class="section" id="section5">
-    <h2>05 // RESEARCH PARTNERS</h2>
-    <ul>
-        <li>🔬 **BITS Goa** – Biowearable development & sensor integration</li>
-        <li>⚡ **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
-    </ul>
-</div>
+                    // Add active class to current section
+                    if (activeSection) {
+                        activeSection.classList.add("active");
+                    }
 
-<div class="divider"></div>
+                    // Update DNA gif position
+                    if (dnaGif) {
+                        // Calculate the new position for the DNA gif
+                        let newPosition = scrollPosition + (viewportHeight * 0.3);
+                        
+                        // Get the last section's position
+                        const lastSection = sections[sections.length - 1];
+                        const lastSectionRect = lastSection.getBoundingClientRect();
+                        const lastSectionTop = lastSectionRect.top + scrollPosition;
+                        
+                        // Ensure DNA gif doesn't scroll past the last section
+                        if (newPosition > lastSectionTop - 100) {
+                            newPosition = lastSectionTop - 100;
+                        }
+                        
+                        // Apply smooth transition
+                        dnaGif.style.transition = 'top 0.3s ease-out';
+                        dnaGif.style.top = `${newPosition}px`;
+                    }
 
-<footer>
-&copy; January,2025 Type3 Civilization Technologies | All Rights Reserved  
-</footer>
+                    ticking = false;
+                });
 
-<script>
-    function handleScroll() {
-        let sections = document.querySelectorAll('.section');
-        let dnaGif = document.getElementById("dnaGif");
+                ticking = true;
+            }
+        }
 
-        let activeSection = null;
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
-        sections.forEach((section) => {
-           let rect = section.getBoundingClientRect();
-           let viewportHeight = window.innerHeight;
+        // Initial call to set initial states
+        handleScroll();
+    }
 
-           if (rect.top >= -50 && rect.bottom <= viewportHeight + 50) { // Allow some overlap
-               activeSection = section; 
-           }
-       });
-
-       sections.forEach(section => section.classList.remove("active"));
-       if (activeSection) {
-           activeSection.classList.add("active");
-
-           // Move GIF smoothly to align with section heading
-           let newPositionY = activeSection.getBoundingClientRect().top + window.scrollY - dnaGif.offsetHeight / 2 + activeSection.offsetTop - window.scrollY + activeSection.offsetTop - window.innerHeight /4 ; // Adjusted for better alignment
-           dnaGif.style.top = `${newPositionY}px`;
-       }
-
-       // Ensure dark mode activates on the last section
-       if (activeSection === sections[sections.length -1]) {
-           activeSection.classList.add("active");
-       } else if (activeSection) {
-           activeSection.classList.remove("active");
-       }
-   }
-</script>
-
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', initializeScrollHandler);
+    </script>
 </body>
 </html>
