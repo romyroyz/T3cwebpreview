@@ -193,6 +193,8 @@
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
+        let titleContainer = document.querySelector(".title-container");// new title selection 
+        let firstSection = document.getElementById("section1");
         let activeSection = null;
 
         sections.forEach((section) => {
@@ -216,7 +218,14 @@
             dnaGif.style.transition = "top 1.2s ease-out"; // More lag for smoother effect
             dnaGif.style.top = `${targetPosition}px`;
         }
+        //ensure DNA GIf move above title
+let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+
+    if (window.scrollY <= titleTop + 50) { // If scrolled near top
+        dnaGif.style.top = `${titleTop - 100}px`; // Moves DNA above title
     }
+}
+
 
     window.addEventListener('scroll', handleScroll);
 </script>
