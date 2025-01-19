@@ -212,7 +212,7 @@
 
             // Move GIF smoothly to align with section heading
             let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
-            let targetPosition = sectionTop 50; 
+            let targetPosition = sectionTop- 20; 
             dnaGif.style.transition = "top 1.2s ease-out"; // More lag for smoother effect
             dnaGif.style.top = `${targetPosition}px`;
         }
