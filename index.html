@@ -191,40 +191,34 @@
 
 <script>
     function handleScroll() {
-    let sections = document.querySelectorAll('.section');
-    let dnaGif = document.getElementById("dnaGif");
-    let activeSection = null;
+        let sections = document.querySelectorAll('.section');
+        let dnaGif = document.getElementById("dnaGif");
+        let activeSection = null;
 
-    sections.forEach((section) => {
-        let rect = section.getBoundingClientRect();
-        let viewportHeight = window.innerHeight;
+        sections.forEach((section) => {
+            let rect = section.getBoundingClientRect();
+            let viewportHeight = window.innerHeight;
 
-        if (rect.top >= 0 && rect.bottom <= viewportHeight) {
-            if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                activeSection = section;
+            if (rect.top >= 0 && rect.bottom <= viewportHeight) {
+                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                    activeSection = section;
+                }
             }
+        });
+
+        sections.forEach(section => section.classList.remove("active"));
+        if (activeSection) {
+            activeSection.classList.add("active");
+
+            // Move GIF smoothly to align with section heading
+            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = sectionTop- 120; 
+            dnaGif.style.transition = "top 1.2s ease-out"; // More lag for smoother effect
+            dnaGif.style.top = `${targetPosition}px`;
         }
-    });
-
-    sections.forEach(section => section.classList.remove("active"));
-    if (activeSection) {
-        activeSection.classList.add("active");
-
-        // Move GIF smoothly to align with section heading
-        let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
-        let targetPosition = sectionTop - 120; 
-        dnaGif.style.transition = "top 1.2s ease-out"; // More lag for smoother effect
-        dnaGif.style.top = `${targetPosition}px`;
     }
 
-    // **Ensure DNA stops at section1 when scrolling up**
-    let firstSection = document.getElementById("section1");
-    let firstSectionTop = firstSection.getBoundingClientRect().top + window.scrollY;
-
-    if (window.scrollY <= firstSectionTop) {
-        dnaGif.style.top = `${firstSectionTop - 120}px`; // Keeps it locked at heading 01
-    }
-}
+    window.addEventListener('scroll', handleScroll);
 </script>
 
 </body>
