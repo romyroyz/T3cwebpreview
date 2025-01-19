@@ -1,144 +1,191 @@
-Still, you may draw. I was typing the extracted text. I just place it on the bottom HTML, that's it.
 
-I have extracted the text from your HTML file. Here it is:
-
-
----
-
-Type 3 Civilization Technologies
-
-A new paradigm in Precision Medicine, Real-Time Biomarker Monitoring, and Decentralized Health Data.
-
-
----
-
-01 // A SYSTEM BUILT TO FAIL
-
-The current healthcare model is reactionary—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.
-At T3C, we reject this. We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.
-
-
----
-
-02 // THE NEXT FRAMEWORK
-
-Continuous, real-time biomarker monitoring
-
-On-demand, dynamic drug release
-
-A decentralized, encrypted health data ecosystem
-
-
-This means:
-
-Your physiology is measured in real-time. No more waiting for symptoms to detect disease.
-
-Medications are dynamically adjusted. Drug release is controlled by live biometrics, not outdated schedules.
-
-Your health data is yours. Encrypted, decentralized, and only accessible by you.
-
-
-
----
-
-03 // HOW IT WORKS
-
-3.1 | The Biowearable
-
-A 10x10 microneedle sensor array sits at the interface of skin and interstitial fluid. Each microneedle is a pyramidal biosensor, designed at 700μm height with a 200μm base, engineered for painless, real-time biochemical tracking.
-
-3.2 | Adaptive Drug System
-
-Instead of fixed doses, medication is released only when biomarker fluctuations cross defined thresholds. A nanofluidic-controlled reservoir, actuated by stimulus-responsive polymers, ensures that treatment is precise—no overdoses, no inefficiencies.
-
-3.3 | Encrypted Data Layer
-
-Every dataset is hashed, encrypted, and owned by the individual. Users can grant selective access to research organizations, receive monetary compensation, and retain full control over permissions.
-
-
----
-
-04 // THE TECHNOLOGY BEHIND IT
-
-4.1 | Microneedle Biosensing Architecture
-
-10x10 structured array
-
-Pyramidal needle topology
-
-Electrochemical transduction layer
-
-Molecular recognition via enzymatic coating
-
-Data transmission via BLE & LORA protocol
-
-
-4.2 | Precision Drug Delivery System
-
-Nano-mesh actuator-controlled reservoirs
-
-Polymeric membranes enabling dynamic permeability
-
-AI-driven biomarker-to-drug algorithms
-
-
-4.3 | Decentralized Data Ownership
-
-Zero-knowledge proof encryption
-
-Self-sovereign health data architecture
-
-Tokenized data-sharing for research monetization
-
-
-
----
-
-05 // WHY IT MATTERS
-
-Real-time intelligence replaces reactive diagnostics
-
-Dynamic treatment eliminates systemic drug inefficiencies
-
-Decentralized ownership prevents data exploitation
-This is not a wearable. This is a biochemical intelligence system.
-
-
-
----
-
-06 // RESEARCH PARTNERS
-
-🚀 BITS Goa – Biowearable development & sensor integration
-
-🚀 Dr. Moopen’s Hospital – Clinical trials & validation
-
-🚀 AI Labs – Adaptive drug release AI
-
-
-
----
-
-07 // CONCLUSION | END OF PASSIVE HEALTHCARE
-
-The healthcare system is broken.
-T3C is engineering a new system where:
-
-✅ Health is measured continuously
-
-✅ Medications are adaptive
-
-✅ Data is controlled by the individual
-
-
-
----
-
-Footer
-
-© 2025 Type 3 Civilization Technologies | All Rights Reserved
-This document serves as an open-access framework for the future of Precision Medicine & Decentralized Healthcare.
-
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3C | The Future of Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Mono', monospace;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding: 5vw;
+            width: 100%;
+            max-width: 100%;
+        }
+        h1, h2 {
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+        }
+        p {
+            margin-bottom: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul {
+            max-width: 90%;
+            margin: auto;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff0077, #007acc);
+            margin: 50px 0;
+            box-shadow: 0 0 10px rgba(0, 122, 204, 0.8);
+        }
+        footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
+            opacity: 0.7;
+            color: #111111;
+            padding-bottom: 20px;
+        }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 5vw;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Type 3 Civilization Technologies</h1>
+<p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
+
+<div class="divider"></div>
+
+<h2>01 // A SYSTEM BUILT TO FAIL</h2>
+<p>The current healthcare model is **reactionary**—it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
+<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where **your biology speaks**, where medicine adapts to your needs in real-time, and where **data belongs to the human, not the institution**.</p>
+
+<div class="divider"></div>
+
+<h2>02 // THE NEXT FRAMEWORK</h2>
+<p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
+<p><strong>→ On-demand, dynamic drug release</strong></p>
+<p><strong>→ A decentralized, encrypted health data ecosystem</strong></p>
+<p>This means:</p>
+<ul>
+    <li><strong>Your physiology is measured in real-time.</strong> No more waiting for symptoms to detect disease.</li>
+    <li><strong>Medications are dynamically adjusted.</strong> Drug release is controlled by live biometrics, not outdated schedules.</li>
+    <li><strong>Your health data is yours.</strong> Encrypted, decentralized, and only accessible by you.</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>03 // HOW IT WORKS</h2>
+<h3>3.1 | The Biowearable</h3>
+<p>A **10x10 microneedle sensor array** sits at the interface of skin and interstitial fluid. Each microneedle is a **pyramidal biosensor**, designed at **700μm height with a 200μm base**, engineered for **painless, real-time biochemical tracking**.</p>
+
+<h3>3.2 | Adaptive Drug System</h3>
+<p>Instead of fixed doses, medication is released **only when biomarker fluctuations cross defined thresholds**. A nanofluidic-controlled reservoir, actuated by **stimulus-responsive polymers**, ensures that treatment is precise—no overdoses, no inefficiencies.</p>
+
+<h3>3.3 | Encrypted Data Layer</h3>
+<p>Every dataset is **hashed, encrypted, and owned by the individual**. Users can grant **selective access** to research organizations, receive **monetary compensation**, and retain **full control over permissions**.</p>
+
+<div class="divider"></div>
+
+<h2>04 // THE TECHNOLOGY BEHIND IT</h2>
+<h3>4.1 | Microneedle Biosensing Architecture</h3>
+<ul>
+    <li>**10x10 structured array**</li>
+    <li>**Pyramidal needle topology**</li>
+    <li>**Electrochemical transduction layer**</li>
+    <li>**Molecular recognition via enzymatic coating**</li>
+    <li>**Data transmission via BLE & LORA protocol**</li>
+</ul>
+
+<h3>4.2 | Precision Drug Delivery System</h3>
+<ul>
+    <li>**Nano-mesh actuator-controlled reservoirs**</li>
+    <li>**Polymeric membranes enabling dynamic permeability**</li>
+    <li>**AI-driven biomarker-to-drug algorithms**</li>
+</ul>
+
+<h3>4.3 | Decentralized Data Ownership</h3>
+<ul>
+    <li>**Zero-knowledge proof encryption**</li>
+    <li>**Self-sovereign health data architecture**</li>
+    <li>**Tokenized data-sharing for research monetization**</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>05 // WHY IT MATTERS</h2>
+<p>🔹 **Real-time intelligence replaces reactive diagnostics**</p>
+<p>🔹 **Dynamic treatment eliminates systemic drug inefficiencies**</p>
+<p>🔹 **Decentralized ownership prevents data exploitation**</p>
+<p>This is not a **wearable**. This is a **biochemical intelligence system**.</p>
+
+<div class="divider"></div>
+
+<h2>06 // RESEARCH PARTNERS</h2>
+<ul>
+    <li>🚀 **BITS Goa** – Biowearable development & sensor integration</li>
+    <li>🚀 **Dr. Moopen’s Hospital** – Clinical trials & validation</li>
+    <li>🚀 **AI Labs** – Adaptive drug release AI</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>07 // CONCLUSION | END OF PASSIVE HEALTHCARE</h2>
+<p>The healthcare system is **broken**.</p>
+<p><span class="highlight">T3C</span> is engineering a new system where:</p>
+<ul>
+    <li>✅ **Health is measured continuously**</li>
+    <li>✅ **Medications are adaptive**</li>
+    <li>✅ **Data is controlled by the individual**</li>
+</ul>
+
+<div class="divider"></div>
+
+<footer>
+&copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+This document serves as an open-access framework for the future of **Precision Medicine & Decentralized Healthcare**.
+</footer>
+
+</body>
+</html>
