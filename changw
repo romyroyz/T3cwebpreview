@@ -1,0 +1,6 @@
+let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+
+    if (window.scrollY <= titleTop + 50) { // If scrolled near top
+        dnaGif.style.top = `${titleTop - 100}px`; // Moves DNA above title
+    }
+}
