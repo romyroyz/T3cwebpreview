@@ -35,69 +35,7 @@
             z-index: 1000;
             border-bottom: 2px solid #ddd;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-@media screen and (max-width: 768px) {
-    /* Adjust spacing below the navbar */
-    .title-container {
-        margin-top: 80px !important; /* Reduced from 180px */
-        padding: 5px;
-    }
-
-    /* Optimize heading and title font sizes */
-    h1 {
-        font-size: 2.2rem !important; /* Adjusted for readability */
-        margin-bottom: 5px;
-    }
-
-    h2 {
-        font-size: 1.6rem !important;
-        margin-top: 30px !important;
-    }
-
-    h3 {
-        font-size: 1.4rem !important;
-        margin-top: 20px !important;
-    }
-
-    .title-container p {
-        font-size: 1rem !important;
-        line-height: 1.4 !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* Reduce section padding to fix large gaps */
-    .section {
-        padding: 40px 5vw !important; /* Reduced from 100px */
-    }
-
-    /* Adjust paragraph text size for better mobile readability */
-    p, li {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
-    }
-
-    /* Reduce spacing between sections */
-    .divider {
-        margin: 20px 0 !important; /* Reduced from 50px */
-    }
-
-    /* Fix DNA GIF position */
-    .dna-gif {
-        width: 18vw !important; /* Adjusted size for mobile */
-        max-width: 140px !important;
-        top: -30px !important; /* Keep it aligned properly */
-        transition: top 0.8s ease-out;
-    }
-
-    /* Adjust Navbar for smaller screens */
-    .navbar {
-        padding: 10px 0 !important;
-    }
-
-    .navbar a {
-        font-size: 1rem !important;
-        margin: 0 10px !important;
-    }
-}        }
+        }
         .navbar a {
             color: #111111;
             text-decoration: none;
@@ -110,26 +48,33 @@
         .navbar a:hover {
             color: #ff0077;
         }
-/* Mobile Optimization (Phones - Below 768px width) */
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 1rem; /* Reduce overall font size */
-        padding: 5vw; /* Reduce padding */
-    }
-
-    .title-container {
-        margin-top: 120px; /* Move title slightly up */
-        padding: 15px;
-        text-align: center;
-    }
-
+        /* Title Section */
+        .title-container {
+            margin-top: 180px;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+        /* DNA GIF */
+        .dna-gif {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px; /* Starts slightly above the title */
+            width: 12vw;
+            max-width: 180px;
+            height: auto;
+            opacity: 0.8;
+            transition: top 0.8s ease-out;
+        }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
         }
-        /* Mobile Optimization (Phones - Below 768px width) */
-/* Mobile & Tablet Fix */
-
+        @media screen and (max-width: 768px) {
+            .dna-gif { width: 20vw; top: -40px; }
+            .title-container h1 { font-size: 2.5rem; } /* Adjust title for mobile */
+        }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
