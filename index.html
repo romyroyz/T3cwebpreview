@@ -48,7 +48,71 @@
         .navbar a:hover {
             color: #ff0077;
         }
-        /* Title Section */
+/* Mobile Optimization (Phones - Below 768px width) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 1rem; /* Reduce overall font size */
+        padding: 5vw; /* Reduce padding */
+    }
+
+    .title-container {
+        margin-top: 120px; /* Move title slightly up */
+        padding: 15px;
+        text-align: center;
+    }
+
+    .title-container h1 {
+        font-size: 1.8rem; /* Reduce heading size */
+    }
+
+    .title-container p {
+        font-size: 1rem; /* Make subtitle readable */
+        line-height: 1.6;
+        text-align: justify; /* Better readability */
+    }
+
+    .dna-gif {
+        width: 22vw; /* Resize DNA gif */
+        top: -30px; /* Adjust position */
+    }
+
+    .navbar a {
+        font-size: 1rem; /* Smaller navbar links */
+        margin: 0 15px;
+    }
+
+    .section {
+        padding: 60px 6vw; /* Reduce padding for better spacing */
+    }
+
+    h2 {
+        font-size: 1.6rem; /* Reduce section heading size */
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 1.3rem; /* Subheading adjustment */
+    }
+
+    p, ul {
+        font-size: 1rem; /* Keep body text readable */
+        text-align: justify;
+    }
+
+    ul {
+        padding-left: 15px; /* Reduce list indentation */
+    }
+
+    .divider {
+        margin: 30px 0; /* Reduce spacing between sections */
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding-bottom: 15px;
+    }
+}        /* Title Section */
         .title-container {
             margin-top: 180px;
             text-align: center;
@@ -73,75 +137,7 @@
         }
         /* Mobile Optimization (Phones - Below 768px width) */
 /* Mobile & Tablet Fix */
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 1rem;
-        padding: 5vw;
-    }
 
-    /* Title Section Fix */
-    .title-container {
-        margin-top: 100px; /* Reduced from 120px */
-        padding: 10px;
-        text-align: center;
-    }
-
-    .title-container h1 {
-        font-size: 1.6rem; /* Slightly smaller */
-        margin-bottom: 10px; /* Reduced space */
-    }
-
-    .title-container p {
-        font-size: 1rem;
-        line-height: 1.5;
-        text-align: justify;
-    }
-
-    /* Fixing DNA GIF Position */
-    .dna-gif {
-        width: 22vw; /* Keep width adaptive */
-        transform: translateX(-50%);
-        top: -50px !important; /* Force position to stay the same */
-        position: absolute;
-        left: 50%;
-        z-index: 10;
-    }
-
-    /* Fix Sections */
-    .section {
-        padding: 50px 5vw; /* Reduced padding */
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        text-align: center;
-        margin-top: 20px; /* Reduced space */
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    p, ul {
-        font-size: 1rem;
-        text-align: justify;
-    }
-
-    ul {
-        padding-left: 15px;
-    }
-
-    /* Reduce Divider Space */
-    .divider {
-        margin: 20px 0; /* Reduced space */
-    }
-
-    /* Footer Fix */
-    footer {
-        font-size: 0.9rem;
-        padding-bottom: 10px;
-    }
-}
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
