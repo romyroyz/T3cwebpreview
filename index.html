@@ -96,7 +96,11 @@
 
     .dna-gif {
         width: 22vw; /* Resize DNA gif */
-        top: -30px; /* Adjust position */
+       /*top: -30px; /* Adjust position */
+        transform: translateX(-50%);
+        position: absolute;
+        left:50%;
+       z-index:10; /*ensure it stays above element */
     }
 
     .navbar a {
