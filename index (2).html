@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3C | The Future of Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Mono', monospace;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar a {
+            color: #111111;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #ff0077;
+        }
+        /* Title Section */
+        .title-container {
+            margin-top: 180px;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+        /* DNA GIF */
+        .dna-gif {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px; /* Starts slightly above the title */
+            width: 12vw;
+            max-width: 180px;
+            height: auto;
+            opacity: 0.8;
+            transition: top 0.8s ease-out;
+        }
+        /* Responsive Adjustments */
+        @media screen and (max-width: 1024px) {
+            .dna-gif { width: 15vw; }
+        }
+        @media screen and (max-width: 768px) {
+            .dna-gif { width: 20vw; top: -40px; }
+            .title-container h1 { font-size: 2.5rem; } /* Adjust title for mobile */
+            h1 {
+        font-size: 1.8rem !important;  /* Adjust the title */
+    }
+
+    h2 {
+        font-size: 1.4rem !important;  /* Adjust section headings */
+    }
+
+    h3 {
+        font-size: 1.2rem !important;  /* Adjust subheadings */
+    }
+
+    p, li {
+        font-size: 0.9rem !important;  /* Adjust paragraphs & list items */
+    }
+
+    .navbar a {
+        font-size: 0.85rem !important; /* Adjust navbar links */
+    }
+       
+        }
+        @media screen and (max-width: 480px) {
+            .dna-gif { width: 25vw; top: -20px; }
+            .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
+            .navbar a { font-size: 1rem; } /* Resize navbar links */
+        }
+        /* Section Containers */
+        .section {
+            padding: 100px 10vw;
+            position: relative;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        /* Dark Mode Effect */
+        .section.active {
+            background: #111111;
+            color: #ffffff;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        .section.active .dna-gif {
+            filter: invert(1);
+        }
+        /* Section Divider */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: #111;
+            margin: 50px 0;
+        }
+        /* Headings */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
+            opacity: 0.7;
+            color: #111;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="#">Blogs</a>
+    <a href="#">Careers</a>
+    <a href="#">Collaborate With Us</a>
+    <a href="#">News</a>
+</div>
+
+<!-- DNA GIF -->
+<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
+
+<!-- Title Section -->
+<div class="title-container">
+    <h1>Type 3 Civilization Technologies</h1>
+    <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Sections -->
+<div class="section" id="section1">
+    <h2>01 // A SYSTEM BUILT TO FAIL</h2>
+    <p>The current healthcare model is reactionary it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
+<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section2">
+    <h2>02 // THE NEXT FRAMEWORK</h2>
+    <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
+    <p><strong>→ On-demand, dynamic drug release</strong></p>
+    <p><strong>→ A decentralized, encrypted health data ecosystem</strong></p>
+    <p>I.e</p>
+    <li>Your physiology is measured in real-time. No more waiting for symptoms to detect disease.</li>
+    <li>Medications are dynamically adjusted. Drug release is controlled by live biometrics, not outdated schedules.</li>
+    <li>Your health data is yours. Encrypted, decentralized, and only accessible by you.</li>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section3">
+    <h2>03 // HOW IT WORKS</h2>
+    <h3>3.1 | The Biowearable</h3>
+<p>A microneedle sensor array sits at the interface of skin and interstitial fluid. Each microneedle is engineered for <b>painless,real-time biochemical tracking</b>.</p>
+
+<h3>3.2 | Adaptive Drug System</h3>
+<p>Instead of fixed doses, medication is released only when biomarker fluctuations cross defined thresholds. A nanofluidic-controlled reservoir, actuated by stimulus-responsive polymers, ensures that treatment is <b>precise,no overdoses, no inefficiencies</b>.</p>
+
+<h3>3.3 | Encrypted Block chain Data Layer</h3>
+<p>Every dataset is <b>hashed, encrypted, and owned by the individual</b>. Users can grant selective access to research organizations, receive <b>monetary compensation,and retain full control over permissions</b>.</p>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section4">
+    <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
+<h3>4.1 | Microneedle Biosensing Architecture</h3>
+<ul>
+    
+    <li>Electrochemical transduction layer</li>
+    <li>Molecular recognition via enzymatic coating</li>
+    <li>Data transmission via BLE & LORA protocol</li>
+</ul>
+
+<h3>4.2 | Precision Drug Delivery System</h3>
+<ul>
+    <li>Nano-mesh actuator-controlled reservoirs</li>
+    <li>Polymeric membranes enabling dynamic permeability</li>
+    <li>AI-driven biomarker-to-drug algorithms</li>
+</ul>
+
+<h3>4.3 | Decentralized Data Ownership</h3>
+<ul>
+    <li>Private chain & Zero-knowledge proof encryption</li>
+    <li>Self-sovereign health data architecture</li>
+    <li>Tokenized data-sharing for research monetization</li>
+</ul>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section5">
+    <h2>05 // RESEARCH PARTNERS</h2>
+    <ul>
+        <li>BITS Pilani K.K Birla Goa – Biowearable development & sensor integration</li>
+        <li>Dr. Moopen’s Hospital iNest, Kerala – Clinical trials & validation</li>
+        <li>Maker Village,Kerala – Fabrication</li>
+        <li>BITS BioCyTiH Foundation, Goa - Sensor & Microneedle Development </li>
+        <li>Tata Institute of Social Sciences Incube Foundation, Mumbai - Business Development</li>
+    </ul>
+</div>
+
+<div class="divider"></div>
+
+<footer>
+&copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+</footer>
+
+<script>
+    function handleScroll() {
+    let sections = document.querySelectorAll('.section');
+    let dnaGif = document.getElementById("dnaGif");
+    let titleContainer = document.querySelector(".title-container");
+    let viewportHeight = window.innerHeight;
+    let activeSection = null;
+
+    sections.forEach((section) => {
+        let rect = section.getBoundingClientRect();
+
+        // If at least 50% of the section is in view, mark it as active
+        if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
+            if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                activeSection = section;
+            }
+        }
+    });
+
+    // Remove active class from all sections
+    sections.forEach(section => section.classList.remove("active"));
+
+    if (activeSection) {
+        activeSection.classList.add("active");
+
+        // Move GIF smoothly to align with section heading
+        let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+        let targetPosition = sectionTop - 120;
+        dnaGif.style.transition = "top 1.3s ease-out";
+        dnaGif.style.top = `${targetPosition}px`;
+    }
+
+    // Ensure DNA GIF stops above the title
+    let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+
+    if (window.scrollY <= titleTop + 50) {
+        dnaGif.style.top = `${titleTop - 250}px`;
+    }
+}
+
+window.addEventListener('scroll', handleScroll);
+</script>
+
+</body>
+</html>
