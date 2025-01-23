@@ -67,23 +67,38 @@
             opacity: 0.8;
             transition: top 0.8s ease-out;
         }
-        /* Dark Mode Logo */
+
+        /* Logos */
+        .logo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-lightmode,
         .logo-darkmode {
-            display: none;
             width: 120px;
             height: auto;
             position: absolute;
-            top: 10px;
             left: 50%;
             transform: translateX(-50%);
             transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
-        /* Show dark mode logo when section is active */
-        .section.active .logo-darkmode {
-            display: block;
-            filter: invert(1);
-            opacity: 1;
+
+        /* Light Mode (Default) */
+        .logo-darkmode {
+            display: none;
         }
+
+        /* Dark Mode */
+        .section.active .logo-lightmode {
+            display: none; /* Hide light mode logo */
+        }
+
+        .section.active .logo-darkmode {
+            display: block; /* Show dark mode logo */
+        }
+
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
@@ -160,7 +175,10 @@
 
 <!-- Sections -->
 <div class="section" id="section1">
-    <img src="https://github.com/romyroyz/T3cwebpreview/blob/main/logo.png" class="logo-darkmode" alt="Dark Mode Logo">
+    <div class="logo-container">
+        <img src="light-logo.png" class="logo-lightmode" alt="Light Mode Logo">
+        <img src="dark-logo.png" class="logo-darkmode" alt="Dark Mode Logo">
+    </div>
     <h2>01 // A SYSTEM BUILT TO FAIL</h2>
     <p>The current healthcare model is reactionary...</p>
 </div>
@@ -176,25 +194,6 @@
 
 <div class="divider"></div>
 
-<div class="section" id="section3">
-    <h2>03 // HOW IT WORKS</h2>
-    <h3>3.1 | The Biowearable</h3>
-    <p>A microneedle sensor array sits at the interface of skin and interstitial fluid...</p>
-</div>
-
-<div class="divider"></div>
-
-<div class="section" id="section4">
-    <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-    <h3>4.1 | Microneedle Biosensing Architecture</h3>
-    <ul>
-        <li>Electrochemical transduction layer</li>
-        <li>Molecular recognition via enzymatic coating</li>
-    </ul>
-</div>
-
-<div class="divider"></div>
-
 <footer>
     &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
@@ -203,7 +202,6 @@
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
-        let darkModeLogos = document.querySelectorAll('.logo-darkmode');
         let activeSection = null;
 
         sections.forEach((section) => {
@@ -216,14 +214,9 @@
         });
 
         sections.forEach(section => section.classList.remove("active"));
-        darkModeLogos.forEach(logo => logo.style.display = "none");
 
         if (activeSection) {
             activeSection.classList.add("active");
-            let darkModeLogo = activeSection.querySelector('.logo-darkmode');
-            if (darkModeLogo) {
-                darkModeLogo.style.display = "block";
-            }
         }
     }
 
