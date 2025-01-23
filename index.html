@@ -72,23 +72,21 @@
             position: absolute;
             top: 20px; /* Position the logo inside the section */
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) scale(0); /* Start with a small size */
             opacity: 0; /* Hidden by default */
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             z-index: 10; /* Ensure the logo is above other content */
         }
         /* Logo Image */
         .section-logo {
-            width: 80px; /* Default size */
+            width: 200px; /* Bigger size in dark mode */
             height: auto;
             transition: width 0.5s ease-in-out; /* Smooth size transition */
         }
-        /* Show logo and make it bigger when section is active (dark mode) */
+        /* Show logo and zoom in when section is active (dark mode) */
         .section.active .logo-container {
             opacity: 1; /* Visible in dark mode */
-        }
-        .section.active .section-logo {
-            width: 120px; /* Bigger size in dark mode */
+            transform: translateX(-50%) scale(1); /* Zoom in to full size */
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
@@ -113,10 +111,7 @@
                 font-size: 0.85rem !important; /* Adjust navbar links */
             }
             .section-logo {
-                width: 60px; /* Smaller logo for tablets */
-            }
-            .section.active .section-logo {
-                width: 100px; /* Smaller active logo for tablets */
+                width: 150px; /* Smaller logo for tablets */
             }
         }
         @media screen and (max-width: 480px) {
@@ -124,10 +119,7 @@
             .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
             .navbar a { font-size: 1rem; } /* Resize navbar links */
             .section-logo {
-                width: 50px; /* Smaller logo for mobile */
-            }
-            .section.active .section-logo {
-                width: 80px; /* Smaller active logo for mobile */
+                width: 120px; /* Smaller logo for mobile */
             }
         }
         /* Section Containers */
