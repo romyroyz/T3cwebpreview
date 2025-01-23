@@ -67,37 +67,6 @@
             opacity: 0.8;
             transition: top 0.8s ease-out;
         }
-
-.section.active .logo-darkmode {
-    display: block; /* Show only in dark mode */
-}   
-
-.section.active .logo-darkmode {
-    display: block; /* Show only in dark mode */
-}
-
-.section.active .logo-darkmode {
-    display: block; /* Show only in dark mode */
-}
-
-.section.active .logo-darkmode {
-    display: block; /* Show only in dark mode */
-}
- /* Hide dark mode logo by default */
-.logo-darkmode {
-    display: none;  /* Hidden in normal mode */
-    width: 100px;  /* Adjust size */
-    height: auto;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Show dark mode logo only when section is active */
-.section.active .logo-darkmode {
-    display: block;  /* Appears only in dark mode */
-}       
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
@@ -198,12 +167,6 @@
 
 <!-- Sections -->
 <div class="section" id="section1">
-    <div class="section" id="section1">
-    <img src="https://github.com/romyroyz/T3cwebpreview/blob/6cbbf52cf5299b466cb362cf5198880fc79f6487/logo.png" 
-         class="logo-darkmode" id="darkModeLogo" alt="Dark Mode Logo">
-    <h2>01 // A SYSTEM BUILT TO FAIL</h2>
-    <p>The current healthcare model is reactionary...</p>
-    </div>
     <h2>01 // A SYSTEM BUILT TO FAIL</h2>
     <p>The current healthcare model is reactionary it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
 <p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.</p>
@@ -286,50 +249,46 @@
 
 <script>
     function handleScroll() {
-<script>
-    function handleScroll() {
-        let sections = document.querySelectorAll('.section');
-        let dnaGif = document.getElementById("dnaGif");
-        let darkModeLogos = document.querySelectorAll('.logo-darkmode'); // Get all dark mode logos
-        let titleContainer = document.querySelector(".title-container");
-        let viewportHeight = window.innerHeight;
-        let activeSection = null;
+    let sections = document.querySelectorAll('.section');
+    let dnaGif = document.getElementById("dnaGif");
+    let titleContainer = document.querySelector(".title-container");
+    let viewportHeight = window.innerHeight;
+    let activeSection = null;
 
-        sections.forEach((section) => {
-            let rect = section.getBoundingClientRect();
-            if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
-                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                    activeSection = section;
-                }
-            }
-        });
+    sections.forEach((section) => {
+        let rect = section.getBoundingClientRect();
 
-        sections.forEach(section => section.classList.remove("active"));
-        darkModeLogos.forEach(logo => logo.style.display = "none"); // Hide all dark mode logos
-
-        if (activeSection) {
-            activeSection.classList.add("active");
-
-            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
-            let targetPosition = sectionTop - 120;
-            dnaGif.style.transition = "top 1.3s ease-out";
-            dnaGif.style.top = `${targetPosition}px`;
-
-            // Show dark mode logo if the section is in dark mode
-            let darkModeLogo = activeSection.querySelector('.logo-darkmode');
-            if (darkModeLogo) {
-                darkModeLogo.style.display = "block";
+        // If at least 50% of the section is in view, mark it as active
+        if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
+            if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                activeSection = section;
             }
         }
+    });
 
-        let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
-        if (window.scrollY <= titleTop + 50) {
-            dnaGif.style.top = `${titleTop - 250}px`;
-        }
+    // Remove active class from all sections
+    sections.forEach(section => section.classList.remove("active"));
+
+    if (activeSection) {
+        activeSection.classList.add("active");
+
+        // Move GIF smoothly to align with section heading
+        let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+        let targetPosition = sectionTop - 120;
+        dnaGif.style.transition = "top 1.3s ease-out";
+        dnaGif.style.top = `${targetPosition}px`;
     }
 
-    window.addEventListener('scroll', handleScroll);
+    // Ensure DNA GIF stops above the title
+    let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+
+    if (window.scrollY <= titleTop + 50) {
+        dnaGif.style.top = `${titleTop - 250}px`;
+    }
+}
+
+window.addEventListener('scroll', handleScroll);
 </script>
+
 </body>
 </html>
-Let's see above HTML. As you can see, the invoked one is only on the mobile optimization site. So we want it to be applied across all the devices, not just the mobile. So make the HTML input available.
