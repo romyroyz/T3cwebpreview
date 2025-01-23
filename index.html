@@ -67,6 +67,24 @@
             opacity: 0.8;
             transition: top 0.8s ease-out;
         }
+        /* Logo Container */
+        .logo-container {
+            position: absolute;
+            top: -50px; /* Adjust this value to position the logo above the section title */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.5s ease-in-out;
+        }
+        /* Logo Image */
+        .section-logo {
+            width: 80px; /* Adjust the size as needed */
+            height: auto;
+        }
+        /* Show logo when section is active (dark mode) */
+        .section.active .logo-container {
+            opacity: 1; /* Visible in dark mode */
+        }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
@@ -75,30 +93,28 @@
             .dna-gif { width: 20vw; top: -40px; }
             .title-container h1 { font-size: 2.5rem; } /* Adjust title for mobile */
             h1 {
-        font-size: 1.8rem !important;  /* Adjust the title */
-    }
-
-    h2 {
-        font-size: 1.4rem !important;  /* Adjust section headings */
-    }
-
-    h3 {
-        font-size: 1.2rem !important;  /* Adjust subheadings */
-    }
-
-    p, li {
-        font-size: 0.9rem !important;  /* Adjust paragraphs & list items */
-    }
-
-    .navbar a {
-        font-size: 0.85rem !important; /* Adjust navbar links */
-    }
-       
+                font-size: 1.8rem !important;  /* Adjust the title */
+            }
+            h2 {
+                font-size: 1.4rem !important;  /* Adjust section headings */
+            }
+            h3 {
+                font-size: 1.2rem !important;  /* Adjust subheadings */
+            }
+            p, li {
+                font-size: 0.9rem !important;  /* Adjust paragraphs & list items */
+            }
+            .navbar a {
+                font-size: 0.85rem !important; /* Adjust navbar links */
+            }
         }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
             .navbar a { font-size: 1rem; } /* Resize navbar links */
+            .section-logo {
+                width: 60px; /* Smaller logo for mobile */
+            }
         }
         /* Section Containers */
         .section {
@@ -167,14 +183,20 @@
 
 <!-- Sections -->
 <div class="section" id="section1">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
     <h2>01 // A SYSTEM BUILT TO FAIL</h2>
     <p>The current healthcare model is reactionary it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-<p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.</p>
+    <p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="section" id="section2">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
     <h2>02 // THE NEXT FRAMEWORK</h2>
     <p><strong>→ Continuous, real-time biomarker monitoring</strong></p>
     <p><strong>→ On-demand, dynamic drug release</strong></p>
@@ -188,49 +210,55 @@
 <div class="divider"></div>
 
 <div class="section" id="section3">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
     <h2>03 // HOW IT WORKS</h2>
     <h3>3.1 | The Biowearable</h3>
-<p>A microneedle sensor array sits at the interface of skin and interstitial fluid. Each microneedle is engineered for <b>painless,real-time biochemical tracking</b>.</p>
+    <p>A microneedle sensor array sits at the interface of skin and interstitial fluid. Each microneedle is engineered for <b>painless,real-time biochemical tracking</b>.</p>
 
-<h3>3.2 | Adaptive Drug System</h3>
-<p>Instead of fixed doses, medication is released only when biomarker fluctuations cross defined thresholds. A nanofluidic-controlled reservoir, actuated by stimulus-responsive polymers, ensures that treatment is <b>precise,no overdoses, no inefficiencies</b>.</p>
+    <h3>3.2 | Adaptive Drug System</h3>
+    <p>Instead of fixed doses, medication is released only when biomarker fluctuations cross defined thresholds. A nanofluidic-controlled reservoir, actuated by stimulus-responsive polymers, ensures that treatment is <b>precise,no overdoses, no inefficiencies</b>.</p>
 
-<h3>3.3 | Encrypted Block chain Data Layer</h3>
-<p>Every dataset is <b>hashed, encrypted, and owned by the individual</b>. Users can grant selective access to research organizations, receive <b>monetary compensation,and retain full control over permissions</b>.</p>
-
+    <h3>3.3 | Encrypted Block chain Data Layer</h3>
+    <p>Every dataset is <b>hashed, encrypted, and owned by the individual</b>. Users can grant selective access to research organizations, receive <b>monetary compensation,and retain full control over permissions</b>.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="section" id="section4">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
     <h2>04 // THE TECHNOLOGY BEHIND IT</h2>
-<h3>4.1 | Microneedle Biosensing Architecture</h3>
-<ul>
-    
-    <li>Electrochemical transduction layer</li>
-    <li>Molecular recognition via enzymatic coating</li>
-    <li>Data transmission via BLE & LORA protocol</li>
-</ul>
+    <h3>4.1 | Microneedle Biosensing Architecture</h3>
+    <ul>
+        <li>Electrochemical transduction layer</li>
+        <li>Molecular recognition via enzymatic coating</li>
+        <li>Data transmission via BLE & LORA protocol</li>
+    </ul>
 
-<h3>4.2 | Precision Drug Delivery System</h3>
-<ul>
-    <li>Nano-mesh actuator-controlled reservoirs</li>
-    <li>Polymeric membranes enabling dynamic permeability</li>
-    <li>AI-driven biomarker-to-drug algorithms</li>
-</ul>
+    <h3>4.2 | Precision Drug Delivery System</h3>
+    <ul>
+        <li>Nano-mesh actuator-controlled reservoirs</li>
+        <li>Polymeric membranes enabling dynamic permeability</li>
+        <li>AI-driven biomarker-to-drug algorithms</li>
+    </ul>
 
-<h3>4.3 | Decentralized Data Ownership</h3>
-<ul>
-    <li>Private chain & Zero-knowledge proof encryption</li>
-    <li>Self-sovereign health data architecture</li>
-    <li>Tokenized data-sharing for research monetization</li>
-</ul>
-
+    <h3>4.3 | Decentralized Data Ownership</h3>
+    <ul>
+        <li>Private chain & Zero-knowledge proof encryption</li>
+        <li>Self-sovereign health data architecture</li>
+        <li>Tokenized data-sharing for research monetization</li>
+    </ul>
 </div>
 
 <div class="divider"></div>
 
 <div class="section" id="section5">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
     <h2>05 // RESEARCH PARTNERS</h2>
     <ul>
         <li>BITS Pilani K.K Birla Goa – Biowearable development & sensor integration</li>
@@ -244,50 +272,50 @@
 <div class="divider"></div>
 
 <footer>
-&copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+    &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
 
 <script>
     function handleScroll() {
-    let sections = document.querySelectorAll('.section');
-    let dnaGif = document.getElementById("dnaGif");
-    let titleContainer = document.querySelector(".title-container");
-    let viewportHeight = window.innerHeight;
-    let activeSection = null;
+        let sections = document.querySelectorAll('.section');
+        let dnaGif = document.getElementById("dnaGif");
+        let titleContainer = document.querySelector(".title-container");
+        let viewportHeight = window.innerHeight;
+        let activeSection = null;
 
-    sections.forEach((section) => {
-        let rect = section.getBoundingClientRect();
+        sections.forEach((section) => {
+            let rect = section.getBoundingClientRect();
 
-        // If at least 50% of the section is in view, mark it as active
-        if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
-            if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                activeSection = section;
+            // If at least 50% of the section is in view, mark it as active
+            if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
+                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                    activeSection = section;
+                }
             }
+        });
+
+        // Remove active class from all sections
+        sections.forEach(section => section.classList.remove("active"));
+
+        if (activeSection) {
+            activeSection.classList.add("active");
+
+            // Move GIF smoothly to align with section heading
+            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = sectionTop - 120;
+            dnaGif.style.transition = "top 1.3s ease-out";
+            dnaGif.style.top = `${targetPosition}px`;
         }
-    });
 
-    // Remove active class from all sections
-    sections.forEach(section => section.classList.remove("active"));
+        // Ensure DNA GIF stops above the title
+        let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
 
-    if (activeSection) {
-        activeSection.classList.add("active");
-
-        // Move GIF smoothly to align with section heading
-        let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
-        let targetPosition = sectionTop - 120;
-        dnaGif.style.transition = "top 1.3s ease-out";
-        dnaGif.style.top = `${targetPosition}px`;
+        if (window.scrollY <= titleTop + 50) {
+            dnaGif.style.top = `${titleTop - 250}px`;
+        }
     }
 
-    // Ensure DNA GIF stops above the title
-    let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
-
-    if (window.scrollY <= titleTop + 50) {
-        dnaGif.style.top = `${titleTop - 250}px`;
-    }
-}
-
-window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 </script>
 
 </body>
