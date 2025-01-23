@@ -281,46 +281,49 @@
 
 <script>
     function handleScroll() {
-    let sections = document.querySelectorAll('.section');
-    let dnaGif = document.getElementById("dnaGif");
-    let titleContainer = document.querySelector(".title-container");
-    let viewportHeight = window.innerHeight;
-    let activeSection = null;
+<script>
+    function handleScroll() {
+        let sections = document.querySelectorAll('.section');
+        let dnaGif = document.getElementById("dnaGif");
+        let darkModeLogos = document.querySelectorAll('.logo-darkmode'); // Get all dark mode logos
+        let titleContainer = document.querySelector(".title-container");
+        let viewportHeight = window.innerHeight;
+        let activeSection = null;
 
-    sections.forEach((section) => {
-        let rect = section.getBoundingClientRect();
+        sections.forEach((section) => {
+            let rect = section.getBoundingClientRect();
+            if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
+                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                    activeSection = section;
+                }
+            }
+        });
 
-        // If at least 50% of the section is in view, mark it as active
-        if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
-            if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
-                activeSection = section;
+        sections.forEach(section => section.classList.remove("active"));
+        darkModeLogos.forEach(logo => logo.style.display = "none"); // Hide all dark mode logos
+
+        if (activeSection) {
+            activeSection.classList.add("active");
+
+            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = sectionTop - 120;
+            dnaGif.style.transition = "top 1.3s ease-out";
+            dnaGif.style.top = `${targetPosition}px`;
+
+            // Show dark mode logo if the section is in dark mode
+            let darkModeLogo = activeSection.querySelector('.logo-darkmode');
+            if (darkModeLogo) {
+                darkModeLogo.style.display = "block";
             }
         }
-    });
 
-    // Remove active class from all sections
-    sections.forEach(section => section.classList.remove("active"));
-
-    if (activeSection) {
-        activeSection.classList.add("active");
-
-        // Move GIF smoothly to align with section heading
-        let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
-        let targetPosition = sectionTop - 120;
-        dnaGif.style.transition = "top 1.3s ease-out";
-        dnaGif.style.top = `${targetPosition}px`;
+        let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY <= titleTop + 50) {
+            dnaGif.style.top = `${titleTop - 250}px`;
+        }
     }
 
-    // Ensure DNA GIF stops above the title
-    let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
-
-    if (window.scrollY <= titleTop + 50) {
-        dnaGif.style.top = `${titleTop - 250}px`;
-    }
-}
-
-window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 </script>
-
 </body>
 </html>
