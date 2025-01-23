@@ -70,20 +70,25 @@
         /* Logo Container */
         .logo-container {
             position: absolute;
-            top: -50px; /* Adjust this value to position the logo above the section title */
+            top: -80px; /* Move the logo higher above the section title */
             left: 50%;
             transform: translateX(-50%);
             opacity: 0; /* Hidden by default */
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
+            padding: 20px; /* Add padding for the dark background */
+            border-radius: 50%; /* Optional: Makes the background circular */
+            background-color: transparent; /* No background by default */
         }
         /* Logo Image */
         .section-logo {
-            width: 80px; /* Adjust the size as needed */
+            width: 120px; /* Increased logo size */
             height: auto;
+            display: block; /* Ensures the logo is centered in the container */
         }
-        /* Show logo when section is active (dark mode) */
+        /* Show logo and add dark background when section is active (dark mode) */
         .section.active .logo-container {
             opacity: 1; /* Visible in dark mode */
+            background-color: #111111; /* Dark background for the logo */
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
@@ -107,13 +112,16 @@
             .navbar a {
                 font-size: 0.85rem !important; /* Adjust navbar links */
             }
+            .section-logo {
+                width: 100px; /* Slightly smaller logo for tablets */
+            }
         }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
             .navbar a { font-size: 1rem; } /* Resize navbar links */
             .section-logo {
-                width: 60px; /* Smaller logo for mobile */
+                width: 80px; /* Smaller logo for mobile */
             }
         }
         /* Section Containers */
