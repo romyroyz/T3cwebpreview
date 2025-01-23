@@ -79,14 +79,25 @@
         }
         /* Logo Image */
         .section-logo {
-            width: 300px; /* Bigger size in dark mode */
+            width: 300px; /* Base size for the logo */
             height: auto;
-            transition: width 1s ease-in-out; /* Smooth size transition */
+            transition: width 1s ease-in-out, transform 1s ease-in-out; /* Smooth transitions */
         }
         /* Show logo and zoom in when section is active (dark mode) */
         .section.active .logo-container {
             opacity: 1; /* Visible in dark mode */
-            transform: translateX(-50%) scale(2); /* Zoom in to full size */
+            transform: translateX(-50%) scale(1.5); /* Default zoom for larger screens */
+        }
+        /* Adjust scaling for smaller screens (tablet and mobile) */
+        @media screen and (max-width: 1024px) {
+            .section.active .logo-container {
+                transform: translateX(-50%) scale(2); /* Larger zoom for tablets */
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .section.active .logo-container {
+                transform: translateX(-50%) scale(2); /* Larger zoom for mobile */
+            }
         }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
@@ -110,17 +121,11 @@
             .navbar a {
                 font-size: 0.85rem !important; /* Adjust navbar links */
             }
-            .section-logo {
-                width: 150px; /* Smaller logo for tablets */
-            }
         }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; } /* Smaller title on mobile */
             .navbar a { font-size: 1rem; } /* Resize navbar links */
-            .section-logo {
-                width: 120px; /* Smaller logo for mobile */
-            }
         }
         /* Section Containers */
         .section {
