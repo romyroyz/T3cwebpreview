@@ -23,66 +23,61 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Navbar */
-.navbar {
-    display: flex;
-    justify-content: center;
-    background: #ffffff;
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 2px solid #ddd;
-}
-
-/* Navbar Links */
-.navbar a, .dropbtn {
-    color: #111;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-/* Dropdown Container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Initially Hidden) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: #ffffff;
-    min-width: 200px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-/* Dropdown Links */
-.dropdown-content a {
-    color: #111;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Hover Effect */
-.dropdown-content a:hover {
-    background: #ff0077;
-    color: #ffffff;
-}
-
-/* Show Dropdown When Hovered */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar a {
+            color: #111111;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #ff0077;
+        }
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #111111;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        /* Hover Effect for Dropdown Links */
+        .dropdown-content a:hover {
+            background: #f1f1f1;
+        }
         /* Title Section */
         .title-container {
             margin-top: 180px;
@@ -220,13 +215,7 @@
         </div>
     </div>
     <a href="#blogs">Blogs</a>
-    <div class="dropdown">
     <a href="#technology">Technology</a>
-    <div class="dropdown-content">
-        <a href="#bio-wearable">Bio-Wearable</a>
-        <a hraf="#drug delivery">Drug delivery</a>
-        <a hraf="#Decentralised ecosystem">Decentralised Ecosystem</a>
-    </div>
     <a href="#news">News</a>
 </div>
 
@@ -248,8 +237,7 @@
     </div>
     <h2>01 // A SYSTEM BUILT TO FAIL</h2>
     <p>The current healthcare model is reactionary it waits for symptoms, prescribes standardized treatments, and extracts patient data for corporate gain. It is outdated.</p>
-    <p>At <span class="highlight">T3C</span>, we are changing the game.</p>
-    <p>We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.</p>
+    <p>At <span class="highlight">T3C</span>, we reject this. We are engineering a system where your biology speaks, where medicine adapts to your needs in real-time, and where data belongs to the human, not the institution.</p>
 </div>
 
 <div class="divider"></div>
