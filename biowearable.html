@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-Wearable | Type 3 Civilization Technologies</title>
+    <title>T3C | The Future of Healthcare</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -48,24 +48,114 @@
         .navbar a:hover {
             color: #ff0077;
         }
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #111111;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        /* Hover Effect for Dropdown Links */
+        .dropdown-content a:hover {
+            background: #f1f1f1;
+        }
         /* Title Section */
         .title-container {
-            margin-top: 140px;
+            margin-top: 180px;
             text-align: center;
             position: relative;
-            padding: 10px;
+            padding: 20px;
         }
         /* DNA GIF */
         .dna-gif {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: -40px;
+            top: -60px;
             width: 12vw;
             max-width: 180px;
             height: auto;
             opacity: 0.8;
             transition: top 0.8s ease-out;
+        }
+        /* Logo Container */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            z-index: 10;
+        }
+        /* Logo Image */
+        .section-logo {
+            width: 150px;
+            height: auto;
+            transition: width 1s ease-in-out, transform 1.3s ease-in-out;
+        }
+        /* Show logo and zoom in when section is active (dark mode) */
+        .section.active .logo-container {
+            opacity: 1;
+            transform: translateX(-50%) scale(2);
+        }
+        /* Adjust scaling for smaller screens (tablet and mobile) */
+        @media screen and (max-width: 1024px) {
+            .section.active .logo-container {
+                transform: translateX(-50%) scale(2);
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .section.active .logo-container {
+                transform: translateX(-50%) scale(2);
+            }
+        }
+        /* Responsive Adjustments */
+        @media screen and (max-width: 1024px) {
+            .dna-gif { width: 15vw; }
+        }
+        @media screen and (max-width: 768px) {
+            .dna-gif { width: 20vw; top: -40px; }
+            .title-container h1 { font-size: 2.5rem; }
+            h1 {
+                font-size: 1.8rem !important;
+            }
+            h2 {
+                font-size: 1.4rem !important;
+            }
+            h3 {
+                font-size: 1.2rem !important;
+            }
+            p, li {
+                font-size: 0.9rem !important;
+            }
+            .navbar a {
+                font-size: 0.85rem !important;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .dna-gif { width: 25vw; top: -20px; }
+            .title-container h1 { font-size: 2rem; }
+            .navbar a { font-size: 1rem; }
         }
         /* Section Containers */
         .section {
@@ -109,16 +199,40 @@
             color: #111;
             padding-bottom: 20px;
         }
+        /* Highlight Links */
+        .highlight {
+            color: #ff0077;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .highlight:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
 <!-- Navigation Bar -->
 <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="biowearable.html">Bio-Wearable</a>
-    <a href="drugdelivery.html">Dynamic Drug Delivery</a>
-    <a href="decentralized.html">Decentralized Health Data</a>
+    <a href="#home">Home</a>
+    <div class="dropdown">
+        <a href="#about">About Us</a>
+        <div class="dropdown-content">
+            <a href="#team">Team</a>
+            <a href="#mission">Mission</a>
+            <a href="#partner">Partner With Us</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#technology">Technology</a>
+        <div class="dropdown-content">
+            <a href="#biowearable">Biowearable</a>
+            <a href="#drug-delivery">Drug Delivery</a>
+            <a href="#decentralized-ecosystem">Decentralized Ecosystem</a>
+        </div>
+    </div>
+    <a href="#blogs">Blogs</a>
+    <a href="#news">News</a>
 </div>
 
 <!-- DNA GIF -->
@@ -126,13 +240,13 @@
 
 <!-- Title Section -->
 <div class="title-container">
-    <h1>Microneedle-Based Bio-Wearables</h1>
-    <p>The Next Era of Continuous, Non-Invasive, Real-Time Biomarker Monitoring</p>
+    <h1>Type 3 Civilization Technologies</h1>
+    <p>A new paradigm in <span class="highlight">Precision Medicine</span>, <span class="highlight">Real-Time Biomarker Monitoring</span>, and <span class="highlight">Decentralized Health Data</span>.</p>
 </div>
 
 <div class="divider"></div>
 
-<!-- Sections -->
+<!-- Biowearable Section -->
 <div class="section" id="biowearable">
     <div class="logo-container">
         <img src="logo.png" alt="T3C Logo" class="section-logo">
@@ -151,44 +265,6 @@
     <h3>How It Works</h3>
     <p>The microneedle sensor array is embedded in a wearable patch that sits on the skin. Each microneedle is coated with an <strong>enzymatic layer</strong> that reacts with specific biomarkers in the interstitial fluid. The resulting electrochemical signals are processed by an onboard microcontroller and transmitted wirelessly to a connected device.</p>
 
-    <h3>Biomarkers Tracked by the Biowearable</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Biomarker</th>
-                <th>Function</th>
-                <th>Clinical Relevance</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Glucose</td>
-                <td>Energy metabolism</td>
-                <td>Diabetes management, metabolic health</td>
-            </tr>
-            <tr>
-                <td>Lactate</td>
-                <td>Anaerobic metabolism</td>
-                <td>Athletic performance, sepsis detection</td>
-            </tr>
-            <tr>
-                <td>Cortisol</td>
-                <td>Stress response</td>
-                <td>Mental health monitoring, adrenal function</td>
-            </tr>
-            <tr>
-                <td>Troponin</td>
-                <td>Cardiac muscle damage</td>
-                <td>Heart attack detection, cardiac health</td>
-            </tr>
-            <tr>
-                <td>CRP (C-reactive protein)</td>
-                <td>Inflammation marker</td>
-                <td>Chronic disease monitoring, infection detection</td>
-            </tr>
-        </tbody>
-    </table>
-
     <h3>Integration with Dynamic Drug Delivery</h3>
     <p>Our biowearable is seamlessly integrated with the <a href="#drug-delivery" class="highlight">Dynamic Drug Delivery System</a>, enabling real-time adjustments to medication based on biomarker data. This ensures <strong>precise, personalized treatment</strong> with no risk of overdosing or inefficiencies.</p>
 
@@ -198,25 +274,109 @@
     <h3>Why Investors Should Care</h3>
     <p>Our biowearable technology represents a <strong>paradigm shift in healthcare</strong>, combining cutting-edge engineering with user-centric design. By enabling real-time monitoring and personalized treatment, we are addressing a <strong>$50 billion market opportunity</strong> in precision medicine and wearable health tech. With a strong IP portfolio and partnerships with leading research institutions, T3C is poised to lead the next wave of healthcare innovation.</p>
 </div>
+
+<div class="divider"></div>
+
+<!-- Dynamic Drug Delivery Section -->
+<div class="section" id="drug-delivery">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>Dynamic Drug Delivery: Real-Time Personalized Medicine</h2>
+    <p>Our Dynamic Drug Delivery System leverages real-time biomarker data from the biowearable to deliver <strong>personalized, on-demand medication</strong>. This system ensures that drugs are released only when needed, optimizing treatment efficacy and minimizing side effects.</p>
+
+    <h3>Key Features of Dynamic Drug Delivery</h3>
+    <ul>
+        <li><strong>Real-Time Biomarker Monitoring</strong>: Continuous tracking of glucose, lactate, cortisol, and cardiac markers.</li>
+        <li><strong>AI-Driven Dosing Algorithms</strong>: Adaptive models that adjust drug dosage and timing based on live data.</li>
+        <li><strong>Nanofluidic-Controlled Reservoirs</strong>: Precise, on-demand drug release with zero patient intervention.</li>
+    </ul>
+
+    <h3>How It Works</h3>
+    <p>The system operates as a closed-loop feedback mechanism:</p>
+    <ol>
+        <li><strong>Biomarker Detection</strong>: Microneedle sensors continuously track biomarker fluctuations in interstitial fluid.</li>
+        <li><strong>AI-Based Decision Making</strong>: AI models interpret biomarker trends and determine necessary drug adjustments.</li>
+        <li><strong>Automated Drug Release</strong>: Smart nanofluidic-controlled reservoirs administer precise doses.</li>
+    </ol>
+
+    <h3>Integration with Biowearable</h3>
+    <p>Our Dynamic Drug Delivery System is deeply integrated with the <a href="#biowearable" class="highlight">Microneedle Biowearable</a>, ensuring continuous biomarker tracking as the primary input for drug modulation.</p>
+
+    <h3>Why Investors Should Care</h3>
+    <p>The intelligent drug delivery market is projected to grow to <strong>$80 billion by 2030</strong>. By leveraging microneedle-based biosensors, AI-driven dosing models, and nanofluidic drug reservoirs, T3C is at the forefront of this transformation.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Decentralized Data Management Section -->
+<div class="section" id="decentralized-ecosystem">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>Decentralized Data Management: Secure, User-Controlled Health Data</h2>
+    <p>Our blockchain-based ecosystem ensures that health data is <strong>secure, private, and owned by the individual</strong>. Users can grant selective access to researchers or healthcare providers, enabling <strong>monetization and personalized care</strong>.</p>
+
+    <h3>Key Features of Decentralized Health Data</h3>
+    <ul>
+        <li><strong>Blockchain-Powered Health Records</strong>: Immutable, encrypted patient data stored on a private ledger.</li>
+        <li><strong>Zero-Knowledge Proof Encryption</strong>: Ensures selective disclosure of medical history without revealing sensitive data.</li>
+        <li><strong>Tokenized Data-Sharing Mechanism</strong>: Monetization of data access through smart contracts.</li>
+    </ul>
+
+    <h3>How It Works</h3>
+    <p>Each patient’s health data is stored as an immutable blockchain entry, preventing data tampering and unauthorized access. Users can opt to share health data with research institutions in exchange for tokenized incentives.</p>
+
+    <h3>Integration with Biowearable and Drug Delivery</h3>
+    <p>Our decentralized data infrastructure ensures secure integration between the <a href="#biowearable" class="highlight">Microneedle Biowearable</a> and <a href="#drug-delivery" class="highlight">Dynamic Drug Delivery System</a>, enabling tamper-proof medical history for AI-driven therapy adjustments.</p>
+
+    <h3>Why Investors Should Care</h3>
+    <p>The decentralized health data market is projected to reach <strong>$200 billion by 2030</strong>. By leveraging blockchain, zero-knowledge proofs, and smart contracts, T3C is redefining how health data is stored, accessed, and monetized.</p>
+</div>
+
+<div class="divider"></div>
+
+<footer>
+    &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+</footer>
+
 <script>
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
+        let titleContainer = document.querySelector(".title-container");
+        let viewportHeight = window.innerHeight;
         let activeSection = null;
 
         sections.forEach((section) => {
             let rect = section.getBoundingClientRect();
-            if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.2) {
+
+            // If at least 50% of the section is in view, mark it as active
+            if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
                 if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
                     activeSection = section;
                 }
             }
         });
 
+        // Remove active class from all sections
         sections.forEach(section => section.classList.remove("active"));
 
         if (activeSection) {
             activeSection.classList.add("active");
+
+            // Move GIF smoothly to align with section heading
+            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = sectionTop - 120;
+            dnaGif.style.transition = "top 1.3s ease-out";
+            dnaGif.style.top = `${targetPosition}px`;
+        }
+
+        // Ensure DNA GIF stops above the title
+        let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+
+        if (window.scrollY <= titleTop + 50) {
+            dnaGif.style.top = `${titleTop - 250}px`;
         }
     }
 
