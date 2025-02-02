@@ -223,6 +223,19 @@
             color: #54ffff;
             font-weight: 700;
         }
+        /* Sub-points Offset */
+        .sub-points {
+            margin-left: 20px; /* Offset for sub-points */
+        }
+        /* Table Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            table {
+                font-size: 0.8rem; /* Smaller font for mobile */
+            }
+            th, td {
+                padding: 8px; /* Smaller padding for mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -268,17 +281,25 @@
     </div>
     <h2>01 // The Problem</h2>
     <p>Conventional methods for biomarker monitoring involve <strong>venous blood draws, finger-prick tests, and urine analysis</strong>, which have significant limitations.</p>
-    <p><span class="highlight">Invasive & Painful:</span> Frequent blood testing is impractical and uncomfortable.</p>
-    <p><span class="highlight">Episodic Measurements:</span> Biomarkers fluctuate dynamically; single-point measurements fail to capture trends.</p>
-    <p><span class="highlight">Delayed Diagnosis:</span> Many conditions (e.g., metabolic disorders, heart attack) progress silently before clinical symptoms emerge.</p>
+
+    <!-- Sub-points with Offset -->
+    <div class="sub-points">
+        <p><span class="highlight">Invasive & Painful:</span> Frequent blood testing is impractical and uncomfortable.</p>
+        <p><span class="highlight">Episodic Measurements:</span> Biomarkers fluctuate dynamically; single-point measurements fail to capture trends.</p>
+        <p><span class="highlight">Delayed Diagnosis:</span> Many conditions (e.g., metabolic disorders, heart attack) progress silently before clinical symptoms emerge.</p>
+    </div>
 
     <h3>Interstitial Fluid (ISF) as an Alternative to Blood</h3>
     <p>Interstitial fluid (ISF), which bathes peripheral cells and closely mirrors blood chemistry, has emerged as a viable biofluid for real-time monitoring. Unlike blood, ISF can be continuously sampled using minimally invasive microneedles, offering:</p>
-    <ol>
-        <li>Comparable biomarker concentrations to blood plasma</li>
-        <li>No damage to capillaries or nerves</li>
-        <li>Near-painless, prolonged sampling</li>
-    </ol>
+
+    <!-- Numbered List with Offset -->
+    <div class="sub-points">
+        <ol>
+            <li>Comparable biomarker concentrations to blood plasma</li>
+            <li>No damage to capillaries or nerves</li>
+            <li>Near-painless, prolonged sampling</li>
+        </ol>
+    </div>
 </div>
 
 <div class="divider"></div>
@@ -291,11 +312,13 @@
     <p>The next generation of healthcare is <span class="highlight">continuous</span>, <span class="highlight">real-time</span>, <span class="highlight">dynamic</span>, <span class="highlight">painless</span>, and <span class="highlight">personalized</span>. Traditional blood-based biomarker assessments provide only discrete snapshots of physiological states, missing crucial metabolic fluctuations.</p>
     <p>Microneedle-based bio-wearables, designed to extract and analyze biomarkers from interstitial fluid (ISF), represent a paradigm shift in real-time health monitoring.</p>
     <h3>Our bio-wearable platform integrates:</h3>
-    <ol>
-        <li>Real-time biomarker sensing via microneedle technology</li>
-        <li>Dynamic Drug Delivery for personalized treatment optimization</li>
-        <li>Decentralized Health Data empowering secure, user-controlled medical records</li>
-    </ol>
+    <div class="sub-points">
+        <ol>
+            <li>Real-time biomarker sensing via microneedle technology</li>
+            <li>Dynamic Drug Delivery for personalized treatment optimization</li>
+            <li>Decentralized Health Data empowering secure, user-controlled medical records</li>
+        </ol>
+    </div>
 </div>
 
 <div class="divider"></div>
@@ -306,16 +329,20 @@
     </div>
     <h2>03 // Market Potential & Investment Outlook</h2>
     <h3>Addressable Market</h3>
-    <p><strong>1. Total Addressable Market (TAM):</strong> <span class="highlight">$40 Billion+ by 2030</span></p>
-    <p><strong>2. Continuous glucose monitoring (CGM) market:</strong> <span class="highlight">$13.8B</span></p>
-    <p><strong>3. Wearable biosensors market:</strong> <span class="highlight">$24.8B</span></p>
-    <p><strong>4. Sports & metabolic optimization market:</strong> <span class="highlight">$3B</span></p>
+    <div class="sub-points">
+        <p><strong>1. Total Addressable Market (TAM):</strong> <span class="highlight">$40 Billion+ by 2030</span></p>
+        <p><strong>2. Continuous glucose monitoring (CGM) market:</strong> <span class="highlight">$13.8B</span></p>
+        <p><strong>3. Wearable biosensors market:</strong> <span class="highlight">$24.8B</span></p>
+        <p><strong>4. Sports & metabolic optimization market:</strong> <span class="highlight">$3B</span></p>
+    </div>
     <h4>Revenue Streams</h4>
-    <ol>
-        <li>Hardware Sales (Microneedle patch & sensor module)</li>
-        <li>Subscription Model (AI-driven health insights & reports)</li>
-        <li>Enterprise Licensing (Research, clinical trials, pharma partnerships)</li>
-    </ol>
+    <div class="sub-points">
+        <ol>
+            <li>Hardware Sales (Microneedle patch & sensor module)</li>
+            <li>Subscription Model (AI-driven health insights & reports)</li>
+            <li>Enterprise Licensing (Research, clinical trials, pharma partnerships)</li>
+        </ol>
+    </div>
 </div>
 
 <div class="divider"></div>
@@ -326,12 +353,14 @@
     </div>
     <h2>04 // Technology Framework</h2>
     <p>Our technology stack operates as a closed-loop feedback mechanism:</p>
-    <ol>
-        <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF</li>
-        <li><strong>AI-Based Decision Making</strong> → AI models interpret biomarker trends and determine necessary drug adjustments</li>
-        <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses</li>
-        <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport</li>
-    </ol>
+    <div class="sub-points">
+        <ol>
+            <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF</li>
+            <li><strong>AI-Based Decision Making</strong> → AI models interpret biomarker trends and determine necessary drug adjustments</li>
+            <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses</li>
+            <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport</li>
+        </ol>
+    </div>
 </div>
 
 <div class="divider"></div>
