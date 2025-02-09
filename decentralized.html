@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Data | Type 3 Civilization Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Mono', monospace;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar a {
+            color: #111111;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #ff0077;
+        }
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #111111;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        /* Hover Effect for Dropdown Links */
+        .dropdown-content a:hover {
+            background: #f1f1f1;
+        }
+        /* Title Section */
+        .title-container {
+            margin-top: 180px;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+        /* DNA GIF */
+        .dna-gif {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px;
+            width: 12vw;
+            max-width: 180px;
+            height: auto;
+            opacity: 0.8;
+            transition: top 0.8s ease-out;
+        }
+        /* Logo Container */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            z-index: 10;
+        }
+        /* Logo Image */
+        .section-logo {
+            width: 150px;
+            height: auto;
+            transition: width 1s ease-in-out, transform 1.3s ease-in-out;
+        }
+        /* Show logo and zoom in when section is active (dark mode) */
+        .section.active .logo-container {
+            opacity: 1;
+            transform: translateX(-50%) scale(2);
+        }
+        /* Adjust scaling for smaller screens (tablet and mobile) */
+        @media screen and (max-width: 1024px) {
+            .section.active .logo-container {
+                transform: translateX(-50%) scale(2);
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .section.active .logo-container {
+                transform: translateX(-50%) scale(2);
+            }
+        }
+        /* Responsive Adjustments */
+        @media screen and (max-width: 1024px) {
+            .dna-gif { width: 15vw; }
+        }
+        @media screen and (max-width: 768px) {
+            .dna-gif { width: 20vw; top: -40px; }
+            .title-container h1 { font-size: 2.5rem; }
+            h1 {
+                font-size: 1.8rem !important;
+            }
+            h2 {
+                font-size: 1.4rem !important;
+            }
+            h3 {
+                font-size: 1.2rem !important;
+            }
+            p, li {
+                font-size: 0.9rem !important;
+            }
+            .navbar a {
+                font-size: 0.85rem !important;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .dna-gif { width: 25vw; top: -20px; }
+            .title-container h1 { font-size: 2rem; }
+            .navbar a { font-size: 1rem; }
+        }
+        /* Section Containers */
+        .section {
+            padding: 100px 10vw;
+            position: relative;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        /* Dark Mode Effect */
+        .section.active {
+            background: #111111;
+            color: #ffffff;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        .section.active .dna-gif {
+            filter: invert(1);
+        }
+        /* Section Divider */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: #111;
+            margin: 50px 0;
+        }
+        /* Headings */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
+            opacity: 0.7;
+            color: #111;
+            padding-bottom: 20px;
+        }
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f1f1f1;
+            font-weight: 700;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        /* Highlight Class */
+        .highlight {
+            color: #54ffff;
+            font-weight: 700;
+        }
+        /* Sub-points Offset */
+        .sub-points {
+            margin-left: 20px; /* Offset for sub-points */
+        }
+        /* Table Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            table {
+                font-size: 0.8rem; /* Smaller font for mobile */
+            }
+            th, td {
+                padding: 8px; /* Smaller padding for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+        <a href="#about">About Us</a>
+        <div class="dropdown-content">
+            <a href="#team">Team</a>
+            <a href="#mission">Mission</a>
+            <a href="#partner">Partner With Us</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#technology">Technology</a>
+        <div class="dropdown-content">
+            <a href="biowearable.html">Biowearable</a>
+            <a href="drugdelivery.html">Drug Delivery</a>
+            <a href="decentralized.html">Decentralized Data</a>
+        </div>
+    </div>
+    <a href="#blogs">Blogs</a>
+    <a href="#news">News</a>
+</div>
+
+<!-- DNA GIF -->
+<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
+
+<!-- Title Section -->
+<div class="title-container">
+    <h1>Decentralized Data</h1>
+    <p>Empowering users with <span class="highlight">secure</span>, <span class="highlight">private</span>, and <span class="highlight">user-controlled</span> health data.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Sections -->
+<div class="section" id="section1">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>01 // A $1.5T Problem</h2>
+    <p>Traditional healthcare infrastructure stores patient data in centralized servers, leading to:</p>
+    <div class="sub-points">
+        <ul>
+            <li>Vulnerability to breaches & cyberattacks</li>
+            <li>Monopolization by hospitals & insurance firms, preventing user access</li>
+            <li>Data sold to third parties without consent, generating billions for corporations</li>
+        </ul>
+    </div>
+    <p>This results in data silos, lack of transparency, and patient disempowerment.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section2">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>02 // Solution</h2>
+    <p>At Type 3 Civilization Technologies, we are pioneering a <span class="highlight">Decentralized Health Data Ecosystem</span> that empowers users to:</p>
+    <div class="sub-points">
+        <ul>
+            <li>Own and control their medical data through a blockchain-secured architecture</li>
+            <li>Monetize access to research organizations via smart contract-enabled transactions</li>
+            <li>Ensure privacy and security through zero-knowledge proof encryption</li>
+        </ul>
+    </div>
+    <p>By integrating decentralized identity verification, blockchain-powered health records, and AI-driven insights, we establish a sovereign health data model where users—not corporations—own their medical information.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section3">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>03 // Market Potential & Investment Outlook</h2>
+    <div class="sub-points">
+        <ul>
+            <li><strong>Digital Health Market:</strong> $240.9 billion (2023) → $1.5 trillion (2032) at a 21.9% CAGR.</li>
+            <li><strong>Blockchain Healthcare Market:</strong> $7.04 billion (2023) → $100+ billion (2030) at a 63.3% CAGR.</li>
+            <li><strong>Investor Confidence:</strong> $100+ billion invested in digital health startups (2020-2024).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section4">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>04 // Technology Framework</h2>
+    <p>Our Decentralized Health Data Ecosystem is built on three pillars:</p>
+    <div class="sub-points">
+        <ul>
+            <li><strong>Blockchain-Powered Health Records:</strong> Immutable, encrypted patient data stored on a private ledger</li>
+            <li><strong>Zero-Knowledge Proof Encryption:</strong> Ensuring selective disclosure of medical history without revealing sensitive data</li>
+            <li><strong>Tokenized Data-Sharing Mechanism:</strong> Monetization of data access through smart contracts</li>
+        </ul>
+    </div>
+    <h3>Smart Contract-Based Data Monetization</h3>
+    <p>Users can opt to share health data with research institutions & AI-driven clinical trials in exchange for tokenized incentives.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section5">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>05 // Scientific Validation & Real-World Applications</h2>
+    <h3>Key Use Cases for Decentralized Health Data</h3>
+    <table>
+        <tr>
+            <th>Application</th>
+            <th>Current Problems</th>
+            <th>How Our Model Solves It</th>
+        </tr>
+        <tr>
+            <td>Clinical Trials</td>
+            <td>Patient recruitment is slow & inefficient</td>
+            <td>Blockchain-verified biomarkers auto-matching eligible candidates</td>
+        </tr>
+        <tr>
+            <td>Health Insurance</td>
+            <td>Patients overpay due to generalized risk profiling</td>
+            <td>ZKP-based selective disclosure allows personalized insurance pricing</td>
+        </tr>
+        <tr>
+            <td>Telemedicine</td>
+            <td>Lack of interoperability between providers</td>
+            <td>Blockchain enables seamless, patient-controlled data exchange</td>
+        </tr>
+        <tr>
+            <td>Medical AI Development</td>
+            <td>Data silos block AI model training</td>
+            <td>Tokenized sharing allows privacy-preserving access to biomarker trends</td>
+        </tr>
+    </table>
+    <h3>The Impact of Patient-Controlled Health Data</h3>
+    <p>Studies show that decentralized patient data models reduce administrative inefficiencies by 30%, while increasing patient engagement and trust.</p>
+    <p>Regulatory bodies (e.g., HIPAA, GDPR) are increasingly mandating user-controlled health data policies, accelerating adoption of decentralized health data frameworks.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="section6">
+    <div class="logo-container">
+        <img src="logo.png" alt="T3C Logo" class="section-logo">
+    </div>
+    <h2>06 // Want to Know More?</h2>
+    <p>Fill the form to get in touch directly with us.</p>
+</div>
+
+<div class="divider"></div>
+
+<footer>
+    &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+</footer>
+
+<script>
+    function handleScroll() {
+        let sections = document.querySelectorAll('.section');
+        let dnaGif = document.getElementById("dnaGif");
+        let titleContainer = document.querySelector(".title-container");
+        let viewportHeight = window.innerHeight;
+        let activeSection = null;
+
+        sections.forEach((section) => {
+            let rect = section.getBoundingClientRect();
+
+            // If at least 50% of the section is in view, mark it as active
+            if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
+                if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
+                    activeSection = section;
+                }
+            }
+        });
+
+        // Remove active class from all sections
+        sections.forEach(section => section.classList.remove("active"));
+
+        if (activeSection) {
+            activeSection.classList.add("active");
+
+            // Move GIF smoothly to align with section heading
+            let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = sectionTop - 120;
+            dnaGif.style.transition = "top 1.3s ease-out";
+            dnaGif.style.top = `${targetPosition}px`;
+        }
+
+        // Ensure DNA GIF stops above the title
+        let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
+
+        if (window.scrollY <= titleTop + 50) {
+            dnaGif.style.top = `${titleTop - 250}px`;
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+</script>
+
+</body>
+</html>
