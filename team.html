@@ -5,27 +5,301 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Type 3 Civilization Technologies</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
     <style>
-        /* Page-specific styles */
-        .section { padding: 100px 10vw; text-align: center; transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, opacity 0.5s ease-in-out; opacity: 0.5; min-height: 400px; overflow: hidden; }
-        .section.active { background: #111111; color: #ffffff; opacity: 1; }
-        .section.active .dna-gif { filter: invert(1); }
-        .logo-container { position: absolute; top: 20px; left: 50%; transform: translateX(-50%) scale(0); opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; z-index: 10; pointer-events: none; }
-        .section.active .logo-container { opacity: 1; transform: translateX(-50%) scale(1.5); }
-        .section-logo { width: 150px; height: auto; transition: width 1s ease-in-out, transform 1.3s ease-in-out; filter: drop-shadow(0 0 10px rgba(84, 255, 255, 0.5)); }
-        .team-content, .mission-content, .partner-content { max-width: 900px; margin: 40px auto 0; }
-        .team-names { font-size: 1.8rem; color: #54ffff; font-weight: 700; margin: 20px 0; transition: all 0.3s ease-in-out; display: inline-block; position: relative; }
-        .team-names a { color: #54ffff; text-decoration: none; padding: 0 5px; transition: all 0.3s ease-in-out; }
-        .team-names a:hover { color: #111111; background: #54ffff; border-radius: 5px; text-shadow: none; transform: scale(1.05); }
-        .join-us { margin-top: 40px; font-size: 1.1rem; }
-        .contact-form { max-width: 600px; margin: 20px auto; display: flex; flex-direction: column; gap: 15px; }
-        .contact-form input, .contact-form textarea { padding: 10px; border: 1px solid #54ffff; border-radius: 5px; font-size: 1rem; }
-        .contact-form button { background: #54ffff; color: #111; border: none; padding: 10px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease-in-out; }
-        .contact-form button:hover { background: #111; color: #54ffff; transform: scale(1.05); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Mono', monospace;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 20px;
+        }
+        .navbar .nav-links {
+            display: inline-block;
+        }
+        .navbar a {
+            color: #111111;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar a:hover, .navbar a:focus {
+            color: #54ffff;
+            transform: scale(1.05);
+        }
+        .navbar a:focus {
+            outline: 2px solid #54ffff;
+            outline-offset: 2px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: #111111;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: all 0.3s ease-in-out;
+        }
+        .dropdown-content a:hover, .dropdown-content a:focus {
+            background: #f1f1f1;
+            transform: scale(1.05);
+        }
+        .dropdown-content a:focus {
+            outline: 2px solid #54ffff;
+            outline-offset: 2px;
+        }
+        /* Mobile Menu */
         @media (max-width: 768px) {
+            .navbar .hamburger {
+                display: inline-block;
+            }
+            .navbar .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                text-align: center;
+                padding: 20px 0;
+            }
+            .navbar .nav-links.active {
+                display: block;
+            }
+            .navbar a {
+                display: block;
+                margin: 15px 0;
+                font-size: 1rem;
+            }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+        /* Title Section */
+        .title-container {
+            margin-top: 100px;
+            text-align: center;
+            position: relative;
+            padding: 40px 20px;
+        }
+        .title-container .anchors {
+            margin-top: 20px;
+        }
+        .title-container .anchors a {
+            color: #54ffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .title-container .anchors a:hover, .title-container .anchors a:focus {
+            color: #111111;
+            background: #54ffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        /* DNA GIF */
+        .dna-gif {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px;
+            width: 12vw;
+            max-width: 180px;
+            height: auto;
+            opacity: 0.8;
+            transition: top 0.8s ease-out;
+        }
+        /* Section Containers */
+        .section {
+            padding: 100px 10vw;
+            position: relative;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+            min-height: 400px;
+            overflow: hidden;
+            opacity: 0.5;
+        }
+        .section.active {
+            background: #111111;
+            color: #ffffff;
+            opacity: 1;
+        }
+        .section.active .dna-gif {
+            filter: invert(1);
+        }
+        /* Logo Container */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .section.active .logo-container {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.5);
+        }
+        .section-logo {
+            width: 150px;
+            height: auto;
+            transition: width 1s ease-in-out, transform 1.3s ease-in-out;
+            filter: drop-shadow(0 0 10px rgba(84, 255, 255, 0.5));
+        }
+        /* Responsive Adjustments */
+        @media screen and (max-width: 1024px) {
+            .dna-gif { width: 15vw; }
+            .section.active .logo-container { transform: translateX(-50%) scale(1.5); }
+        }
+        @media screen and (max-width: 768px) {
+            .dna-gif { width: 20vw; top: -40px; }
+            .title-container h1 { font-size: 2.5rem; }
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.4rem !important; }
+            p, .team-names { font-size: 0.9rem !important; }
             .section.active .logo-container { transform: translateX(-50%) scale(1.2); }
             .section { padding: 80px 5vw; min-height: 350px; }
+        }
+        @media screen and (max-width: 480px) {
+            .dna-gif { width: 25vw; top: -20px; }
+            .title-container h1 { font-size: 2rem; }
+        }
+        /* Headings */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 10px;
+            color: #54ffff;
+            text-shadow: 0 0 10px rgba(84, 255, 255, 0.7);
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #54ffff;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
+            opacity: 0.9; /* Improved contrast */
+            color: #111;
+            padding-bottom: 20px;
+        }
+        /* Team Styling */
+        .team-content, .mission-content, .partner-content {
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+        .team-names {
+            font-size: 1.8rem;
+            color: #54ffff;
+            font-weight: 700;
+            margin: 20px 0;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            position: relative;
+        }
+        .team-names a {
+            color: #54ffff;
+            text-decoration: none;
+            padding: 0 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        .team-names a:hover, .team-names a:focus {
+            color: #111111;
+            background: #54ffff;
+            border-radius: 5px;
+            text-shadow: none;
+            transform: scale(1.05);
+        }
+        .join-us {
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+        .join-us a {
+            color: #54ffff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+        }
+        .join-us a:hover, .join-us a:focus {
+            color: #111111;
+            background: #54ffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transform: scale(1.05);
+        }
+        /* Back-to-Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #54ffff;
+            color: #111;
+            border: none;
+            padding: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50%;
+        }
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+        .back-to-top.visible {
+            display: block;
         }
     </style>
 </head>
@@ -45,8 +319,8 @@
                 <a href="decentralized.html">Decentralized Ecosystem</a>
             </div>
         </div>
-        <a href="blogs.html">Blogs</a> <!-- Placeholder page -->
-        <a href="news.html">News</a> <!-- Placeholder page -->
+        <a href="#blogs">Blogs</a>
+        <a href="#news">News</a>
     </div>
 </div>
 
@@ -57,16 +331,17 @@
 <div class="title-container">
     <h1>About Us</h1>
     <p>Who We Are / Why We Exist / How We Collaborate</p>
-    <p class="anchor-links"><a href="#section1">Team</a> | <a href="#section2">Mission</a> | <a href="#section3">Partner</a></p>
+    <div class="anchors">
+        <a href="#section1">Team</a> |
+        <a href="#section2">Mission</a> |
+        <a href="#section3">Partner</a>
+    </div>
 </div>
 
 <!-- Team Section -->
 <div class="section" id="section1">
     <div class="logo-container">
-        <picture>
-            <source srcset="logo.webp" type="image/webp">
-            <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
-        </picture>
+        <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
     </div>
     <h2>The Team</h2>
     <div class="team-content">
@@ -84,10 +359,7 @@
 <!-- Mission Section -->
 <div class="section" id="section2">
     <div class="logo-container">
-        <picture>
-            <source srcset="logo.webp" type="image/webp">
-            <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
-        </picture>
+        <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
     </div>
     <h2>Our Mission</h2>
     <div class="mission-content">
@@ -98,21 +370,13 @@
 <!-- Partner With Us Section -->
 <div class="section" id="section3">
     <div class="logo-container">
-        <picture>
-            <source srcset="logo.webp" type="image/webp">
-            <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
-        </picture>
+        <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
     </div>
     <h2>Partner With Us</h2>
     <div class="partner-content">
         <p>Join us in shaping healthcare’s next chapter—whether you’re a researcher advancing biosensor tech, a clinician validating real-world outcomes, a technologist building decentralized systems, or an organization ready to innovate. Together, we can redefine what’s possible.</p>
         <div class="join-us">
-            <form class="contact-form" action="#" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required aria-label="Name">
-                <input type="email" name="email" placeholder="Your Email" required aria-label="Email">
-                <textarea name="message" placeholder="Your Message" required aria-label="Message"></textarea>
-                <button type="submit">Submit</button>
-            </form>
+            <p>Get in touch at <a href="mailto:partners@t3c.tech">partners@t3c.tech</a> to explore collaboration.</p>
         </div>
     </div>
 </div>
@@ -125,6 +389,11 @@
 </footer>
 
 <script>
+    // Hamburger Menu Toggle
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
     // Active Link Highlighting
     const navLinks = document.querySelectorAll('.navbar a');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -132,11 +401,6 @@
         if (link.getAttribute('href') === currentPage) {
             link.style.color = '#54ffff';
         }
-    });
-
-    // Hamburger Menu Toggle
-    document.querySelector('.hamburger').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('active');
     });
 
     // Scroll Handling
@@ -173,11 +437,6 @@
         // Back-to-Top Button Visibility
         document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
     }
-
-    // Dynamic Section Heights
-    document.querySelectorAll('.section').forEach(section => {
-        section.style.minHeight = `${section.scrollHeight + 100}px`;
-    });
 
     window.addEventListener('scroll', handleScroll);
 </script>
