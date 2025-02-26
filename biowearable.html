@@ -305,7 +305,7 @@
             left: 0;
             width: 100%;
             display: flex;
-            height: 20px;
+            height: 30px; /* Increased height for better readability */
             background: #fff;
             z-index: 900;
             opacity: 0.8;
@@ -318,37 +318,41 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: #ccc;
+            color: #111111;
             font-size: 0.9rem;
             font-weight: 700;
+            padding: 5px; /* Added padding to ensure text isn’t cut off */
             transition: color 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .tech-segment:hover {
             color: #ff0077;
-        }
-        .tech-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0;
-            background: #ff0077;
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-        .tech-segment.active .tech-fill {
-            width: 100%;
         }
         .tech-segment.active {
             color: #ff0077;
         }
         .tech-label {
-            z-index: 1;
+            z-index: 1; /* Ensures text is above the underline */
+        }
+        .tech-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #ff0077;
+            transition: width 0.3s ease;
+        }
+        .tech-segment.active .tech-underline {
+            width: 80%;
         }
         @media (max-width: 768px) {
             .tech-progress {
                 top: 50px;
-                height: 15px;
+                height: 25px; /* Slightly smaller for mobile */
             }
             .tech-segment {
                 font-size: 0.7rem;
@@ -377,9 +381,9 @@
 </div>
 
 <div class="tech-progress">
-    <a href="biowearable.html" class="tech-segment" data-page="biowearable.html"><span class="tech-fill"></span><span class="tech-label">BW</span></a>
-    <a href="drugdelivery.html" class="tech-segment" data-page="drugdelivery.html"><span class="tech-fill"></span><span class="tech-label">DD</span></a>
-    <a href="decentralized.html" class="tech-segment" data-page="decentralized.html"><span class="tech-fill"></span><span class="tech-label">DE</span></a>
+    <a href="biowearable.html" class="tech-segment" data-page="biowearable.html"><span class="tech-label">Our Biowearable Tech</span><span class="tech-underline"></span></a>
+    <a href="drugdelivery.html" class="tech-segment" data-page="drugdelivery.html"><span class="tech-label">Our Drug Delivery Tech</span><span class="tech-underline"></span></a>
+    <a href="decentralized.html" class="tech-segment" data-page="decentralized.html"><span class="tech-label">Our Decentralized Ecosystem</span><span class="tech-underline"></span></a>
 </div>
 
 <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
