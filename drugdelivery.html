@@ -196,6 +196,10 @@
         .section.active .dna-gif {
             filter: invert(1);
         }
+        .section.active th {
+            background-color: #333;
+            color: #54ffff;
+        }
         h1 {
             font-size: 3rem;
             margin: 0;
@@ -224,6 +228,17 @@
         }
         .sub-points {
             margin-left: 20px;
+        }
+        .sub-points a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: inherit;
+            font-weight: inherit;
+            transition: color 0.3s ease;
+        }
+        .sub-points a:hover {
+            color: #ff0077;
         }
         ul.custom-bullets {
             list-style: none;
@@ -284,6 +299,65 @@
         .back-to-top.visible {
             display: block;
         }
+        .tech-progress {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            height: 30px; /* Increased height for better readability */
+            background: #fff;
+            z-index: 900;
+            opacity: 0.8;
+            border-bottom: 1px solid #ddd;
+        }
+        .tech-segment {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #111111;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 5px; /* Added padding to ensure text isn’t cut off */
+            transition: color 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .tech-segment:hover {
+            color: #ff0077;
+        }
+        .tech-segment.active {
+            color: #ff0077;
+        }
+        .tech-label {
+            z-index: 1; /* Ensures text is above the underline */
+        }
+        .tech-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #ff0077;
+            transition: width 0.3s ease;
+        }
+        .tech-segment.active .tech-underline {
+            width: 80%;
+        }
+        @media (max-width: 768px) {
+            .tech-progress {
+                top: 50px;
+                height: 25px; /* Slightly smaller for mobile */
+            }
+            .tech-segment {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -304,6 +378,12 @@
         <a href="#blogs">Blogs</a>
         <a href="#news">News</a>
     </div>
+</div>
+
+<div class="tech-progress">
+    <a href="biowearable.html" class="tech-segment" data-page="biowearable.html"><span class="tech-label">Our Biowearable Tech</span><span class="tech-underline"></span></a>
+    <a href="drugdelivery.html" class="tech-segment" data-page="drugdelivery.html"><span class="tech-label">Our Drug Delivery Tech</span><span class="tech-underline"></span></a>
+    <a href="decentralized.html" class="tech-segment" data-page="decentralized.html"><span class="tech-label">Our Decentralized Ecosystem</span><span class="tech-underline"></span></a>
 </div>
 
 <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
@@ -369,10 +449,10 @@
     <p>Our technology stack operates as a closed-loop feedback mechanism:</p>
     <div class="sub-points">
         <ul class="custom-bullets">
-            <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF</li>
+            <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF. <a href="biowearable.html">More details</a></li>
             <li><strong>AI-Based Decision Making</strong> → AI models interpret biomarker trends and determine necessary drug adjustments</li>
-            <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses</li>
-            <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport</li>
+            <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses. <a href="drugdelivery.html">More details</a></li>
+            <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport. <a href="decentralized.html">More details</a></li>
         </ul>
     </div>
 </div>
@@ -442,6 +522,13 @@
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.style.color = '#ff0077';
+        }
+    });
+
+    const techSegments = document.querySelectorAll('.tech-segment');
+    techSegments.forEach(segment => {
+        if (segment.getAttribute('data-page') === currentPage) {
+            segment.classList.add('active');
         }
     });
 
