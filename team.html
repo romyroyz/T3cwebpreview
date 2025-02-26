@@ -23,7 +23,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Navigation Bar (Matches Other Pages) */
+        /* Navigation Bar */
         .navbar {
             width: 100%;
             background: #ffffff;
@@ -46,7 +46,7 @@
             transition: 0.3s ease-in-out;
         }
         .navbar a:hover {
-            color: #54ffff; /* Cyan from logo */
+            color: #54ffff;
         }
         .dropdown {
             position: relative;
@@ -75,10 +75,10 @@
         }
         /* Title Section */
         .title-container {
-            margin-top: 100px; /* Reduced to avoid overlap with navbar */
+            margin-top: 100px;
             text-align: center;
             position: relative;
-            padding: 40px 20px; /* Extra padding for breathing room */
+            padding: 40px 20px;
         }
         /* DNA GIF */
         .dna-gif {
@@ -92,15 +92,36 @@
             opacity: 0.8;
             transition: top 0.8s ease-out;
         }
-        /* Logo Container (Adjusted to Avoid Title Overlap) */
+        /* Section Containers */
+        .section {
+            padding: 100px 10vw; /* Increased padding to contain logo */
+            position: relative;
+            text-align: center;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+            min-height: 400px; /* Ensures enough space for logo */
+            overflow: hidden; /* Contains logo within section */
+        }
+        .section.active {
+            background: #111111;
+            color: #ffffff;
+        }
+        .section.active .dna-gif {
+            filter: invert(1);
+        }
+        /* Logo Container (Fixed to Stay Within Section) */
         .logo-container {
             position: absolute;
-            top: 0; /* Aligned with section top, no overlap with title */
+            top: 20px; /* Relative to section top */
             left: 50%;
             transform: translateX(-50%) scale(0);
             opacity: 0;
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             z-index: 10;
+            pointer-events: none; /* Prevents logo from blocking content */
+        }
+        .section.active .logo-container {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.5); /* Reduced scale to 1.5 to fit better */
         }
         .section-logo {
             width: 150px;
@@ -108,14 +129,10 @@
             transition: width 1s ease-in-out, transform 1.3s ease-in-out;
             filter: drop-shadow(0 0 10px rgba(84, 255, 255, 0.5));
         }
-        .section.active .logo-container {
-            opacity: 1;
-            transform: translateX(-50%) scale(2);
-        }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
-            .section.active .logo-container { transform: translateX(-50%) scale(2); }
+            .section.active .logo-container { transform: translateX(-50%) scale(1.5); }
         }
         @media screen and (max-width: 768px) {
             .dna-gif { width: 20vw; top: -40px; }
@@ -124,26 +141,13 @@
             h2 { font-size: 1.4rem !important; }
             p, .team-names { font-size: 0.9rem !important; }
             .navbar a { font-size: 0.85rem !important; }
-            .section.active .logo-container { transform: translateX(-50%) scale(2); }
+            .section.active .logo-container { transform: translateX(-50%) scale(1.2); } /* Smaller scale on mobile */
+            .section { padding: 80px 5vw; min-height: 350px; }
         }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; }
             .navbar a { font-size: 1rem; }
-        }
-        /* Section Containers */
-        .section {
-            padding: 80px 10vw;
-            position: relative;
-            text-align: center;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-        }
-        .section.active {
-            background: #111111;
-            color: #ffffff;
-        }
-        .section.active .dna-gif {
-            filter: invert(1);
         }
         /* Headings */
         h1 {
@@ -170,7 +174,7 @@
         /* Team Styling */
         .team-content, .mission-content, .partner-content {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 40px auto 0; /* Added top margin to clear logo */
         }
         .team-names {
             font-size: 1.8rem;
@@ -213,10 +217,10 @@
 </head>
 <body>
 
-<!-- Navigation Bar (Matches Other Pages) -->
+<!-- Navigation Bar -->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a> <!-- No dropdown, single page -->
+    <a href="about.html">About Us</a>
     <div class="dropdown">
         <a href="#technology">Technology</a>
         <div class="dropdown-content">
