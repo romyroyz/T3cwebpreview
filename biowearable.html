@@ -299,41 +299,60 @@
         .back-to-top.visible {
             display: block;
         }
-        .tech-nav {
+        .tech-progress {
             position: fixed;
-            right: 20px;
-            top: 100px;
+            top: 60px;
+            left: 0;
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            opacity: 0.8;
+            height: 20px;
+            background: #fff;
             z-index: 900;
+            opacity: 0.8;
+            border-bottom: 1px solid #ddd;
         }
-        .tech-link {
+        .tech-segment {
+            flex: 1;
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
             text-decoration: none;
             color: #ccc;
             font-size: 0.9rem;
+            font-weight: 700;
             transition: color 0.3s ease;
         }
-        .tech-link:hover {
+        .tech-segment:hover {
             color: #ff0077;
         }
-        .tech-dot {
-            width: 10px;
-            height: 10px;
-            background: #ccc;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background 0.3s ease;
-        }
-        .tech-link.active {
-            color: #ff0077;
-        }
-        .tech-link.active .tech-dot {
+        .tech-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
             background: #ff0077;
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        .tech-segment.active .tech-fill {
+            width: 100%;
+        }
+        .tech-segment.active {
+            color: #ff0077;
+        }
+        .tech-label {
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            .tech-progress {
+                top: 50px;
+                height: 15px;
+            }
+            .tech-segment {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -357,10 +376,10 @@
     </div>
 </div>
 
-<div class="tech-nav">
-    <a href="biowearable.html" class="tech-link"><span class="tech-dot" data-page="biowearable.html"></span> Bio-Wearable</a>
-    <a href="drugdelivery.html" class="tech-link"><span class="tech-dot" data-page="drugdelivery.html"></span> Drug Delivery</a>
-    <a href="decentralized.html" class="tech-link"><span class="tech-dot" data-page="decentralized.html"></span> Decentralized Ecosystem</a>
+<div class="tech-progress">
+    <a href="biowearable.html" class="tech-segment" data-page="biowearable.html"><span class="tech-fill"></span><span class="tech-label">BW</span></a>
+    <a href="drugdelivery.html" class="tech-segment" data-page="drugdelivery.html"><span class="tech-fill"></span><span class="tech-label">DD</span></a>
+    <a href="decentralized.html" class="tech-segment" data-page="decentralized.html"><span class="tech-fill"></span><span class="tech-label">DE</span></a>
 </div>
 
 <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
@@ -509,10 +528,10 @@
         }
     });
 
-    const techLinks = document.querySelectorAll('.tech-link');
-    techLinks.forEach(link => {
-        if (link.querySelector('.tech-dot').getAttribute('data-page') === currentPage) {
-            link.classList.add('active');
+    const techSegments = document.querySelectorAll('.tech-segment');
+    techSegments.forEach(segment => {
+        if (segment.getAttribute('data-page') === currentPage) {
+            segment.classList.add('active');
         }
     });
 
