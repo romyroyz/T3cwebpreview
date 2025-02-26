@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team | Type 3 Civilization Technologies</title>
+    <title>About Us | Type 3 Civilization Technologies</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -46,32 +46,7 @@
             transition: 0.3s ease-in-out;
         }
         .navbar a:hover {
-            color: #54ffff; /* Logo cyan for navbar hover */
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #ffffff;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content a {
-            color: #111111;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background: #f1f1f1;
+            color: #54ffff;
         }
         /* Title Section */
         .title-container {
@@ -106,7 +81,7 @@
             width: 150px;
             height: auto;
             transition: width 1s ease-in-out, transform 1.3s ease-in-out;
-            filter: drop-shadow(0 0 10px rgba(84, 255, 255, 0.5)); /* Cyan glow */
+            filter: drop-shadow(0 0 10px rgba(84, 255, 255, 0.5));
         }
         .section.active .logo-container {
             opacity: 1;
@@ -133,10 +108,10 @@
         }
         /* Section Containers */
         .section {
-            padding: 100px 10vw;
+            padding: 80px 10vw;
             position: relative;
+            text-align: center;
             transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-            text-align: center; /* Center-align section content */
         }
         .section.active {
             background: #111111;
@@ -150,13 +125,13 @@
             font-size: 3rem;
             margin: 0;
             padding: 10px;
-            color: #54ffff; /* Cyan for heading */
+            color: #54ffff;
             text-shadow: 0 0 10px rgba(84, 255, 255, 0.7);
         }
         h2 {
             font-size: 2rem;
-            margin-top: 50px;
-            color: #54ffff; /* Cyan for subheading */
+            margin-bottom: 20px;
+            color: #54ffff;
         }
         /* Footer */
         footer {
@@ -168,19 +143,16 @@
             padding-bottom: 20px;
         }
         /* Team Styling */
-        .team-content {
-            text-align: center;
+        .team-content, .mission-content, .partner-content {
             max-width: 900px;
             margin: 0 auto;
         }
         .team-names {
             font-size: 1.8rem;
-            color: #54ffff; /* Logo cyan */
+            color: #54ffff;
             font-weight: 700;
             margin: 20px 0;
-            transition: all 0.3s ease-in-out;
             display: inline-block;
-            position: relative;
         }
         .team-names a {
             color: #54ffff;
@@ -190,12 +162,12 @@
         }
         .team-names a:hover {
             color: #111111;
-            background: #54ffff; /* Hover effect with cyan */
+            background: #54ffff;
             border-radius: 5px;
             text-shadow: none;
         }
         .join-us {
-            margin-top: 40px;
+            margin-top: 30px;
             font-size: 1.1rem;
         }
         .join-us a {
@@ -217,14 +189,7 @@
 <!-- Navigation Bar -->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <div class="dropdown">
-        <a href="#about">About Us</a>
-        <div class="dropdown-content">
-            <a href="team.html">Team</a>
-            <a href="#mission">Mission</a>
-            <a href="#partner">Partner With Us</a>
-        </div>
-    </div>
+    <a href="about.html">About Us</a>
     <div class="dropdown">
         <a href="#technology">Technology</a>
         <div class="dropdown-content">
@@ -242,8 +207,8 @@
 
 <!-- Title Section -->
 <div class="title-container">
-    <h1>Our Team</h1>
-    <p>A lean, multidisciplinary coalition forging the next era of healthcare where precision meets possibility.</p>
+    <h1>About Us</h1>
+    <p>Who We Are / Why We Exist / How We Collaborate</p>
 </div>
 
 <!-- Team Section -->
@@ -251,26 +216,51 @@
     <div class="logo-container">
         <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
     </div>
-    <h2>Driving the Vision</h2>
+    <h2>The Team</h2>
     <div class="team-content">
         <div class="team-names">
             <a href="https://www.linkedin.com/in/romy-roy" target="_blank">Romy Roy</a>,
             <a href="https://www.linkedin.com/in/thejashwini" target="_blank">Thejashwini</a>,
             <a href="https://www.linkedin.com/in/soniya" target="_blank">Soniya</a>
         </div>
-        <p>We’re more than names, we’re a synergy of minds pushing the boundaries of what’s possible. Our expertisae spans the spectrum of innovation, from personalized biomarker monitoring and aesthetic, painless drug administration, organoids-on-chip for biosensor validation, and decentralized healthcare ecosystems.</p>
-        <p>We integrate biotechnology, biosensors, blockchain, and precision medicine to craft truly personalized, precision-driven care empowering individuals with real-time health insights while ensuring data sovereignty, ethical monetization, and equitable access to next-generation healthcare solutions.</p>
-        <p>we’re shaping a future where technology, biology, and intelligence converge not to follow the beaten path, but to chart entirely new frontiers in healthcare, where precision meets possibility, and care is truly redefined.</p>
+        <p>We’re more than names—we’re a synergy of minds pushing the boundaries of what’s possible. Our work spans the spectrum of innovation, from personalized biomarker monitoring and aesthetic, painless drug administration to AI-driven diagnostics, organoids-on-chip for biosensor validation, and decentralized healthcare ecosystems.</p>
+        <p>We integrate biotechnology, biosensors, blockchain, and precision medicine to craft truly personalized, precision-driven care—empowering individuals with real-time health insights while ensuring data sovereignty, ethical monetization, and equitable access to next-generation healthcare solutions.</p>
+        <p>Driven by relentless innovation, we’re shaping a future where technology, biology, and intelligence converge—not to follow the beaten path, but to chart entirely new frontiers in healthcare, where precision meets possibility, and care is truly redefined.</p>
+    </div>
+</div>
+
+<!-- Mission Section -->
+<div class="section" id="section2">
+    <div class="logo-container">
+        <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
+    </div>
+    <h2>Our Mission</h2>
+    <div class="mission-content">
+        <p>Our mission is to dismantle outdated healthcare paradigms and forge a new era where every individual’s biology is understood, respected, and empowered. We’re building solutions that are predictive, not just reactive—delivering real-time insights, decentralized control, and precision-driven care to make health equitable and boundless.</p>
+    </div>
+</div>
+
+<!-- Partner With Us Section -->
+<div class="section" id="section3">
+    <div class="logo-container">
+        <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
+    </div>
+    <h2>Partner With Us</h2>
+    <div class="partner-content">
+        <p>We’re calling on visionaries—researchers advancing biosensor technology, clinicians validating real-world impact, technologists crafting decentralized ecosystems, and organizations ready to redefine healthcare. Partner with us to turn possibility into reality and shape a future where care knows no limits.</p>
         <div class="join-us">
-            <p>If you’re inclined to join these goals, feel free to <a href="mailto:team@t3c.tech">write to us</a> and become part of the team shaping the future.</p>
+            <p>Ready to collaborate? Reach out at <a href="mailto:partners@t3c.tech">partners@t3c.tech</a>.</p>
+            <p>Or, if you’re inspired to join our mission, <a href="mailto:team@t3c.tech">write to us</a> and become part of the team driving this revolution.</p>
         </div>
     </div>
 </div>
 
+<!-- Footer -->
 <footer>
     © 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
 
+<!-- Scroll Script -->
 <script>
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
