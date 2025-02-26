@@ -46,14 +46,12 @@
             transition: 0.3s ease-in-out;
         }
         .navbar a:hover {
-            color: #ff0077;
+            color: #54ffff; /* Logo cyan for navbar hover */
         }
-        /* Dropdown Container */
         .dropdown {
             position: relative;
             display: inline-block;
         }
-        /* Dropdown Content */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -62,11 +60,9 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
-        /* Show Dropdown on Hover */
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        /* Dropdown Links */
         .dropdown-content a {
             color: #111111;
             padding: 12px 16px;
@@ -74,7 +70,6 @@
             display: block;
             text-align: left;
         }
-        /* Hover Effect for Dropdown Links */
         .dropdown-content a:hover {
             background: #f1f1f1;
         }
@@ -107,50 +102,29 @@
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             z-index: 10;
         }
-        /* Logo Image */
         .section-logo {
             width: 150px;
             height: auto;
             transition: width 1s ease-in-out, transform 1.3s ease-in-out;
+            filter: drop-shadow(0 0 10px rgba(84, 255, 255, 0.5)); /* Cyan glow */
         }
-        /* Show logo and zoom in when section is active (dark mode) */
         .section.active .logo-container {
             opacity: 1;
             transform: translateX(-50%) scale(2);
         }
-        /* Adjust scaling for smaller screens (tablet and mobile) */
-        @media screen and (max-width: 1024px) {
-            .section.active .logo-container {
-                transform: translateX(-50%) scale(2);
-            }
-        }
-        @media screen and (max-width: 768px) {
-            .section.active .logo-container {
-                transform: translateX(-50%) scale(2);
-            }
-        }
         /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
+            .section.active .logo-container { transform: translateX(-50%) scale(2); }
         }
         @media screen and (max-width: 768px) {
             .dna-gif { width: 20vw; top: -40px; }
             .title-container h1 { font-size: 2.5rem; }
-            h1 {
-                font-size: 1.8rem !important;
-            }
-            h2 {
-                font-size: 1.4rem !important;
-            }
-            h3 {
-                font-size: 1.2rem !important;
-            }
-            p, li {
-                font-size: 0.9rem !important;
-            }
-            .navbar a {
-                font-size: 0.85rem !important;
-            }
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.4rem !important; }
+            p, .team-names { font-size: 0.9rem !important; }
+            .navbar a { font-size: 0.85rem !important; }
+            .section.active .logo-container { transform: translateX(-50%) scale(2); }
         }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
@@ -162,33 +136,27 @@
             padding: 100px 10vw;
             position: relative;
             transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+            text-align: center; /* Center-align section content */
         }
-        /* Dark Mode Effect */
         .section.active {
             background: #111111;
             color: #ffffff;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
         }
         .section.active .dna-gif {
             filter: invert(1);
-        }
-        /* Section Divider */
-        .divider {
-            width: 100%;
-            height: 2px;
-            background: #111;
-            margin: 50px 0;
         }
         /* Headings */
         h1 {
             font-size: 3rem;
             margin: 0;
             padding: 10px;
+            color: #54ffff; /* Cyan for heading */
+            text-shadow: 0 0 10px rgba(84, 255, 255, 0.7);
         }
         h2 {
             font-size: 2rem;
-            text-align: center;
             margin-top: 50px;
+            color: #54ffff; /* Cyan for subheading */
         }
         /* Footer */
         footer {
@@ -199,36 +167,48 @@
             color: #111;
             padding-bottom: 20px;
         }
-        /* Team Member Styling */
-        .team-member {
-            margin-bottom: 50px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
+        /* Team Styling */
+        .team-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ff0077;
-        }
-        .team-member h3 {
+        .team-names {
             font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #ff0077;
+            color: #54ffff; /* Logo cyan */
+            font-weight: 700;
+            margin: 20px 0;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            position: relative;
         }
-        .team-member p {
-            font-size: 1rem;
-            line-height: 1.6;
+        .team-names a {
+            color: #54ffff;
+            text-decoration: none;
+            padding: 0 5px;
+            transition: all 0.3s ease-in-out;
         }
-        .team-member a {
-            color: #0077b5; /* LinkedIn Blue */
+        .team-names a:hover {
+            color: #111111;
+            background: #54ffff; /* Hover effect with cyan */
+            border-radius: 5px;
+            text-shadow: none;
+        }
+        .join-us {
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+        .join-us a {
+            color: #54ffff;
             text-decoration: none;
             font-weight: 700;
+            transition: all 0.3s ease-in-out;
         }
-        .team-member a:hover {
-            text-decoration: underline;
+        .join-us a:hover {
+            color: #111111;
+            background: #54ffff;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -240,7 +220,7 @@
     <div class="dropdown">
         <a href="#about">About Us</a>
         <div class="dropdown-content">
-            <a href="#team">Team</a>
+            <a href="team.html">Team</a>
             <a href="#mission">Mission</a>
             <a href="#partner">Partner With Us</a>
         </div>
@@ -250,7 +230,7 @@
         <div class="dropdown-content">
             <a href="biowearable.html">Bio-Wearable</a>
             <a href="drugdelivery.html">Drug Delivery</a>
-            <a href="decentralized.html">Decentralised Ecosystem</a>
+            <a href="decentralized.html">Decentralized Ecosystem</a>
         </div>
     </div>
     <a href="#blogs">Blogs</a>
@@ -258,58 +238,37 @@
 </div>
 
 <!-- DNA GIF -->
-<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
+<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
 
 <!-- Title Section -->
 <div class="title-container">
-    <h1>Meet the Visionaries Behind Type 3 Civilization Technologies</h1>
-    <p>The T3C team comprises a multidisciplinary collective of experts, each dedicated to reshaping the future of healthcare through cutting-edge technology, personalized medicine, and patient-centric innovation.</p>
+    <h1>Our Team</h1>
+    <p>A lean, multidisciplinary coalition forging the next era of healthcare—where precision meets possibility.</p>
 </div>
 
-<div class="divider"></div>
-
-<!-- Sections -->
+<!-- Team Section -->
 <div class="section" id="section1">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="Type 3 Civilization Technologies Logo" class="section-logo" loading="lazy">
     </div>
-    <h2>Team</h2>
-
-    <!-- Team Member 1 -->
-    <div class="team-member">
-        <img src="placeholder.jpg" alt="Romy Roy">
-        <div>
-            <h3>Romy Roy</h3>
-            <p>A relentless innovator at the intersection of biotechnology, computational biology, and AI-driven healthcare, Romy is pioneering bio-wearable systems that go beyond conventional diagnostics. With deep expertise in sensor technology, microneedles, and precision medicine, he envisions a world where health monitoring is seamless, data ownership is decentralized, and personalized interventions happen in real-time. His work bridges the gap between biological intelligence and digital ecosystems, creating a healthcare framework that is adaptive, predictive, and user-controlled.</p>
-            <a href="https://www.linkedin.com/in/romy-roy" target="_blank">LinkedIn Profile</a>
+    <h2>Driving the Vision</h2>
+    <div class="team-content">
+        <div class="team-names">
+            <a href="https://www.linkedin.com/in/romy-roy" target="_blank">Romy Roy</a>,
+            <a href="https://www.linkedin.com/in/thejashwini" target="_blank">Thejashwini</a>,
+            <a href="https://www.linkedin.com/in/soniya" target="_blank">Soniya</a>
         </div>
-    </div>
-
-    <!-- Team Member 2 -->
-    <div class="team-member">
-        <img src="placeholder.jpg" alt="Thejashwini">
-        <div>
-            <h3>Thejashwini</h3>
-            <p>Bringing expertise in painless, non-invasive health solutions, this visionary focuses on creating health experiences that are not just effective, but intuitive and elegant. From the design of bio-wearables to the optimization of user interactions, their work ensures that T3C’s innovations are as seamless as they are revolutionary. Their philosophy is simple: healthcare should feel natural, not clinical—it should enhance, not intrude.</p>
-            <a href="https://www.linkedin.com/in/thejashwini" target="_blank">LinkedIn Profile</a>
-        </div>
-    </div>
-
-    <!-- Team Member 3 -->
-    <div class="team-member">
-        <img src="placeholder.jpg" alt="Soniya">
-        <div>
-            <h3>Soniya</h3>
-            <p>A specialist in patient-derived organoid research, this expert is driving the next evolution of personalized therapeutics. By engineering living biological models that mimic real patient physiology, they are unlocking the potential of precision medicine, ensuring that treatments are tailored, optimized, and biologically relevant to individual genetic and molecular profiles. Their work pushes the boundaries of real-time biomarker-based interventions, closing the gap between wearable technology and truly individualized medicine.</p>
-            <a href="https://www.linkedin.com/in/soniya" target="_blank">LinkedIn Profile</a>
+        <p>We’re more than names—we’re a synergy of minds pushing the boundaries of what’s possible. Our work spans the spectrum of innovation, from personalized biomarker monitoring and aesthetic, painless drug administration to AI-driven diagnostics, organoids-on-chip for biosensor validation, and decentralized healthcare ecosystems.</p>
+        <p>We integrate biotechnology, biosensors, blockchain, and precision medicine to craft truly personalized, precision-driven care—empowering individuals with real-time health insights while ensuring data sovereignty, ethical monetization, and equitable access to next-generation healthcare solutions.</p>
+        <p>Driven by relentless innovation, we’re shaping a future where technology, biology, and intelligence converge—not to follow the beaten path, but to chart entirely new frontiers in healthcare, where precision meets possibility, and care is truly redefined.</p>
+        <div class="join-us">
+            <p>If you’re inclined to join these goals, feel free to <a href="mailto:team@t3c.tech">write to us</a> and become part of the team shaping the future.</p>
         </div>
     </div>
 </div>
 
-<div class="divider"></div>
-
 <footer>
-    &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+    © 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
 
 <script>
@@ -322,8 +281,6 @@
 
         sections.forEach((section) => {
             let rect = section.getBoundingClientRect();
-
-            // If at least 50% of the section is in view, mark it as active
             if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
                 if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
                     activeSection = section;
@@ -331,22 +288,16 @@
             }
         });
 
-        // Remove active class from all sections
         sections.forEach(section => section.classList.remove("active"));
-
         if (activeSection) {
             activeSection.classList.add("active");
-
-            // Move GIF smoothly to align with section heading
             let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
             let targetPosition = sectionTop - 120;
             dnaGif.style.transition = "top 1.3s ease-out";
             dnaGif.style.top = `${targetPosition}px`;
         }
 
-        // Ensure DNA GIF stops above the title
         let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
-
         if (window.scrollY <= titleTop + 50) {
             dnaGif.style.top = `${titleTop - 250}px`;
         }
