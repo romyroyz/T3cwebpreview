@@ -193,11 +193,12 @@
             color: #ffffff;
             opacity: 1;
         }
-        .section.active h2, .section.active h3 {
-            color: #ff69b4;
-        }
         .section.active .dna-gif {
             filter: invert(1);
+        }
+        .section.active th {
+            background-color: #333;
+            color: #54ffff;
         }
         h1 {
             font-size: 3rem;
@@ -227,6 +228,17 @@
         }
         .sub-points {
             margin-left: 20px;
+        }
+        .sub-points a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: inherit;
+            font-weight: inherit;
+            transition: color 0.3s ease;
+        }
+        .sub-points a:hover {
+            color: #ff0077;
         }
         ul.custom-bullets {
             list-style: none;
@@ -297,14 +309,30 @@
             opacity: 0.8;
             z-index: 900;
         }
+        .tech-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #ccc;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .tech-link:hover {
+            color: #ff0077;
+        }
         .tech-dot {
             width: 10px;
             height: 10px;
             background: #ccc;
             border-radius: 50%;
+            display: inline-block;
             transition: background 0.3s ease;
         }
-        .tech-dot.active {
+        .tech-link.active {
+            color: #ff0077;
+        }
+        .tech-link.active .tech-dot {
             background: #ff0077;
         }
     </style>
@@ -330,9 +358,9 @@
 </div>
 
 <div class="tech-nav">
-    <div class="tech-dot" data-page="biowearable.html"></div>
-    <div class="tech-dot" data-page="drugdelivery.html"></div>
-    <div class="tech-dot" data-page="decentralized.html"></div>
+    <a href="biowearable.html" class="tech-link"><span class="tech-dot" data-page="biowearable.html"></span> Bio-Wearable</a>
+    <a href="drugdelivery.html" class="tech-link"><span class="tech-dot" data-page="drugdelivery.html"></span> Drug Delivery</a>
+    <a href="decentralized.html" class="tech-link"><span class="tech-dot" data-page="decentralized.html"></span> Decentralized Ecosystem</a>
 </div>
 
 <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
@@ -481,10 +509,10 @@
         }
     });
 
-    const dots = document.querySelectorAll('.tech-dot');
-    dots.forEach(dot => {
-        if (dot.getAttribute('data-page') === currentPage) {
-            dot.classList.add('active');
+    const techLinks = document.querySelectorAll('.tech-link');
+    techLinks.forEach(link => {
+        if (link.querySelector('.tech-dot').getAttribute('data-page') === currentPage) {
+            link.classList.add('active');
         }
     });
 
