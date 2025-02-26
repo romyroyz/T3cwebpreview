@@ -23,7 +23,6 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Navigation Bar */
         .navbar {
             width: 100%;
             background: #ffffff;
@@ -36,6 +35,15 @@
             border-bottom: 2px solid #ddd;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
+        .navbar .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 20px;
+        }
+        .navbar .nav-links {
+            display: inline-block;
+        }
         .navbar a {
             color: #111111;
             text-decoration: none;
@@ -43,17 +51,20 @@
             font-size: 1.2rem;
             text-transform: uppercase;
             font-weight: 700;
-            transition: 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
-        .navbar a:hover {
+        .navbar a:hover, .navbar a:focus {
             color: #ff0077;
+            transform: scale(1.05);
         }
-        /* Dropdown Container */
+        .navbar a:focus {
+            outline: 2px solid #ff0077;
+            outline-offset: 2px;
+        }
         .dropdown {
             position: relative;
             display: inline-block;
         }
-        /* Dropdown Content */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -62,30 +73,63 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
-        /* Show Dropdown on Hover */
-        .dropdown:hover .dropdown-content {
+        .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content {
             display: block;
         }
-        /* Dropdown Links */
         .dropdown-content a {
             color: #111111;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
             text-align: left;
+            transition: all 0.3s ease-in-out;
         }
-        /* Hover Effect for Dropdown Links */
-        .dropdown-content a:hover {
+        .dropdown-content a:hover, .dropdown-content a:focus {
             background: #f1f1f1;
+            color: #ff0077;
+            transform: scale(1.05);
         }
-        /* Title Section */
+        .dropdown-content a:focus {
+            outline: 2px solid #ff0077;
+            outline-offset: 2px;
+        }
+        @media (max-width: 768px) {
+            .navbar .hamburger {
+                display: inline-block;
+            }
+            .navbar .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                text-align: center;
+                padding: 20px 0;
+            }
+            .navbar .nav-links.active {
+                display: block;
+            }
+            .navbar a {
+                display: block;
+                margin: 15px 0;
+                font-size: 0.85rem;
+            }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar a { font-size: 1rem; }
+        }
         .title-container {
             margin-top: 180px;
             text-align: center;
             position: relative;
             padding: 20px;
         }
-        /* DNA GIF */
         .dna-gif {
             position: absolute;
             left: 50%;
@@ -97,7 +141,6 @@
             opacity: 0.8;
             transition: top 0.8s ease-out;
         }
-        /* Logo Container */
         .logo-container {
             position: absolute;
             top: 20px;
@@ -106,80 +149,53 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             z-index: 10;
+            pointer-events: none;
         }
-        /* Logo Image */
         .section-logo {
             width: 150px;
             height: auto;
             transition: width 1s ease-in-out, transform 1.3s ease-in-out;
         }
-        /* Show logo and zoom in when section is active (dark mode) */
         .section.active .logo-container {
             opacity: 1;
             transform: translateX(-50%) scale(2);
         }
-        /* Adjust scaling for smaller screens (tablet and mobile) */
-        @media screen and (max-width: 1024px) {
-            .section.active .logo-container {
-                transform: translateX(-50%) scale(2);
-            }
-        }
-        @media screen and (max-width: 768px) {
-            .section.active .logo-container {
-                transform: translateX(-50%) scale(2);
-            }
-        }
-        /* Responsive Adjustments */
         @media screen and (max-width: 1024px) {
             .dna-gif { width: 15vw; }
+            .section.active .logo-container { transform: translateX(-50%) scale(2); }
         }
         @media screen and (max-width: 768px) {
             .dna-gif { width: 20vw; top: -40px; }
             .title-container h1 { font-size: 2.5rem; }
-            h1 {
-                font-size: 1.8rem !important;
-            }
-            h2 {
-                font-size: 1.4rem !important;
-            }
-            h3 {
-                font-size: 1.2rem !important;
-            }
-            p, li {
-                font-size: 0.9rem !important;
-            }
-            .navbar a {
-                font-size: 0.85rem !important;
-            }
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.4rem !important; }
+            h3 { font-size: 1.2rem !important; }
+            p, li { font-size: 0.9rem !important; }
+            .navbar a { font-size: 0.85rem !important; }
+            .section.active .logo-container { transform: translateX(-50%) scale(2); }
+            .section { padding: 80px 5vw; min-height: 350px; }
         }
         @media screen and (max-width: 480px) {
             .dna-gif { width: 25vw; top: -20px; }
             .title-container h1 { font-size: 2rem; }
             .navbar a { font-size: 1rem; }
         }
-        /* Section Containers */
         .section {
             padding: 100px 10vw;
             position: relative;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            min-height: 400px;
+            overflow: hidden;
+            opacity: 0.5;
         }
-        /* Dark Mode Effect */
         .section.active {
             background: #111111;
             color: #ffffff;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+            opacity: 1;
         }
         .section.active .dna-gif {
             filter: invert(1);
         }
-        /* Section Divider */
-        .divider {
-            width: 100%;
-            height: 2px;
-            background: #111;
-            margin: 50px 0;
-        }
-        /* Headings */
         h1 {
             font-size: 3rem;
             margin: 0;
@@ -190,16 +206,42 @@
             text-align: center;
             margin-top: 50px;
         }
-        /* Footer */
+        h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+        }
         footer {
             text-align: center;
             font-size: 1rem;
             margin-top: 50px;
-            opacity: 0.7;
+            opacity: 0.9;
             color: #111;
             padding-bottom: 20px;
         }
-        /* Table Styling */
+        .highlight {
+            color: #54ffff;
+            font-weight: 700;
+        }
+        .sub-points {
+            margin-left: 20px;
+        }
+        ul.custom-bullets {
+            list-style: none;
+            padding-left: 20px;
+        }
+        ul.custom-bullets li {
+            position: relative;
+            padding-left: 20px;
+        }
+        ul.custom-bullets li:before {
+            content: '■';
+            color: #54ffff;
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -218,114 +260,101 @@
         tr:hover {
             background-color: #f9f9f9;
         }
-        /* Highlight Class */
-        .highlight {
-            color: #54ffff;
-            font-weight: 700;
-        }
-        /* Sub-points Offset */
-        .sub-points {
-            margin-left: 20px; /* Offset for sub-points */
-        }
-        /* Table Responsive Adjustments */
         @media screen and (max-width: 768px) {
-            table {
-                font-size: 0.8rem; /* Smaller font for mobile */
-            }
-            th, td {
-                padding: 8px; /* Smaller padding for mobile */
-            }
+            table { font-size: 0.8rem; }
+            th, td { padding: 8px; }
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff0077;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50%;
+        }
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+        .back-to-top.visible {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <div class="navbar">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-        <a href="#about">About Us</a>
-        <div class="dropdown-content">
-            <a href="#team">Team</a>
-            <a href="#mission">Mission</a>
-            <a href="#partner">Partner With Us</a>
+    <div class="hamburger">☰</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <div class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#technology" aria-label="Technology Menu">Technology</a>
+            <div class="dropdown-content" role="menu">
+                <a href="biowearable.html">Bio-Wearable</a>
+                <a href="drugdelivery.html">Drug Delivery</a>
+                <a href="decentralized.html">Decentralized Ecosystem</a>
+            </div>
         </div>
+        <a href="#blogs">Blogs</a>
+        <a href="#news">News</a>
     </div>
-    <div class="dropdown">
-        <a href="#technology">Technology</a>
-        <div class="dropdown-content">
-            <a href="biowearable.html">Biowearable</a>
-            <a href="drugdelivery.html">Drug Delivery</a>
-            <a href="decentralized.html">Decentralized Ecosystem</a>
-        </div>
-    </div>
-    <a href="#blogs">Blogs</a>
-    <a href="#news">News</a>
 </div>
 
-<!-- DNA GIF -->
-<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation">
+<img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
 
-<!-- Title Section -->
 <div class="title-container">
     <h1>Biowearable Technology</h1>
-    <p>Revolutionizing healthcare with <strong>real-time biomarker monitoring and personalized medicine.</strong></p>
+    <p>Revolutionizing healthcare with <strong>real-time biomarker monitoring and personalized medicine</strong>.</p>
 </div>
 
-<div class="divider"></div>
-
-<!-- Sections -->
 <div class="section" id="section1">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="T3C Logo" class="section-logo" loading="lazy">
     </div>
     <h2>01 // The Problem</h2>
     <p>Conventional methods for biomarker monitoring involve <strong>venous blood draws, finger-prick tests, and urine analysis</strong>, which have significant limitations.</p>
-
-    <!-- Sub-points with Offset -->
     <div class="sub-points">
         <p>1.<span class="highlight">Invasive & Painful:</span> Frequent blood testing is impractical and uncomfortable.</p>
         <p>2.<span class="highlight">Episodic Measurements:</span> Biomarkers fluctuate dynamically; single-point measurements fail to capture trends.</p>
         <p>3.<span class="highlight">Delayed Diagnosis:</span> Many conditions (e.g., metabolic disorders, heart attack) progress silently before clinical symptoms emerge.</p>
     </div>
-
     <h3>Interstitial Fluid (ISF) as an Alternative to Blood</h3>
     <p>Interstitial fluid (ISF), which bathes peripheral cells and closely mirrors blood chemistry, has emerged as a viable biofluid for real-time monitoring. Unlike blood, ISF can be continuously sampled using minimally invasive microneedles, offering:</p>
-
-    <!-- Numbered List with Offset -->
     <div class="sub-points">
-        <ol>
+        <ul class="custom-bullets">
             <li>Comparable biomarker concentrations to blood plasma</li>
             <li>No damage to capillaries or nerves</li>
             <li>Near-painless, prolonged sampling</li>
-        </ol>
+        </ul>
     </div>
 </div>
 
-<div class="divider"></div>
-
 <div class="section" id="section2">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="T3C Logo" class="section-logo" loading="lazy">
     </div>
     <h2>02 // T.3.C Biowearable</h2>
     <p>The next generation of healthcare is <span class="highlight">continuous</span>, <span class="highlight">real-time</span>, <span class="highlight">dynamic</span>, <span class="highlight">painless</span>, and <span class="highlight">personalized</span>. Traditional blood-based biomarker assessments provide only discrete snapshots of physiological states, missing crucial metabolic fluctuations.</p>
     <p>Microneedle-based bio-wearables, designed to extract and analyze biomarkers from interstitial fluid (ISF), represent a paradigm shift in real-time health monitoring.</p>
     <h3>Our bio-wearable platform integrates:</h3>
     <div class="sub-points">
-        <ol>
+        <ul class="custom-bullets">
             <li>Real-time biomarker sensing via microneedle technology</li>
             <li>Dynamic Drug Delivery for personalized treatment optimization</li>
             <li>Decentralized Health Data empowering secure, user-controlled medical records</li>
-        </ol>
+        </ul>
     </div>
 </div>
 
-<div class="divider"></div>
-
 <div class="section" id="section3">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="T3C Logo" class="section-logo" loading="lazy">
     </div>
     <h2>03 // Market Potential & Investment Outlook</h2>
     <h3>Addressable Market</h3>
@@ -337,42 +366,36 @@
     </div>
     <h4>Revenue Streams</h4>
     <div class="sub-points">
-        <ol>
+        <ul class="custom-bullets">
             <li>Hardware Sales (Microneedle patch & sensor module)</li>
             <li>Subscription Model (AI-driven health insights & reports)</li>
             <li>Enterprise Licensing (Research, clinical trials, pharma partnerships)</li>
-        </ol>
+        </ul>
     </div>
 </div>
 
-<div class="divider"></div>
-
 <div class="section" id="section4">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="T3C Logo" class="section-logo" loading="lazy">
     </div>
     <h2>04 // Technology Framework</h2>
     <p>Our technology stack operates as a closed-loop feedback mechanism:</p>
     <div class="sub-points">
-        <ol>
+        <ul class="custom-bullets">
             <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF</li>
             <li><strong>AI-Based Decision Making</strong> → AI models interpret biomarker trends and determine necessary drug adjustments</li>
             <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses</li>
             <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport</li>
-        </ol>
+        </ul>
     </div>
 </div>
 
-<div class="divider"></div>
-
 <div class="section" id="section5">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="T3C Logo" class="section-logo" loading="lazy">
     </div>
     <h2>05 // Scientific Rationale & Biomarker Targets</h2>
     <p>Studies confirm that ISF biomarker concentrations correlate with blood levels, validating the clinical efficacy of microneedle-based biosensing.</p>
-
-    <!-- Table for Biomarker Data -->
     <table>
         <tr>
             <th>Biomarker</th>
@@ -402,23 +425,33 @@
     </table>
 </div>
 
-<div class="divider"></div>
-
 <div class="section" id="section6">
     <div class="logo-container">
-        <img src="logo.png" alt="T3C Logo" class="section-logo">
+        <img src="logo.png" alt="T3C Logo" class="section-logo" loading="lazy">
     </div>
     <h2>06 // Want to Know More?</h2>
-    <p>Fill the form to get in touch directly with us.</p>
+    <p>Get in touch at <a href="mailto:team@t3c.tech">team@t3c.tech</a> for more details.</p>
 </div>
 
-<div class="divider"></div>
+<button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
 <footer>
-    &copy; 2025 Type 3 Civilization Technologies | All Rights Reserved  
+    © 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
 
 <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    const navLinks = document.querySelectorAll('.navbar a');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.style.color = '#ff0077';
+        }
+    });
+
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
         let dnaGif = document.getElementById("dnaGif");
@@ -428,8 +461,6 @@
 
         sections.forEach((section) => {
             let rect = section.getBoundingClientRect();
-
-            // If at least 50% of the section is in view, mark it as active
             if (rect.top <= viewportHeight * 0.5 && rect.bottom >= viewportHeight * 0.2) {
                 if (!activeSection || rect.top < activeSection.getBoundingClientRect().top) {
                     activeSection = section;
@@ -437,25 +468,21 @@
             }
         });
 
-        // Remove active class from all sections
         sections.forEach(section => section.classList.remove("active"));
-
         if (activeSection) {
             activeSection.classList.add("active");
-
-            // Move GIF smoothly to align with section heading
             let sectionTop = activeSection.getBoundingClientRect().top + window.scrollY;
             let targetPosition = sectionTop - 120;
             dnaGif.style.transition = "top 1.3s ease-out";
             dnaGif.style.top = `${targetPosition}px`;
         }
 
-        // Ensure DNA GIF stops above the title
         let titleTop = titleContainer.getBoundingClientRect().top + window.scrollY;
-
         if (window.scrollY <= titleTop + 50) {
             dnaGif.style.top = `${titleTop - 250}px`;
         }
+
+        document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 300);
     }
 
     window.addEventListener('scroll', handleScroll);
