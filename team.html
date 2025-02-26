@@ -23,7 +23,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Navigation Bar */
+        /* Navigation Bar (Matches Other Pages) */
         .navbar {
             width: 100%;
             background: #ffffff;
@@ -46,14 +46,39 @@
             transition: 0.3s ease-in-out;
         }
         .navbar a:hover {
-            color: #54ffff;
+            color: #54ffff; /* Cyan from logo */
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: #111111;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background: #f1f1f1;
         }
         /* Title Section */
         .title-container {
-            margin-top: 180px;
+            margin-top: 100px; /* Reduced to avoid overlap with navbar */
             text-align: center;
             position: relative;
-            padding: 20px;
+            padding: 40px 20px; /* Extra padding for breathing room */
         }
         /* DNA GIF */
         .dna-gif {
@@ -67,10 +92,10 @@
             opacity: 0.8;
             transition: top 0.8s ease-out;
         }
-        /* Logo Container */
+        /* Logo Container (Adjusted to Avoid Title Overlap) */
         .logo-container {
             position: absolute;
-            top: 20px;
+            top: 0; /* Aligned with section top, no overlap with title */
             left: 50%;
             transform: translateX(-50%) scale(0);
             opacity: 0;
@@ -152,7 +177,9 @@
             color: #54ffff;
             font-weight: 700;
             margin: 20px 0;
+            transition: all 0.3s ease-in-out;
             display: inline-block;
+            position: relative;
         }
         .team-names a {
             color: #54ffff;
@@ -167,7 +194,7 @@
             text-shadow: none;
         }
         .join-us {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 1.1rem;
         }
         .join-us a {
@@ -186,10 +213,10 @@
 </head>
 <body>
 
-<!-- Navigation Bar -->
+<!-- Navigation Bar (Matches Other Pages) -->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
+    <a href="about.html">About Us</a> <!-- No dropdown, single page -->
     <div class="dropdown">
         <a href="#technology">Technology</a>
         <div class="dropdown-content">
@@ -236,7 +263,7 @@
     </div>
     <h2>Our Mission</h2>
     <div class="mission-content">
-        <p>Our mission is to dismantle outdated healthcare paradigms and forge a new era where every individual’s biology is understood, respected, and empowered. We’re building solutions that are predictive, not just reactive—delivering real-time insights, decentralized control, and precision-driven care to make health equitable and boundless.</p>
+        <p>To dismantle outdated healthcare models and build a world where every individual’s biology is understood, respected, and empowered through real-time, decentralized, and precise solutions. We’re here to make healthcare not just reactive, but predictive, personal, and profoundly equitable.</p>
     </div>
 </div>
 
@@ -247,20 +274,17 @@
     </div>
     <h2>Partner With Us</h2>
     <div class="partner-content">
-        <p>We’re calling on visionaries—researchers advancing biosensor technology, clinicians validating real-world impact, technologists crafting decentralized ecosystems, and organizations ready to redefine healthcare. Partner with us to turn possibility into reality and shape a future where care knows no limits.</p>
+        <p>Join us in shaping healthcare’s next chapter—whether you’re a researcher advancing biosensor tech, a clinician validating real-world outcomes, a technologist building decentralized systems, or an organization ready to innovate. Together, we can redefine what’s possible.</p>
         <div class="join-us">
-            <p>Ready to collaborate? Reach out at <a href="mailto:partners@t3c.tech">partners@t3c.tech</a>.</p>
-            <p>Or, if you’re inspired to join our mission, <a href="mailto:team@t3c.tech">write to us</a> and become part of the team driving this revolution.</p>
+            <p>Get in touch at <a href="mailto:partners@t3c.tech">partners@t3c.tech</a> to explore collaboration.</p>
         </div>
     </div>
 </div>
 
-<!-- Footer -->
 <footer>
     © 2025 Type 3 Civilization Technologies | All Rights Reserved  
 </footer>
 
-<!-- Scroll Script -->
 <script>
     function handleScroll() {
         let sections = document.querySelectorAll('.section');
