@@ -193,6 +193,9 @@
             color: #ffffff;
             opacity: 1;
         }
+        .section.active h2, .section.active h3 {
+            color: #ff69b4;
+        }
         .section.active .dna-gif {
             filter: invert(1);
         }
@@ -284,6 +287,26 @@
         .back-to-top.visible {
             display: block;
         }
+        .tech-nav {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            opacity: 0.8;
+            z-index: 900;
+        }
+        .tech-dot {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .tech-dot.active {
+            background: #ff0077;
+        }
     </style>
 </head>
 <body>
@@ -304,6 +327,12 @@
         <a href="#blogs">Blogs</a>
         <a href="#news">News</a>
     </div>
+</div>
+
+<div class="tech-nav">
+    <div class="tech-dot" data-page="biowearable.html"></div>
+    <div class="tech-dot" data-page="drugdelivery.html"></div>
+    <div class="tech-dot" data-page="decentralized.html"></div>
 </div>
 
 <img src="dna.gif" class="dna-gif" id="dnaGif" alt="DNA Animation" loading="lazy">
@@ -382,10 +411,10 @@
     <p>Our technology stack operates as a closed-loop feedback mechanism:</p>
     <div class="sub-points">
         <ul class="custom-bullets">
-            <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF</li>
+            <li><strong>Biomarker Detection</strong> → Microneedle sensors continuously track biomarker fluctuations in ISF. <a href="biowearable.html">More details</a></li>
             <li><strong>AI-Based Decision Making</strong> → AI models interpret biomarker trends and determine necessary drug adjustments</li>
-            <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses</li>
-            <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport</li>
+            <li><strong>Automated Drug Release</strong> → Smart nanofluidic-controlled reservoirs administer precise doses. <a href="drugdelivery.html">More details</a></li>
+            <li><strong>Decentralized Data Ownership</strong> → User has 100% ownership of data which can double down as a health passport. <a href="decentralized.html">More details</a></li>
         </ul>
     </div>
 </div>
@@ -449,6 +478,13 @@
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.style.color = '#ff0077';
+        }
+    });
+
+    const dots = document.querySelectorAll('.tech-dot');
+    dots.forEach(dot => {
+        if (dot.getAttribute('data-page') === currentPage) {
+            dot.classList.add('active');
         }
     });
 
